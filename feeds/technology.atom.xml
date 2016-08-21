@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>test</title><link href="shwcoding.com/" rel="alternate"></link><link href="shwcoding.com/feeds/technology.atom.xml" rel="self"></link><id>shwcoding.com/</id><updated>2016-08-16T10:00:00+02:00</updated><entry><title>Use Pelican and GitHub Page to create blog</title><link href="shwcoding.com/create-blog.html" rel="alternate"></link><updated>2016-08-16T10:00:00+02:00</updated><author><name>Haven</name></author><id>tag:shwcoding.com,2016-08-16:create-blog.html</id><summary type="html">&lt;h2&gt;This is a test&lt;/h2&gt;
+&lt;p&gt;Code blocks must be indented by 4 whitespaces.
+Python-Markdown has a auto-guess function which works
+pretty well:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello, World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="cp"&gt;# some comment&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;letter&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;this is a test&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;letter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In cases where Python-Markdown has problems figuring out which
+programming language we use, we can also add the language-tag
+explicitly. One way to do this would be:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello, World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or we can highlight certain lines to
+draw the reader's attention:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="hll"&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;highlight me!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;span class="c"&gt;# but not me!&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;letter&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;this is a test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;letter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="hll"&gt;&lt;span class="c"&gt;# I want to be highlighted, too!&lt;/span&gt;
+&lt;/span&gt;&lt;span class="c"&gt;# Aug 16 2016&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="pelican"></category><category term="github page"></category></entry></feed>
