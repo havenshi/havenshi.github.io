@@ -22,7 +22,48 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/method-of-python.html">Method of Python</a></h1>
+                    <h1 class="entry-title"><a href="/break-continue-pass-and-the-loop-else.html">break, continue, pass, and the Loop else</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-09-19T12:43:00">
+                Mon 19 September 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/technology.html">Technology</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/break.html">break</a><a href="/tag/continue.html">continue</a><a href="/tag/pass.html">pass</a><a href="/tag/loop-else.html">loop else</a></p>
+</footer><!-- /.post-info --><h3>break</h3>
+<div class="highlight"><pre><span class="n">Jumps</span> <span class="n">out</span> <span class="n">of</span> <span class="n">the</span> <span class="n">closest</span> <span class="n">enclosing</span> <span class="n">loop</span> <span class="p">(</span><span class="n">past</span> <span class="n">the</span> <span class="n">entire</span> <span class="n">loop</span> <span class="n">statement</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>continue</h3>
+<div class="highlight"><pre><span class="n">Jumps</span> <span class="n">to</span> <span class="n">the</span> <span class="n">top</span> <span class="n">of</span> <span class="n">the</span> <span class="n">closest</span> <span class="n">enclosing</span> <span class="n">loop</span> <span class="p">(</span><span class="n">to</span> <span class="n">the</span> <span class="n">loop</span><span class="err">’</span><span class="n">s</span> <span class="n">header</span> <span class="n">line</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>pass</h3>
+<div class="highlight"><pre><span class="n">Does</span> <span class="n">nothing</span> <span class="n">at</span> <span class="n">all</span><span class="o">:</span> <span class="n">it</span><span class="err">’</span><span class="n">s</span> <span class="n">an</span> <span class="n">empty</span> <span class="n">statement</span> <span class="n">placeholder</span>
+</pre></div>
+
+
+<h3>Loop else block</h3>
+<div class="highlight"><pre><span class="n">Runs</span> <span class="k">if</span> <span class="n">and</span> <span class="n">only</span> <span class="k">if</span> <span class="n">the</span> <span class="n">loop</span> <span class="n">is</span> <span class="n">exited</span> <span class="n">normally</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.,</span> <span class="n">without</span> <span class="n">hitting</span> <span class="n">a</span> <span class="k">break</span><span class="p">)</span>
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/method-of-python.html" rel="bookmark"
+                           title="Permalink to Method of Python">Method of Python</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-08-21T17:30:00">
                 Sun 21 August 2016
@@ -33,7 +74,7 @@
         </address>
 <p>In <a href="/category/technology.html">Technology</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/method.html">method</a><a href="/tag/list.html">list</a></p>
-</footer><!-- /.post-info --><h2>Method of List</h2>
+</footer><!-- /.post-info -->                <h2>Method of List</h2>
 <table>
 <thead>
 <tr>
@@ -60,249 +101,14 @@
 </tr>
 <tr>
 <td>pop</td>
-<td>alist.pop(i)</td>
-<td>Removes and returns the ith item in a list</td>
-</tr>
-<tr>
-<td>sort</td>
-<td>alist.sort()</td>
-<td>Modifies a list to be sorted</td>
-</tr>
-<tr>
-<td>reverse</td>
-<td>alist.reverse()</td>
-<td>Modifies a list to be in reverse order</td>
-</tr>
-<tr>
-<td>del</td>
-<td>del alist[i]</td>
-<td>Deletes the item in the ith position</td>
-</tr>
-<tr>
-<td>index</td>
-<td>alist.index(item)</td>
-<td>Returns the index of the first occurrence of item</td>
-</tr>
-<tr>
-<td>count</td>
-<td>alist.count(item)</td>
-<td>Returns the number of occurrences of item</td>
-</tr>
-<tr>
-<td>remove</td>
-<td>alist.remove(item)</td>
-<td>Removes the first occurrence of item</td>
-</tr>
-</tbody>
-</table>
-<h2>Method of String</h2>
-<table>
-<thead>
-<tr>
-<th>Method Name</th>
-<th>Use</th>
-<th>Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>center</td>
-<td>astring.center(w)</td>
-<td>Returns a string centered in a field of size w</td>
-</tr>
-<tr>
-<td>count</td>
-<td>astring.count(item)</td>
-<td>Returns the number of occurrences of item in the string</td>
-</tr>
-<tr>
-<td>ljust</td>
-<td>astring.ljust(w)</td>
-<td>Returns a string left-justified in a field of size w</td>
-</tr>
-<tr>
-<td>lower</td>
-<td>astring.lower()</td>
-<td>Returns a string in all lowercase</td>
-</tr>
-<tr>
-<td>rjust</td>
-<td>astring.rjust(w)</td>
-<td>Returns a string right-justified in a field of size w</td>
-</tr>
-<tr>
-<td>find</td>
-<td>astring.find(item)</td>
-<td>Returns the index of the first occurrence of item</td>
-</tr>
-<tr>
-<td>split</td>
-<td>astring.split(schar)</td>
-<td>Splits a string into substrings at schar</td>
-</tr>
-</tbody>
-</table>
-<h2>Method of Set</h2>
-<table>
-<thead>
-<tr>
-<th>Operation Name</th>
-<th>Operator</th>
-<th>Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>membership</td>
-<td>in</td>
-<td>Set membership</td>
-</tr>
-<tr>
-<td>length</td>
-<td>len</td>
-<td>Returns the cardinality of the set</td>
-</tr>
-<tr>
-<td>'bar'</td>
-<td>aset 'bar' otherset</td>
-<td>Returns a new set with all elements from both sets</td>
-</tr>
-<tr>
-<td>&amp;</td>
-<td>aset &amp; otherset</td>
-<td>Returns a new set with only those elements common to both sets</td>
-</tr>
-<tr>
-<td>-</td>
-<td>aset - otherset</td>
-<td>Returns a new set with all items from the first set not in second</td>
-</tr>
-<tr>
-<td>&lt;=</td>
-<td>aset &lt;= otherset</td>
-<td>Asks whether all elements of the first set are in the second</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Method Name</th>
-<th>Use</th>
-<th>Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>union</td>
-<td>aset.union(otherset)</td>
-<td>Returns a new set with all elements from both sets</td>
-</tr>
-<tr>
-<td>intersection</td>
-<td>aset.intersection(otherset)</td>
-<td>Returns a new set with only those elements common to both sets</td>
-</tr>
-<tr>
-<td>difference</td>
-<td>aset.difference(otherset)</td>
-<td>Returns a new set with all items from first set not in second</td>
-</tr>
-<tr>
-<td>issubset</td>
-<td>aset.issubset(otherset)</td>
-<td>Asks whether all elements of one set are in the other</td>
-</tr>
-<tr>
-<td>add</td>
-<td>aset.add(item)</td>
-<td>Adds item to the set</td>
-</tr>
-<tr>
-<td>remove</td>
-<td>aset.remove(item)</td>
-<td>Removes item from the set</td>
-</tr>
-<tr>
-<td>pop</td>
-<td>aset.pop()</td>
-<td>Removes an arbitrary element from the set</td>
-</tr>
-<tr>
-<td>clear</td>
-<td>aset.clear()</td>
-<td>Removes all elements from the set</td>
-</tr>
-</tbody>
-</table>
-<h2>Method of Dictionary</h2>
-<table>
-<thead>
-<tr>
-<th>Operation Name</th>
-<th>Operator</th>
-<th>Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[]</td>
-<td>myDict[k]</td>
-<td>Returns the value associated with k, otherwise its an error</td>
-</tr>
-<tr>
-<td>in</td>
-<td>key in adict</td>
-<td>Returns True if key is in the dictionary, False otherwise</td>
-</tr>
-<tr>
-<td>del</td>
-<td>del adict[key]</td>
-<td>Removes the entry from the dictionary</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Method Name</th>
-<th>Use</th>
-<th>Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>keys</td>
-<td>adict.keys()</td>
-<td>Returns the keys of the dictionary in a dict_keys object</td>
-</tr>
-<tr>
-<td>values</td>
-<td>adict.values()</td>
-<td>Returns the values of the dictionary in a dict_values object</td>
-</tr>
-<tr>
-<td>items</td>
-<td>adict.items()</td>
-<td>Returns the key-value pairs in a dict_items object</td>
-</tr>
-<tr>
-<td>get</td>
-<td>adict.get(k)</td>
-<td>Returns the value associated with k, None otherwise</td>
-</tr>
-<tr>
-<td>get</td>
-<td>adict.get(k,alt)</td>
-<td>Returns the value associated with k, alt otherwise</td>
-</tr>
-</tbody>
-</table>                </article>
+<td>alist ...</td></tr></tbody></table>
+                <a class="readmore" href="/method-of-python.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+            </ol><!-- /#posts-list -->
 <p class="paginator">
     Page 1 / 1
 </p>
-            </aside><!-- /#featured -->
-            </ol><!-- /#posts-list -->
             </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
