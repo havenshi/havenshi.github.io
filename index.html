@@ -15,6 +15,7 @@
                 <h1><a href="/">test </a></h1>
                 <nav><ul>
                     <li><a href="/category/english.html">English</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
                     <li><a href="/category/technology.html">Technology</a></li>
                     <li><a href="/category/travel.html">Travel</a></li>
                 </ul></nav>
@@ -22,7 +23,71 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/break-continue-pass-and-the-loop-else.html">break, continue, pass, and the Loop else</a></h1>
+                    <h1 class="entry-title"><a href="/20-valid-parentheses.html">20. Valid Parentheses</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-09-21T17:00:00">
+                Wed 21 September 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info --><p>:::python
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """</p>
+<div class="highlight"><pre>    <span class="n">list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">l</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;(&quot;</span><span class="p">,</span><span class="s">&quot;[&quot;</span><span class="p">,</span><span class="s">&quot;{&quot;</span><span class="p">]</span>
+    <span class="n">n</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;)&quot;</span><span class="p">,</span><span class="s">&quot;]&quot;</span><span class="p">,</span><span class="s">&quot;}&quot;</span><span class="p">]</span>
+    <span class="n">issy</span><span class="o">=</span><span class="n">True</span>
+
+    <span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">:</span>
+        <span class="k">return</span> <span class="n">False</span>
+
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">and</span> <span class="n">issy</span><span class="o">:</span>
+         <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">in</span> <span class="n">l</span><span class="o">:</span>
+            <span class="n">list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+         <span class="n">elif</span> <span class="n">len</span><span class="p">(</span><span class="n">list</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="o">:</span>
+            <span class="n">firsti</span><span class="o">=</span><span class="n">list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">l</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">firsti</span><span class="p">)</span><span class="o">==</span><span class="n">n</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">:</span>
+                <span class="n">del</span> <span class="n">list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="nl">else:</span>
+                <span class="n">issy</span><span class="o">=</span><span class="n">False</span>
+         <span class="nl">else:</span>
+             <span class="n">issy</span><span class="o">=</span><span class="n">False</span>
+
+         <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">list</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="o">:</span>
+        <span class="n">issy</span><span class="o">=</span><span class="n">False</span>
+
+    <span class="k">return</span> <span class="n">issy</span>
+</pre></div>
+
+
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    s = "([})"
+    answer = Solution()
+    print answer.isValid(s)</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/break-continue-pass-and-the-loop-else.html" rel="bookmark"
+                           title="Permalink to break, continue, pass, and the Loop else">break, continue, pass, and the Loop else</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-09-19T12:43:00">
                 Mon 19 September 2016
@@ -33,7 +98,7 @@
         </address>
 <p>In <a href="/category/technology.html">Technology</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/break.html">break</a><a href="/tag/continue.html">continue</a><a href="/tag/pass.html">pass</a><a href="/tag/loop-else.html">loop else</a></p>
-</footer><!-- /.post-info --><h3>break</h3>
+</footer><!-- /.post-info -->                <h3>break</h3>
 <div class="highlight"><pre><span class="n">Jumps</span> <span class="n">out</span> <span class="n">of</span> <span class="n">the</span> <span class="n">closest</span> <span class="n">enclosing</span> <span class="n">loop</span> <span class="p">(</span><span class="n">past</span> <span class="n">the</span> <span class="n">entire</span> <span class="n">loop</span> <span class="n">statement</span><span class="p">)</span>
 </pre></div>
 
@@ -49,13 +114,10 @@
 
 
 <h3>Loop else block</h3>
-<div class="highlight"><pre><span class="n">Runs</span> <span class="k">if</span> <span class="n">and</span> <span class="n">only</span> <span class="k">if</span> <span class="n">the</span> <span class="n">loop</span> <span class="n">is</span> <span class="n">exited</span> <span class="n">normally</span> <span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">e</span><span class="p">.,</span> <span class="n">without</span> <span class="n">hitting</span> <span class="n">a</span> <span class="k">break</span><span class="p">)</span>
-</pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<div class="highlight"><pre><span class="n">Runs</span> <span class="k">if</span> <span class="n">and</span> <span class="n">only</span> <span class="k">if</span> <span class="n">the</span> <span class="n">loop ...</span></pre></div>
+                <a class="readmore" href="/break-continue-pass-and-the-loop-else.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
