@@ -34,47 +34,46 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info --><p>:::python
-class Solution(object):
-    def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """</p>
-<div class="highlight"><pre>    <span class="n">list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">l</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;(&quot;</span><span class="p">,</span><span class="s">&quot;[&quot;</span><span class="p">,</span><span class="s">&quot;{&quot;</span><span class="p">]</span>
-    <span class="n">n</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;)&quot;</span><span class="p">,</span><span class="s">&quot;]&quot;</span><span class="p">,</span><span class="s">&quot;}&quot;</span><span class="p">]</span>
-    <span class="n">issy</span><span class="o">=</span><span class="n">True</span>
+</footer><!-- /.post-info --><div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">isValid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type s: str</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
-    <span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">:</span>
-        <span class="k">return</span> <span class="n">False</span>
+        <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">l</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;(&quot;</span><span class="p">,</span><span class="s">&quot;[&quot;</span><span class="p">,</span><span class="s">&quot;{&quot;</span><span class="p">]</span>
+        <span class="n">n</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;)&quot;</span><span class="p">,</span><span class="s">&quot;]&quot;</span><span class="p">,</span><span class="s">&quot;}&quot;</span><span class="p">]</span>
+        <span class="n">issy</span><span class="o">=</span><span class="bp">True</span>
 
-    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
-    <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">and</span> <span class="n">issy</span><span class="o">:</span>
-         <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">in</span> <span class="n">l</span><span class="o">:</span>
-            <span class="n">list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-         <span class="n">elif</span> <span class="n">len</span><span class="p">(</span><span class="n">list</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="o">:</span>
-            <span class="n">firsti</span><span class="o">=</span><span class="n">list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">l</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">firsti</span><span class="p">)</span><span class="o">==</span><span class="n">n</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">:</span>
-                <span class="n">del</span> <span class="n">list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="nl">else:</span>
-                <span class="n">issy</span><span class="o">=</span><span class="n">False</span>
-         <span class="nl">else:</span>
-             <span class="n">issy</span><span class="o">=</span><span class="n">False</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
 
-         <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+        <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">and</span> <span class="n">issy</span><span class="p">:</span>
+             <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+                <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+             <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">firsti</span><span class="o">=</span><span class="nb">list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">firsti</span><span class="p">)</span><span class="o">==</span><span class="n">n</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span>
+                    <span class="k">del</span> <span class="nb">list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">issy</span><span class="o">=</span><span class="bp">False</span>
+             <span class="k">else</span><span class="p">:</span>
+                 <span class="n">issy</span><span class="o">=</span><span class="bp">False</span>
 
-    <span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">list</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="o">:</span>
-        <span class="n">issy</span><span class="o">=</span><span class="n">False</span>
+             <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
 
-    <span class="k">return</span> <span class="n">issy</span>
-</pre></div>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">issy</span><span class="o">=</span><span class="bp">False</span>
 
+        <span class="k">return</span> <span class="n">issy</span>
 
-<p>if <strong>name</strong> == "<strong>main</strong>":
-    s = "([})"
-    answer = Solution()
-    print answer.isValid(s)</p>                </article>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;([})&quot;</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">answer</span><span class="o">.</span><span class="n">isValid</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
