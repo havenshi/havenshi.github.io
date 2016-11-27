@@ -23,7 +23,69 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/9-palindrome-number.html">9. Palindrome Number</a></h1>
+                    <h1 class="entry-title"><a href="/59-a-square-joining-together.html">59. A square joining together</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-11-27T13:10:00">
+                Sun 27 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info --><div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">removeoneside</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nums</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">/</span><span class="n">i</span>
+        <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="c"># res[i][j] = max(res[i - 1][j],res[i-1][j-nums[i-1]]+nums[i-1])</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">total</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="c"># copy the last line</span>
+                <span class="k">if</span> <span class="n">j</span><span class="o">&gt;=</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span><span class="o">+</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">&gt;</span><span class="n">res</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span> <span class="c"># greater than</span>
+                    <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span><span class="o">+</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+                <span class="k">if</span> <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">==</span><span class="n">total</span><span class="p">:</span> <span class="c"># the first side appears, then stop</span>
+                    <span class="k">while</span> <span class="n">i</span><span class="o">&gt;=</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">j</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span> <span class="c"># if greater than, remove item from nums list, if not, move to upper line</span>
+                        <span class="k">if</span> <span class="n">j</span><span class="o">&gt;=</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span><span class="o">+</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">&gt;</span><span class="n">res</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>
+                            <span class="n">j</span><span class="o">-=</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+                            <span class="n">nums</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+                        <span class="n">i</span><span class="o">-=</span><span class="mi">1</span>
+                    <span class="k">return</span> <span class="n">nums</span>
+
+    <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+        <span class="nb">list</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">total</span> <span class="o">%</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s">&quot;No&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">removeoneside</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span><span class="n">i</span><span class="p">)</span> <span class="c"># remove 4 sides</span>
+
+        <span class="k">if</span> <span class="nb">list</span><span class="o">==</span><span class="p">[]:</span>
+            <span class="k">return</span> <span class="s">&quot;Yes&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">&quot;No&quot;</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">answer</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/9-palindrome-number.html" rel="bookmark"
+                           title="Permalink to 9. Palindrome Number">9. Palindrome Number</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-10-22T21:15:00">
                 Sat 22 October 2016
@@ -34,7 +96,7 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info --><div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">isPalindrome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :type x: int</span>
@@ -55,15 +117,10 @@
                     <span class="n">pal</span><span class="o">=</span><span class="bp">False</span>
             <span class="k">return</span> <span class="n">pal</span>
 
-<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">answer</span><span class="o">=</span><span class="n">Solution</span><span class="p">()</span>
-    <span class="k">print</span> <span class="n">answer</span><span class="o">.</span><span class="n">isPalindrome</span><span class="p">(</span><span class="mi">123212</span><span class="p">)</span>
-</pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">&quot;__main__ ...</span></pre></div>
+                <a class="readmore" href="/9-palindrome-number.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -382,49 +439,6 @@
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">100 ...</span></pre></div>
                 <a class="readmore" href="/0-primepy.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/20-valid-parentheses.html" rel="bookmark"
-                           title="Permalink to 20. Valid Parentheses">20. Valid Parentheses</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-09-21T17:00:00">
-                Wed 21 September 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">isValid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type s: str</span>
-<span class="sd">        :rtype: bool</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">l</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;(&quot;</span><span class="p">,</span><span class="s">&quot;[&quot;</span><span class="p">,</span><span class="s">&quot;{&quot;</span><span class="p">]</span>
-        <span class="n">n</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;)&quot;</span><span class="p">,</span><span class="s">&quot;]&quot;</span><span class="p">,</span><span class="s">&quot;}&quot;</span><span class="p">]</span>
-        <span class="n">issy</span><span class="o">=</span><span class="bp">True</span>
-
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">False</span>
-
-        <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
-        <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">and</span> <span class="n">issy</span><span class="p">:</span>
-             <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
-                <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-             <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
-                <span class="n">firsti</span><span class="o">=</span><span class="nb">list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">index ...</span></pre></div>
-                <a class="readmore" href="/20-valid-parentheses.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
