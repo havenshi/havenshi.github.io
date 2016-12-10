@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>52.Factor sum of squares</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">test </a></h1>
+                <nav><ul>
+                    <li><a href="/category/english.html">English</a></li>
+                    <li class="active"><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/technology.html">Technology</a></li>
+                    <li><a href="/category/travel.html">Travel</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/52factor-sum-of-squares.html" rel="bookmark"
+           title="Permalink to 52.Factor sum of squares">52.Factor sum of squares</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-11-20T15:52:00">
+                Sun 20 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->      <div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="c"># s = 0</span>
+<span class="c"># for i in range(1,N+1):</span>
+<span class="c">#   s = s + i**2*(N//i)    # step 1</span>
+<span class="c"># print (s)</span>
+
+<span class="c"># N = 16</span>
+<span class="c"># L1 = list(range(1,N+1))</span>
+<span class="c"># L2 = [N//i for i in L1]    # step 2 [16, 8, 5, 4, 3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1] nums</span>
+<span class="c">#                            #        [1**2,2**2.................................16**2]</span>
+<span class="c"># print (L1)</span>
+<span class="c"># print (L2)</span>
+
+<span class="c"># s = 0</span>
+<span class="c"># for i in range(1, N // 2 + 1):</span>
+<span class="c">#     s = s + i ** 2 * (N // i)                  # part 1, before N//2</span>
+<span class="c">#</span>
+<span class="c"># def sumsqr(n):</span>
+<span class="c">#     return int(n * (n + 1) * (2 * n + 1) / 6)</span>
+<span class="c">#</span>
+<span class="c"># s = s + (sumsqr(N) - sumsqr(N // 2))           # part 2, after N//2, 1 for all n**2, thus ΣN**2-Σ(N // 2)**2</span>
+<span class="c">#</span>
+<span class="c"># print (s)</span>
+
+<span class="n">N</span><span class="o">=</span><span class="mi">16</span>
+<span class="k">def</span> <span class="nf">sumsqr</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">))</span>
+<span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">):</span>                        <span class="c"># step 3 L2中的1一直到最后，2到第8项，3到第5项...就是前面的16,8,5。平方根后面的个数是前面的叠加。</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">N</span> <span class="o">//</span> <span class="n">i</span><span class="p">)</span>                     <span class="c"># part 1, before N**0.5, i from 1 to 4, i ** 2 * (N // i)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">!=</span> <span class="n">N</span><span class="p">:</span>                               <span class="c"># part 2, i from 1 to 3,</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="p">(</span><span class="n">sumsqr</span><span class="p">(</span><span class="n">N</span> <span class="o">//</span> <span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="n">sumsqr</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>      <span class="c"># 1.sumsqr(16)-sumsqr(4), 即[3, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1]位置上的N**2各一个</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>                                     <span class="c"># 2.sumsqr(8)-sumsqr(4), 即[3, 2, 2, 2]的N**2各一个</span>
+                                                  <span class="c"># 3.sumsqr(5)-sumsqr(4), 即[3]的N**2各一个</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
