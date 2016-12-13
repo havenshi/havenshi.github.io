@@ -23,7 +23,98 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/60multiplication.html">60.multiplication</a></h1>
+                    <h1 class="entry-title"><a href="/calculate-flight-time-between-different-cities.html">Calculate flight time between different cities</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-12-13T12:22:00">
+                Tue 13 December 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info --><div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">urllib</span>   <span class="kn">import</span> <span class="n">urlretrieve</span>
+<span class="kn">from</span> <span class="nn">urlparse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+<span class="kn">from</span> <span class="nn">zipfile</span>  <span class="kn">import</span> <span class="n">ZipFile</span>
+
+<span class="kn">import</span> <span class="nn">pytz</span> <span class="c"># pip install pytz</span>
+
+<span class="c"># Step 1: find time zone from city</span>
+<span class="k">def</span> <span class="nf">findtz</span><span class="p">(</span><span class="n">city</span><span class="p">):</span>
+    <span class="n">geonames_url</span> <span class="o">=</span> <span class="s">&#39;http://download.geonames.org/export/dump/&#39;</span>
+    <span class="n">basename</span> <span class="o">=</span> <span class="s">&#39;cities15000&#39;</span> <span class="c"># all cities with a population &gt; 15000 or capitals</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">basename</span> <span class="o">+</span> <span class="s">&#39;.zip&#39;</span>
+
+    <span class="c"># get file</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="n">urlretrieve</span><span class="p">(</span><span class="n">urljoin</span><span class="p">(</span><span class="n">geonames_url</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="n">filename</span><span class="p">)</span>
+
+    <span class="c"># parse it</span>
+    <span class="n">city2tz</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">zf</span><span class="p">,</span> <span class="n">zf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">basename</span> <span class="o">+</span> <span class="s">&#39;.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">:</span>
+            <span class="n">fields</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\t</span><span class="s">&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">fields</span><span class="p">:</span> <span class="c"># geoname table http://download.geonames.org/export/dump/</span>
+                <span class="n">name</span><span class="p">,</span> <span class="n">asciiname</span><span class="p">,</span> <span class="n">alternatenames</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+                <span class="n">timezone</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">timezone</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">acity</span> <span class="ow">in</span> <span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">asciiname</span><span class="p">]</span> <span class="o">+</span> <span class="n">alternatenames</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;,&#39;</span><span class="p">):</span>
+                        <span class="n">acity</span> <span class="o">=</span> <span class="n">acity</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="n">acity</span><span class="p">:</span>
+                            <span class="n">city2tz</span><span class="p">[</span><span class="n">acity</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">timezone</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">tzname</span> <span class="ow">in</span> <span class="n">city2tz</span><span class="p">[</span><span class="n">city</span><span class="p">]:</span>
+        <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="n">tzname</span><span class="p">))</span>
+        <span class="k">return</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tzname</span><span class="p">)</span>
+
+
+<span class="c"># Step 2: get local flying time and convert to standard</span>
+<span class="n">fmt</span> <span class="o">=</span> <span class="s">&#39;%m-</span><span class="si">%d</span><span class="s">-%Y %H:%M&#39;</span>
+<span class="n">city1</span><span class="o">=</span><span class="n">findtz</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;Fly from the city:&quot;</span><span class="p">))</span>
+<span class="n">d1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s">&#39;Enter Departure Time in the format mm-dd-yyyy hour:minute:&#39;</span><span class="p">),</span> <span class="n">fmt</span><span class="p">)</span>
+<span class="n">city2</span><span class="o">=</span><span class="n">findtz</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;Fly to the city:&quot;</span><span class="p">))</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="nb">raw_input</span><span class="p">(</span><span class="s">&#39;Enter Arrival Time in the format mm-dd-yyyy hour:minute:&#39;</span><span class="p">),</span> <span class="n">fmt</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">pytz</span><span class="o">,</span> <span class="nn">datetime</span>
+<span class="n">local1</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span> <span class="p">(</span><span class="n">city1</span><span class="p">)</span>
+<span class="n">local1_dt</span> <span class="o">=</span> <span class="n">local1</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">is_dst</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">utc1_dt</span> <span class="o">=</span> <span class="n">local1_dt</span><span class="o">.</span><span class="n">astimezone</span> <span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+<span class="n">local2</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span> <span class="p">(</span><span class="n">city2</span><span class="p">)</span>
+<span class="n">local2_dt</span> <span class="o">=</span> <span class="n">local2</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="n">is_dst</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">utc2_dt</span> <span class="o">=</span> <span class="n">local2_dt</span><span class="o">.</span><span class="n">astimezone</span> <span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+
+
+<span class="c"># Step 3: calculate difference</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="c"># convert to unix timestamp in seconds</span>
+<span class="n">d1_ts</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">utc1_dt</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
+<span class="n">d2_ts</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">utc2_dt</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
+<span class="n">elapsed</span> <span class="o">=</span> <span class="p">(</span><span class="n">d2_ts</span><span class="o">-</span><span class="n">d1_ts</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span>
+
+<span class="n">days</span><span class="o">=</span><span class="n">elapsed</span><span class="o">//</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">hours</span><span class="o">=</span><span class="n">elapsed</span><span class="o">%</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span><span class="o">//</span><span class="mi">60</span>
+<span class="n">minutes</span><span class="o">=</span><span class="n">elapsed</span><span class="o">%</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span><span class="o">%</span><span class="mi">60</span>
+<span class="k">print</span> <span class="p">(</span><span class="s">&quot;The flight time is: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">days</span><span class="p">))</span><span class="o">+</span><span class="s">&quot; days &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">hours</span><span class="p">))</span><span class="o">+</span><span class="s">&quot; hours &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">minutes</span><span class="p">))</span><span class="o">+</span><span class="s">&quot; minutes&quot;</span><span class="p">)</span>
+</pre></div>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/60multiplication.html" rel="bookmark"
+                           title="Permalink to 60.multiplication">60.multiplication</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-12-10T12:30:00">
                 Sat 10 December 2016
@@ -34,7 +125,7 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info --><div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="mi">89</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="mi">89</span>
 <span class="n">b</span><span class="o">=</span><span class="mi">113</span>
 <span class="k">print</span> <span class="s">&#39;</span><span class="si">%8d</span><span class="s">&#39;</span><span class="o">%</span><span class="n">a</span>
 <span class="k">print</span> <span class="s">&#39;x</span><span class="si">%7d</span><span class="s">&#39;</span><span class="o">%</span><span class="n">b</span>
@@ -46,17 +137,10 @@
     <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="o">/</span><span class="mi">10</span>
     <span class="n">i</span><span class="o">-=</span><span class="mi">1</span>
 <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">7</span><span class="p">:</span>                      <span class="c"># if b is 1 digit decimal, no more ------</span>
-    <span class="k">print</span> <span class="s">&#39;*&#39;</span><span class="o">*</span><span class="mi">20</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;-&#39;</span><span class="o">*</span><span class="mi">8</span>
-    <span class="k">print</span> <span class="s">&#39;</span><span class="si">% 8d</span><span class="s">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
-    <span class="k">print</span> <span class="s">&#39;*&#39;</span><span class="o">*</span><span class="mi">20</span>
-</pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+    <span class="k">print ...</span></pre></div>
+                <a class="readmore" href="/60multiplication.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -292,31 +376,6 @@
 <span class="c"># L1 = list(range(1,N+1))</span>
 <span class="c"># L2 = [N//i for i in L1]    # step 2 [16, 8, 5, 4, 3, 2, 2, 2, 1, 1, 1, 1 ...</span></pre></div>
                 <a class="readmore" href="/52factor-sum-of-squares.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/51descending-order.html" rel="bookmark"
-                           title="Permalink to 51.Descending order">51.Descending order</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:51:00">
-                Sun 20 November 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
-<span class="k">print</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">L</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="k">print</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">L</span><span class="p">))]</span>
-</pre></div>
-                <a class="readmore" href="/51descending-order.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
