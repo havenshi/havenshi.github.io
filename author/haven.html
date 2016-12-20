@@ -23,7 +23,47 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/wow-try-my-flight-time-calculation.html">WOW! Try my Flight Time Calculation!</a></h1>
+                    <h1 class="entry-title"><a href="/install-devstack.html">install devstack</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2016-12-19T20:30:00">
+                Mon 19 December 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/technology.html">Technology</a>. </p>
+<p>tags: <a href="/tag/devstack.html">devstack</a></p>
+</footer><!-- /.post-info --><p>adduser stack
+sudo visudo
+Find the part of the file that is labeled "User privilege specification" and change it to the following</p>
+<h1>User privilege specification</h1>
+<p>root    ALL=(ALL:ALL) ALL
+stack   ALL=(ALL:ALL) ALL
+Close the file, exit and log in as "stack". Download devstack and create /opt/stack</p>
+<p>cd /home/stack
+git clone https://github.com/openstack-dev/devstack -b stable/liberty
+sudo mkdir /opt/stack
+Create your local.conf file under /home/stack/devstack and give the following permissions.</p>
+<p>cp /home/stack/devstack/samples/local.conf /home/stack/devstack</p>
+<p>sudo chown -R stack:stack /home/stack/devstack
+sudo chown -R stack:stack /opt/stack
+sudo chmod 770 /home/stack/devstack
+sudo chmod 770 /opt/stack
+then run ./stack.sh</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/wow-try-my-flight-time-calculation.html" rel="bookmark"
+                           title="Permalink to WOW! Try my Flight Time Calculation!">WOW! Try my Flight Time Calculation!</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-12-13T12:22:00">
                 Tue 13 December 2016
@@ -34,129 +74,12 @@
         </address>
 <p>In <a href="/category/travel.html">Travel</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a><a href="/tag/flight-time.html">flight time</a><a href="/tag/gui.html">GUI</a><a href="/tag/world-clock.html">world clock</a><a href="/tag/.html"></a></p>
-</footer><!-- /.post-info --><h1>This tool is used to calculate the flight time between different cities.</h1>
+</footer><!-- /.post-info -->                <h1>This tool is used to calculate the flight time between different cities.</h1>
 <p>I spent one or two days writing this code. This small program is very interesting and useful, especially when you book the airline ticket and do not know how much time it'll cost during each phase.</p>
-<p>For this code, I use lots of modules like pytz, datetime to simulate the <strong>World Clock</strong> , and tkinter to monitor <strong>GUI</strong>. The programming was not very easy, but really enjoyed the process.</p>
-<div class="highlight"><pre><span class="c">#!/usr/bin/env python</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">urllib</span>   <span class="kn">import</span> <span class="n">urlretrieve</span>
-<span class="kn">from</span> <span class="nn">urlparse</span> <span class="kn">import</span> <span class="n">urljoin</span>
-<span class="kn">from</span> <span class="nn">zipfile</span>  <span class="kn">import</span> <span class="n">ZipFile</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">pytz</span>
-<span class="kn">from</span> <span class="nn">Tkinter</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">tkMessageBox</span>
-
-<span class="k">class</span> <span class="nc">flightTime</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">findtz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">city</span><span class="p">):</span>
-        <span class="n">geonames_url</span> <span class="o">=</span> <span class="s">&#39;http://download.geonames.org/export/dump/&#39;</span>
-        <span class="n">basename</span> <span class="o">=</span> <span class="s">&#39;cities15000&#39;</span>
-        <span class="n">filename</span> <span class="o">=</span> <span class="n">basename</span> <span class="o">+</span> <span class="s">&#39;.zip&#39;</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-            <span class="n">urlretrieve</span><span class="p">(</span><span class="n">urljoin</span><span class="p">(</span><span class="n">geonames_url</span><span class="p">,</span> <span class="n">filename</span><span class="p">),</span> <span class="n">filename</span><span class="p">)</span>
-
-        <span class="n">city2tz</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">set</span><span class="p">)</span>
-        <span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">zf</span><span class="p">,</span> <span class="n">zf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">basename</span> <span class="o">+</span> <span class="s">&#39;.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">:</span>
-                <span class="n">fields</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\t</span><span class="s">&#39;</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">fields</span><span class="p">:</span>
-                    <span class="n">name</span><span class="p">,</span> <span class="n">asciiname</span><span class="p">,</span> <span class="n">alternatenames</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-                    <span class="n">timezone</span> <span class="o">=</span> <span class="n">fields</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-                    <span class="k">if</span> <span class="n">timezone</span><span class="p">:</span>
-                        <span class="k">for</span> <span class="n">acity</span> <span class="ow">in</span> <span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">asciiname</span><span class="p">]</span> <span class="o">+</span> <span class="n">alternatenames</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;,&#39;</span><span class="p">):</span>
-                            <span class="n">acity</span> <span class="o">=</span> <span class="n">acity</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-                            <span class="k">if</span> <span class="n">acity</span><span class="p">:</span>
-                                <span class="n">city2tz</span><span class="p">[</span><span class="n">acity</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">timezone</span><span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">tzname</span> <span class="ow">in</span> <span class="n">city2tz</span><span class="p">[</span><span class="n">city</span><span class="p">]:</span>
-            <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="n">tzname</span><span class="p">))</span>
-            <span class="k">return</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tzname</span><span class="p">)</span>
-
-
-    <span class="k">def</span> <span class="nf">ft</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data1</span><span class="p">,</span><span class="n">data2</span><span class="p">,</span><span class="n">data3</span><span class="p">,</span><span class="n">data4</span><span class="p">):</span>
-        <span class="n">fmt</span> <span class="o">=</span> <span class="s">&#39;%m-</span><span class="si">%d</span><span class="s">-%Y %H:%M&#39;</span>
-        <span class="n">city1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">findtz</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
-        <span class="n">d1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span>
-        <span class="n">city2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">findtz</span><span class="p">(</span><span class="n">data3</span><span class="p">)</span>
-        <span class="n">d2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">data4</span><span class="p">,</span> <span class="n">fmt</span><span class="p">)</span>
-
-
-        <span class="n">local1</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span> <span class="p">(</span><span class="n">city1</span><span class="p">)</span>
-        <span class="n">local1_dt</span> <span class="o">=</span> <span class="n">local1</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">is_dst</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-        <span class="n">utc1_dt</span> <span class="o">=</span> <span class="n">local1_dt</span><span class="o">.</span><span class="n">astimezone</span> <span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
-        <span class="n">local2</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span> <span class="p">(</span><span class="n">city2</span><span class="p">)</span>
-        <span class="n">local2_dt</span> <span class="o">=</span> <span class="n">local2</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">d2</span><span class="p">,</span> <span class="n">is_dst</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
-        <span class="n">utc2_dt</span> <span class="o">=</span> <span class="n">local2_dt</span><span class="o">.</span><span class="n">astimezone</span> <span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
-
-
-        <span class="n">d1_ts</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">utc1_dt</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
-        <span class="n">d2_ts</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">utc2_dt</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())</span>
-        <span class="n">elapsed</span> <span class="o">=</span> <span class="p">(</span><span class="n">d2_ts</span><span class="o">-</span><span class="n">d1_ts</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span>
-
-        <span class="n">days</span><span class="o">=</span><span class="n">elapsed</span><span class="o">//</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
-        <span class="n">hours</span><span class="o">=</span><span class="n">elapsed</span><span class="o">%</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span><span class="o">//</span><span class="mi">60</span>
-        <span class="n">minutes</span><span class="o">=</span><span class="n">elapsed</span><span class="o">%</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span><span class="o">%</span><span class="mi">60</span>
-        <span class="k">return</span> <span class="p">(</span><span class="s">&quot;Your flight time is: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">days</span><span class="p">))</span><span class="o">+</span><span class="s">&quot; days &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">hours</span><span class="p">))</span><span class="o">+</span><span class="s">&quot; hours &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">minutes</span><span class="p">))</span><span class="o">+</span><span class="s">&quot; minutes&quot;</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">HavenButtons</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">master</span><span class="p">):</span>
-        <span class="n">frame</span><span class="o">=</span><span class="n">Frame</span><span class="p">(</span><span class="n">master</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
-        <span class="n">frame</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">label_ff</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">&quot;Enter the city and time (mm-dd-yyyy 24:00) you fly from&quot;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">label_ft</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">&quot;Enter the city and time (mm-dd-yyyy 24:00) you fly to&quot;</span><span class="p">,</span> <span class="n">fg</span><span class="o">=</span><span class="s">&quot;blue&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">label_1</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">&quot;Fly from:&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">label_2</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">&quot;Departure time:&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">label_3</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">&quot;Fly to:&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">label_4</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">&quot;Arrival time:&quot;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">entry_1</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">entry_2</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">entry_3</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">entry_4</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">label_ff</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">W</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">label_1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">E</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">label_2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">E</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">entry_1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">entry_2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">label_ft</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">W</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">label_3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">E</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">label_4</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">sticky</span><span class="o">=</span><span class="n">E</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">entry_3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">entry_4</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">okButton</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">&quot;Ok&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">printMessage</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">okButton</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">LEFT</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">okButton</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">quitButton</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s">&quot;Quit&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">frame</span><span class="o">.</span><span class="n">quit</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">quitButton</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="n">LEFT</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">quitButton</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">printMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="n">flightTime</span><span class="p">()</span>
-        <span class="n">content</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">ft</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">entry_1</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">entry_2</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">entry_3</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">entry_4</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
-        <span class="n">tkMessageBox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="s">&quot;Show result&quot;</span><span class="p">,</span> <span class="n">content</span><span class="p">)</span>
-
-
-<span class="n">root</span> <span class="o">=</span> <span class="n">Tk</span><span class="p">()</span>
-<span class="n">b</span><span class="o">=</span><span class="n">HavenButtons</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
-</pre></div>
-
-
-<h2><em>Written By Haven Shi</em>**</h2>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+<p>For ...</p>
+                <a class="readmore" href="/wow-try-my-flight-time-calculation.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -395,37 +318,6 @@
         <span class="k">print</span> <span class="n">n</span>
 <span class="k">print</span><span class="p">(</span><span class="n">god_num ...</span></pre></div>
                 <a class="readmore" href="/53the-arrangement-of-the-god.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/52factor-sum-of-squares.html" rel="bookmark"
-                           title="Permalink to 52.Factor sum of squares">52.Factor sum of squares</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:52:00">
-                Sun 20 November 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
-
-<span class="c"># s = 0</span>
-<span class="c"># for i in range(1,N+1):</span>
-<span class="c">#   s = s + i**2*(N//i)    # step 1</span>
-<span class="c"># print (s)</span>
-
-<span class="c"># N = 16</span>
-<span class="c"># L1 = list(range(1,N+1))</span>
-<span class="c"># L2 = [N//i for i in L1]    # step 2 [16, 8, 5, 4, 3, 2, 2, 2, 1, 1, 1, 1 ...</span></pre></div>
-                <a class="readmore" href="/52factor-sum-of-squares.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
