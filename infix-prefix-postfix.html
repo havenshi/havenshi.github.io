@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>infix-prefix-postfix</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Welcome to Haven's blog! </a></h1>
+                <nav><ul>
+                    <li><a href="/category/english.html">English</a></li>
+                    <li class="active"><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/technology.html">Technology</a></li>
+                    <li><a href="/category/travel.html">Travel</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/infix-prefix-postfix.html" rel="bookmark"
+           title="Permalink to infix-prefix-postfix">infix-prefix-postfix</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-01-06T11:54:00">
+                Fri 06 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->      <div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">pythonds.basic.stack</span> <span class="kn">import</span> <span class="n">Stack</span>
+<span class="c"># 中缀转后缀</span>
+<span class="k">def</span> <span class="nf">infixToPostfix</span><span class="p">(</span><span class="n">infixexpr</span><span class="p">):</span>
+    <span class="n">prec</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;*&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;/&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;+&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;-&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;(&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">opStack</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+    <span class="n">postfixList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">tokenList</span> <span class="o">=</span> <span class="n">infixexpr</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokenList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">token</span> <span class="ow">in</span> <span class="s">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span> <span class="ow">or</span> <span class="n">token</span> <span class="ow">in</span> <span class="s">&quot;0123456789&quot;</span><span class="p">:</span>
+            <span class="n">postfixList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">token</span> <span class="o">==</span> <span class="s">&#39;(&#39;</span><span class="p">:</span>
+            <span class="n">opStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">token</span> <span class="o">==</span> <span class="s">&#39;)&#39;</span><span class="p">:</span>
+            <span class="n">topToken</span> <span class="o">=</span> <span class="n">opStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="k">while</span> <span class="n">topToken</span> <span class="o">!=</span> <span class="s">&#39;(&#39;</span><span class="p">:</span>
+                <span class="n">postfixList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">topToken</span><span class="p">)</span>
+                <span class="n">topToken</span> <span class="o">=</span> <span class="n">opStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">while</span> <span class="p">(</span><span class="ow">not</span> <span class="n">opStack</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">())</span> <span class="ow">and</span> \
+               <span class="p">(</span><span class="n">prec</span><span class="p">[</span><span class="n">opStack</span><span class="o">.</span><span class="n">peek</span><span class="p">()]</span> <span class="o">&gt;=</span> <span class="n">prec</span><span class="p">[</span><span class="n">token</span><span class="p">]):</span>
+                  <span class="n">postfixList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">opStack</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+            <span class="n">opStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">opStack</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">():</span>
+        <span class="n">postfixList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">opStack</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+    <span class="k">return</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">postfixList</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">infixToPostfix</span><span class="p">(</span><span class="s">&quot;A * B + C * D&quot;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">infixToPostfix</span><span class="p">(</span><span class="s">&quot;( A + B ) * C - ( D - E ) * ( F + G )&quot;</span><span class="p">))</span>
+
+<span class="c"># 后缀计算</span>
+<span class="k">def</span> <span class="nf">postfixEval</span><span class="p">(</span><span class="n">postfixExpr</span><span class="p">):</span>
+    <span class="n">operandStack</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+    <span class="n">tokenList</span> <span class="o">=</span> <span class="n">postfixExpr</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokenList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">token</span> <span class="ow">in</span> <span class="s">&quot;0123456789&quot;</span><span class="p">:</span>
+            <span class="n">operandStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">operand2</span> <span class="o">=</span> <span class="n">operandStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">operand1</span> <span class="o">=</span> <span class="n">operandStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">doMath</span><span class="p">(</span><span class="n">token</span><span class="p">,</span><span class="n">operand1</span><span class="p">,</span><span class="n">operand2</span><span class="p">)</span>
+            <span class="n">operandStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">operandStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">doMath</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">op1</span><span class="p">,</span> <span class="n">op2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s">&quot;*&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">op1</span> <span class="o">*</span> <span class="n">op2</span>
+    <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s">&quot;/&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">op1</span> <span class="o">/</span> <span class="n">op2</span>
+    <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s">&quot;+&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">op1</span> <span class="o">+</span> <span class="n">op2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">op1</span> <span class="o">-</span> <span class="n">op2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">postfixEval</span><span class="p">(</span><span class="s">&#39;7 8 + 3 2 + /&#39;</span><span class="p">))</span>
+
+
+<span class="c"># 中缀转前缀</span>
+<span class="k">def</span> <span class="nf">opOrder</span><span class="p">(</span><span class="n">op1</span><span class="p">,</span><span class="n">op2</span><span class="p">):</span>  <span class="c"># 当新元素是)，或者stack里的元素优先度高</span>
+    <span class="n">prec</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;*&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;/&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;+&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;-&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="n">op1</span> <span class="o">==</span> <span class="s">&#39;(&#39;</span> <span class="ow">or</span> <span class="n">op2</span> <span class="o">==</span> <span class="s">&#39;(&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">elif</span> <span class="n">op2</span> <span class="o">==</span> <span class="s">&#39;)&#39;</span><span class="p">:</span> <span class="c"># 此时需要把)之前的符号pop出来</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">prec</span><span class="p">[</span><span class="n">op1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">prec</span><span class="p">[</span><span class="n">op2</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span> <span class="c"># )之前的较高优先度的符号pop出来</span>
+<span class="k">def</span> <span class="nf">infixToPrefix</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="n">string</span><span class="o">=</span><span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">prefix</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">string_tmp</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">string</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s">&#39;(&#39;</span><span class="p">:</span>
+            <span class="n">string_tmp</span> <span class="o">+=</span> <span class="s">&#39;)&#39;</span>
+        <span class="k">elif</span> <span class="n">s</span> <span class="o">==</span> <span class="s">&#39;)&#39;</span><span class="p">:</span>
+            <span class="n">string_tmp</span> <span class="o">+=</span> <span class="s">&#39;(&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">string_tmp</span> <span class="o">+=</span> <span class="n">s</span>    <span class="c"># reverse string</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">string_tmp</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+            <span class="n">prefix</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">prefix</span>  <span class="c"># 往前加</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="ow">and</span> <span class="n">opOrder</span><span class="p">(</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">s</span><span class="p">):</span> <span class="c"># stack里有元素，且优先度较高，则加入prefix之前</span>
+                <span class="n">op</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+                <span class="n">prefix</span> <span class="o">=</span> <span class="n">op</span> <span class="o">+</span> <span class="n">prefix</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">s</span> <span class="o">!=</span> <span class="s">&#39;)&#39;</span><span class="p">:</span> <span class="c"># 只要不是)的符号都往里加</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>                           <span class="c"># 如果stack有元素(，且s为),pop</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">):</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">+</span> <span class="n">prefix</span>
+    <span class="k">return</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">infixToPrefix</span><span class="p">(</span><span class="s">&quot;A * B + C * D&quot;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">infixToPrefix</span><span class="p">(</span><span class="s">&quot;( A + B ) * C - ( D - E ) * ( F + G )&quot;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">infixToPrefix</span><span class="p">(</span><span class="s">&quot;( A + B ) * C - ( D - E ) * ( F + G ) - H * I&quot;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">infixToPrefix</span><span class="p">(</span><span class="s">&quot;( A + B ) * ( C + D + D )&quot;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">infixToPrefix</span><span class="p">(</span><span class="s">&quot;A + B + C + D&quot;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">infixToPrefix</span><span class="p">(</span><span class="s">&quot;A + B + C * D&quot;</span><span class="p">))</span>
+
+<span class="c"># 前缀计算</span>
+<span class="k">def</span> <span class="nf">prefixEval</span><span class="p">(</span><span class="n">prefixExpr</span><span class="p">):</span>
+    <span class="n">operandStack</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+    <span class="n">tokenList</span> <span class="o">=</span> <span class="p">(</span><span class="n">prefixExpr</span><span class="o">.</span><span class="n">split</span><span class="p">())[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokenList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">token</span> <span class="ow">in</span> <span class="s">&quot;0123456789&quot;</span><span class="p">:</span>
+            <span class="n">operandStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">operand1</span> <span class="o">=</span> <span class="n">operandStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">operand2</span> <span class="o">=</span> <span class="n">operandStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">doMath</span><span class="p">(</span><span class="n">token</span><span class="p">,</span><span class="n">operand1</span><span class="p">,</span><span class="n">operand2</span><span class="p">)</span>
+            <span class="n">operandStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">operandStack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">doMath</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">op1</span><span class="p">,</span> <span class="n">op2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s">&quot;*&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">op1</span> <span class="o">*</span> <span class="n">op2</span>
+    <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s">&quot;/&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">op1</span> <span class="o">/</span> <span class="n">op2</span>
+    <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s">&quot;+&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">op1</span> <span class="o">+</span> <span class="n">op2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">op1</span> <span class="o">-</span> <span class="n">op2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">prefixEval</span><span class="p">(</span><span class="s">&#39;- * + 1 2 - 8 5 6&#39;</span><span class="p">))</span>
+</pre></div>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

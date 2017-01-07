@@ -25,13 +25,13 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/27gas-station.html" rel="bookmark"
-                           title="Permalink to 27.Gas Station">27.Gas Station</a></h1>
+                    <h1><a href="/44super-stairs.html" rel="bookmark"
+                           title="Permalink to 44.super stairs">44.super stairs</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:27:00">
+        <abbr class="published" title="2016-11-20T15:44:00">
                 Sun 20 November 2016
         </abbr>
 
@@ -40,39 +40,24 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">limit</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">cost</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">def</span> <span class="nf">stairs</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">n</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span> <span class="ow">and</span> <span class="mi">1</span> <span class="ow">or</span> <span class="p">(</span><span class="n">stairs</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">stairs</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
 
-<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">subsum</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">ix</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">limit</span><span class="p">)):</span>
-    <span class="n">delta</span> <span class="o">=</span> <span class="n">limit</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">cost</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="nb">sum</span> <span class="o">+=</span> <span class="n">delta</span>
-    <span class="n">subsum</span> <span class="o">+=</span> <span class="n">delta</span>
-
-    <span class="k">if</span> <span class="n">subsum</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">ix</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="n">subsum</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">if</span> <span class="nb">sum</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
-    <span class="k">print</span> <span class="o">-</span><span class="mi">1</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="n">ix</span>
+<span class="k">print</span><span class="p">(</span><span class="n">stairs</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
-                <a class="readmore" href="/27gas-station.html">read more</a>
+                <a class="readmore" href="/44super-stairs.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/26sequence-to-judge.html" rel="bookmark"
-                           title="Permalink to 26.Sequence to judge">26.Sequence to judge</a></h1>
+                    <h1><a href="/43the-fibonacci-sequence.html" rel="bookmark"
+                           title="Permalink to 43.The Fibonacci sequence">43.The Fibonacci sequence</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:26:00">
+        <abbr class="published" title="2016-11-20T15:43:00">
                 Sun 20 November 2016
         </abbr>
 
@@ -81,22 +66,24 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">L</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&quot;UP&quot;</span> <span class="k">if</span> <span class="n">L</span><span class="o">==</span><span class="nb">sorted</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="k">else</span> <span class="s">&quot;DOWN&quot;</span> <span class="k">if</span> <span class="n">L</span><span class="o">==</span><span class="nb">sorted</span><span class="p">(</span><span class="n">L</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">else</span> <span class="s">&quot;WRONG&quot;</span> <span class="p">)</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">print</span> <span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">%</span><span class="mi">20132013</span>
 </pre></div>
-                <a class="readmore" href="/26sequence-to-judge.html">read more</a>
+                <a class="readmore" href="/43the-fibonacci-sequence.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/25format-the-time.html" rel="bookmark"
-                           title="Permalink to 25.Format the time">25.Format the time</a></h1>
+                    <h1><a href="/42splitting-the-prime-numbers-sum.html" rel="bookmark"
+                           title="Permalink to 42.Splitting the prime Numbers sum">42.Splitting the prime Numbers sum</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:25:00">
+        <abbr class="published" title="2016-11-20T15:42:00">
                 Sun 20 November 2016
         </abbr>
 
@@ -105,22 +92,35 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">t</span><span class="o">=</span><span class="p">{</span><span class="s">&#39;year&#39;</span><span class="p">:</span><span class="s">&#39;2013&#39;</span><span class="p">,</span><span class="s">&#39;month&#39;</span><span class="p">:</span><span class="s">&#39;9&#39;</span><span class="p">,</span><span class="s">&#39;day&#39;</span><span class="p">:</span><span class="s">&#39;30&#39;</span><span class="p">,</span><span class="s">&#39;hour&#39;</span><span class="p">:</span><span class="s">&#39;16&#39;</span><span class="p">,</span><span class="s">&#39;minute&#39;</span><span class="p">:</span><span class="s">&#39;45&#39;</span><span class="p">,</span><span class="s">&#39;second&#39;</span><span class="p">:</span><span class="s">&#39;2&#39;</span><span class="p">}</span>
-<span class="k">print</span> <span class="s">&#39;</span><span class="si">%04d</span><span class="s">-</span><span class="si">%02d</span><span class="s">-</span><span class="si">%02d</span><span class="s"> </span><span class="si">%02d</span><span class="s">:</span><span class="si">%02d</span><span class="s">:</span><span class="si">%02d</span><span class="s">&#39;</span> <span class="o">%</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s">&#39;year&#39;</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s">&#39;month&#39;</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s">&#39;day&#39;</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s">&#39;hour&#39;</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s">&#39;minute&#39;</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s">&#39;second&#39;</span><span class="p">]))</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">n</span><span class="o">=</span><span class="mi">10</span>
+
+<span class="k">def</span> <span class="nf">isPrime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">isPrime</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="ow">and</span> <span class="n">isPrime</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">):</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">print</span> <span class="n">count</span><span class="o">/</span><span class="mi">2</span>
 </pre></div>
-                <a class="readmore" href="/25format-the-time.html">read more</a>
+                <a class="readmore" href="/42splitting-the-prime-numbers-sum.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/24horse-take-the-lead.html" rel="bookmark"
-                           title="Permalink to 24.Horse take the lead">24.Horse take the lead</a></h1>
+                    <h1><a href="/41py.html" rel="bookmark"
+                           title="Permalink to 41.Py">41.Py</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:24:00">
+        <abbr class="published" title="2016-11-20T15:41:00">
                 Sun 20 November 2016
         </abbr>
 
@@ -129,58 +129,28 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">m</span><span class="o">=</span><span class="mi">2</span>
-<span class="n">n</span><span class="o">=</span><span class="mi">1</span>
-
-<span class="k">if</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
-    <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span>
-
-<span class="n">horse</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
-<span class="n">goal</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="mi">0</span><span class="p">}</span>
-
-<span class="k">while</span> <span class="n">queue</span> <span class="o">!=</span> <span class="p">[]:</span>
-    <span class="n">base</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">horse</span><span class="p">:</span>
-        <span class="n">arrow</span> <span class="o">=</span> <span class="p">((</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">base</span><span class="p">[</span><span class="mi">0 ...</span></pre></div>
-                <a class="readmore" href="/24horse-take-the-lead.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/23365-or-366.html" rel="bookmark"
-                           title="Permalink to 23.365 Or 366">23.365 Or 366</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:23:00">
-                Sun 20 November 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">year</span><span class="o">=</span><span class="s">&quot;2013&quot;</span>
-<span class="k">print</span><span class="p">(</span><span class="mi">366</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="o">%</span><span class="mi">400</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="o">%</span><span class="mi">4</span><span class="o">==</span><span class="mi">0</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="o">%</span><span class="mi">100</span><span class="o">!=</span><span class="mi">0</span> <span class="k">else</span> <span class="mi">365</span><span class="p">)</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">n</span><span class="o">=</span><span class="mi">2992</span>
+<span class="k">def</span> <span class="nf">py</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">total</span><span class="o">+=</span><span class="n">n</span><span class="o">%</span><span class="n">m</span>
+        <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">/</span><span class="n">m</span>
+    <span class="k">return</span> <span class="n">total</span>
+<span class="k">print</span> <span class="n">py</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">==</span><span class="n">py</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span><span class="o">==</span><span class="n">py</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span> <span class="ow">and</span> <span class="s">&quot;Yes&quot;</span> <span class="ow">or</span> <span class="s">&quot;No&quot;</span>
 </pre></div>
-                <a class="readmore" href="/23365-or-366.html">read more</a>
+                <a class="readmore" href="/41py.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/22time-is-money.html" rel="bookmark"
-                           title="Permalink to 22.Time is money">22.Time is money</a></h1>
+                    <h1><a href="/40integer-solutions.html" rel="bookmark"
+                           title="Permalink to 40.Integer solutions">40.Integer solutions</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:22:00">
+        <abbr class="published" title="2016-11-20T15:40:00">
                 Sun 20 November 2016
         </abbr>
 
@@ -189,24 +159,24 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">st</span><span class="o">=</span><span class="s">&quot;00:00:00&quot;</span>
-<span class="n">et</span><span class="o">=</span><span class="s">&quot;00:00:10&quot;</span>
-
-<span class="k">print</span> <span class="nb">abs</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mi">3600</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="mi">60</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span><span class="o">-</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">et</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mi">3600</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">et</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="mi">60</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">et</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;:&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">])))</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="mi">8</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">15</span>
+<span class="n">x</span><span class="o">=</span><span class="n">a</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">b</span>
+<span class="k">print</span> <span class="n">x</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">x</span><span class="o">**</span><span class="mf">0.5</span><span class="o">==</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="ow">and</span> <span class="s">&quot;YES&quot;</span> <span class="ow">or</span> <span class="s">&quot;NO&quot;</span>
 </pre></div>
-                <a class="readmore" href="/22time-is-money.html">read more</a>
+                <a class="readmore" href="/40integer-solutions.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/21back-to-the-text-string.html" rel="bookmark"
-                           title="Permalink to 21.Back to the text string">21.Back to the text string</a></h1>
+                    <h1><a href="/38simple-list-of-conversion.html" rel="bookmark"
+                           title="Permalink to 38.Simple list of conversion">38.Simple list of conversion</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:21:00">
+        <abbr class="published" title="2016-11-20T15:38:00">
                 Sun 20 November 2016
         </abbr>
 
@@ -215,23 +185,23 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="s">&quot;xabcbai&quot;</span>
-<span class="n">n</span><span class="o">=</span><span class="mi">5</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;YES&#39;</span> <span class="k">if</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">-</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">)]</span> <span class="o">==</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">)][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="k">else</span> <span class="s">&#39;NO&#39;</span><span class="p">)</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">L</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;abc&#39;</span><span class="p">,</span><span class="s">&#39;d&#39;</span><span class="p">,</span><span class="s">&#39;efg&#39;</span><span class="p">]</span>
+
+<span class="k">print</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">L</span><span class="p">])</span>
 </pre></div>
-                <a class="readmore" href="/21back-to-the-text-string.html">read more</a>
+                <a class="readmore" href="/38simple-list-of-conversion.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/20information-encryption.html" rel="bookmark"
-                           title="Permalink to 20.Information encryption">20.Information encryption</a></h1>
+                    <h1><a href="/37pythagorean-theorem.html" rel="bookmark"
+                           title="Permalink to 37.pythagorean theorem">37.pythagorean theorem</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:20:00">
+        <abbr class="published" title="2016-11-20T15:37:00">
                 Sun 20 November 2016
         </abbr>
 
@@ -240,24 +210,24 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="s">&quot;cagy&quot;</span>
-<span class="n">b</span><span class="o">=</span><span class="mi">33</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="mi">3</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">4</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">((</span><span class="nb">ord</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="nb">ord</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">)</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">%</span><span class="mi">26</span><span class="o">+</span><span class="nb">ord</span><span class="p">(</span><span class="s">&#39;a&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]))</span>
+<span class="k">print</span> <span class="s">&quot;</span><span class="si">%.3f</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
 </pre></div>
-                <a class="readmore" href="/20information-encryption.html">read more</a>
+                <a class="readmore" href="/37pythagorean-theorem.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/19single-song.html" rel="bookmark"
-                           title="Permalink to 19.Single song">19.Single song</a></h1>
+                    <h1><a href="/36maximum-not-continuous-subsequence.html" rel="bookmark"
+                           title="Permalink to 36.Maximum not continuous subsequence">36.Maximum not continuous subsequence</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:19:00">
+        <abbr class="published" title="2016-11-20T15:36:00">
                 Sun 20 November 2016
         </abbr>
 
@@ -266,28 +236,26 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="s">&quot;abciLOVEjce&quot;</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
 
-<span class="n">UPPER</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)):</span>
+    <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
-<span class="k">if</span> <span class="s">&#39;LOVE&#39;</span> <span class="ow">in</span> <span class="n">UPPER</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;LOVE&#39;</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="s">&#39;SINGLE&#39;</span>
+<span class="k">print</span> <span class="nb">max</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 </pre></div>
-                <a class="readmore" href="/19single-song.html">read more</a>
+                <a class="readmore" href="/36maximum-not-continuous-subsequence.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/18the-inverse-solution-of-greatest-common-divisor-and-least-common-multiple.html" rel="bookmark"
-                           title="Permalink to 18.The inverse solution of greatest common divisor and least common multiple">18.The inverse solution of greatest common divisor and least common multiple</a></h1>
+                    <h1><a href="/35maximum-continuous-subsequence.html" rel="bookmark"
+                           title="Permalink to 35.Maximum continuous subsequence">35.Maximum continuous subsequence</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:18:00">
+        <abbr class="published" title="2016-11-20T15:35:00">
                 Sun 20 November 2016
         </abbr>
 
@@ -296,28 +264,58 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># x/a=m,y/a=n</span>
-<span class="c"># b/x=n,b/y=m</span>
-<span class="c"># m*n=b/a</span>
-<span class="c"># therefore, x*y==a*b</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">maxim</span><span class="o">=</span><span class="mi">0</span>
+<span class="nb">sum</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">maxim</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="nb">sum</span><span class="p">,</span><span class="n">maxim</span><span class="p">)</span>
+        <span class="nb">sum</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">sum</span><span class="o">+=</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
-<span class="n">a</span><span class="o">=</span><span class="mi">1200</span>
-<span class="n">b</span><span class="o">=</span><span class="mi">120</span>
+<span class="k">print</span> <span class="nb">max</span><span class="p">(</span><span class="nb">sum</span><span class="p">,</span><span class="n">maxim</span><span class="p">)</span> <span class="c"># don&#39;t forget the last one</span>
+</pre></div>
+                <a class="readmore" href="/35maximum-continuous-subsequence.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
-<span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">b</span><span class="p">:</span>
-    <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">a</span>
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/34the-password-generated.html" rel="bookmark"
+                           title="Permalink to 34.The password generated">34.The password generated</a></h1>
+                </header>
 
-<span class="n">newx</span><span class="o">=</span><span class="n">b</span>
-<span class="n">newy</span><span class="o">=</span><span class="n">a</span>
-<span class="c"># x is divisor of a and multiple of b</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">b ...</span></pre></div>
-                <a class="readmore" href="/18the-inverse-solution-of-greatest-common-divisor-and-least-common-multiple.html">read more</a>
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-11-20T15:34:00">
+                Sun 20 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">77</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">14</span>
+
+<span class="n">lister</span><span class="p">,</span> <span class="n">ans</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="n">a</span><span class="o">%</span><span class="n">b</span><span class="o">*</span><span class="mi">10</span>
+<span class="k">while</span> <span class="n">a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lister</span><span class="p">:</span>
+    <span class="n">lister</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>        <span class="c"># 1. not includes x of x.123456</span>
+    <span class="n">ans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span> <span class="o">//</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span>
+
+<span class="n">nolooplen</span> <span class="o">=</span> <span class="n">lister</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># when the iteration appears in ans</span>
+<span class="n">looplen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ans ...</span></pre></div>
+                <a class="readmore" href="/34the-password-generated.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
         <a href="/index5.html">&laquo;</a>
-    Page 6 / 10
+    Page 6 / 11
         <a href="/index7.html">&raquo;</a>
 </p>
             </section><!-- /#content -->

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>7 Sort Methods</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Welcome to Haven's blog! </a></h1>
+                <nav><ul>
+                    <li><a href="/category/english.html">English</a></li>
+                    <li class="active"><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/technology.html">Technology</a></li>
+                    <li><a href="/category/travel.html">Travel</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/7-sort-methods.html" rel="bookmark"
+           title="Permalink to 7 Sort Methods">7 Sort Methods</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-01-06T11:53:00">
+                Fri 06 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->      <div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># 一、冒泡排序 BubbleSort，时间复杂度O(n2)</span>
+<span class="c"># 冒泡排序的原理非常简单，它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。</span>
+<span class="c"># 比较相邻的元素。如果第一个比第二个大，就交换他们两个。</span>
+<span class="c"># 对第0个到第n-1个数据做同样的工作。这时，最大的数就“浮”到了数组最后的位置上。</span>
+<span class="c"># 针对所有的元素重复以上的步骤，除了最后一个。</span>
+<span class="c"># 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</span>
+<span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">arry</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arry</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">):</span>    <span class="c"># 从第二个数到上次沉淀的数前的数，开始往前比较</span>
+            <span class="k">if</span> <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>      <span class="c">#如果前者比后者大，则交换两者</span>
+    <span class="k">return</span> <span class="n">arry</span>
+<span class="k">print</span> <span class="n">bubble_sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="c"># 优化1、在i的情况下，如所有j都不需要和j-1交换顺序，则i不用再往后走了；如交换顺序，则一直往后走，设置flag</span>
+<span class="k">def</span> <span class="nf">bubble_sort1</span><span class="p">(</span><span class="n">arry</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arry</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">flag</span><span class="o">=</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">flag</span><span class="o">=</span><span class="mi">0</span>
+        <span class="k">if</span> <span class="n">flag</span><span class="p">:</span>    <span class="c"># 如果所有j都没有交换顺序，说明该i后面的arry都是升序的，跳出该循环</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">arry</span>
+<span class="k">print</span> <span class="n">bubble_sort1</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="c"># 优化2、每次遍历一边j，记录最后交换的位置j，该位置后已经排好序了，下一个i可以只走到该位置前</span>
+<span class="k">def</span> <span class="nf">bubble_sort2</span><span class="p">(</span><span class="n">arry</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arry</span><span class="p">)</span>
+    <span class="n">stop</span><span class="o">=</span><span class="n">n</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">flag</span><span class="o">=</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">stop</span><span class="p">):</span>    <span class="c"># 对于每个i，j只需要遍历到stop位置</span>
+            <span class="k">if</span> <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">flag</span><span class="o">=</span><span class="mi">0</span>
+                <span class="n">stop</span><span class="o">=</span><span class="n">j</span>    <span class="c"># 记录位置，之后的已经排好序</span>
+        <span class="k">if</span> <span class="n">flag</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">arry</span>
+<span class="k">print</span> <span class="n">bubble_sort2</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+
+<span class="c"># 二、选择排序 SelectionSort，时间复杂度O(n2)</span>
+<span class="c"># 在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。</span>
+<span class="c"># 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的起始位置。</span>
+<span class="c"># 以此类推，直到所有元素均排序完毕。</span>
+<span class="k">def</span> <span class="nf">select_sort</span><span class="p">(</span><span class="n">arry</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arry</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="nb">min</span> <span class="o">=</span> <span class="n">i</span>                             <span class="c"># 初始位置标记</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">arry</span><span class="p">[</span><span class="nb">min</span><span class="p">]</span> <span class="p">:</span>
+                <span class="nb">min</span> <span class="o">=</span> <span class="n">j</span>                     <span class="c"># 找到最小值的位置</span>
+        <span class="n">arry</span><span class="p">[</span><span class="nb">min</span><span class="p">],</span><span class="n">arry</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">arry</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">arry</span><span class="p">[</span><span class="nb">min</span><span class="p">]</span>   <span class="c">#交换两者</span>
+    <span class="k">return</span> <span class="n">arry</span>
+<span class="k">print</span> <span class="n">select_sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+
+<span class="c"># 三、插入排序 InsertionSort，时间复杂度O(n2)</span>
+<span class="c"># 插入排序的工作原理是，对于每个未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。</span>
+<span class="c"># 从第一个元素开始，该元素可以认为已经被排序</span>
+<span class="c"># 取出下一个元素，在已经排序的元素序列中从后向前扫描</span>
+<span class="c"># 如果被扫描的元素（已排序）大于新元素，将该元素后移一位</span>
+<span class="c"># 重复步骤3，直到找到已排序的元素小于或者等于新元素的位置</span>
+<span class="c"># 将新元素插入到该位置后</span>
+<span class="c"># 重复步骤2~5</span>
+<span class="k">def</span> <span class="nf">insert_sort</span><span class="p">(</span><span class="n">ary</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">ary</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">ary</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">ary</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>    <span class="c">#待插入前面已排序序列的数</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">i</span>        <span class="c">#待插入的下标</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c">#从i-1 倒着循环到 0</span>
+                <span class="k">if</span> <span class="n">ary</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">temp</span> <span class="p">:</span>
+                    <span class="n">ary</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">ary</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="c">#j往后移动一位，j本身暂时不变</span>
+                    <span class="n">index</span> <span class="o">=</span> <span class="n">j</span>   <span class="c">#记录待插入下标。即j，j+1（待插入的数）=j（待插入的位置），j</span>
+                <span class="k">else</span> <span class="p">:</span>
+                    <span class="k">break</span>
+            <span class="n">ary</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+    <span class="k">return</span> <span class="n">ary</span>
+<span class="k">print</span> <span class="n">insert_sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+
+<span class="c"># 四、希尔排序 ShellSort，时间复杂度O(nlogn)~O(n2)</span>
+<span class="c"># 将数组分为几行列在一个表中，对每列分别进行插入排序，重复该过程的时候使用更少步长更多列。最后整个表就只有一列了。</span>
+<span class="k">def</span> <span class="nf">shell_sort</span><span class="p">(</span><span class="n">ary</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span>
+    <span class="n">gap</span> <span class="o">=</span> <span class="n">n</span><span class="o">//</span><span class="mi">2</span>      <span class="c">#设置初始步长 , 数组分为两行（或多一个元素的第三行）</span>
+    <span class="k">while</span> <span class="n">gap</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">gap</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>        <span class="c">#从第二行开始，每一列的元素与上排相同位置对比，进行插入排序 , 从gap 到 n-1</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">ary</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">while</span> <span class="p">(</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">gap</span> <span class="ow">and</span> <span class="n">ary</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="n">gap</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">temp</span> <span class="p">):</span>    <span class="c">#与上一行相同位置的数对比</span>
+                <span class="n">ary</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">ary</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="n">gap</span><span class="p">]</span>
+                <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="n">gap</span>
+            <span class="n">ary</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+        <span class="n">gap</span> <span class="o">=</span> <span class="n">gap</span><span class="o">//</span><span class="mi">2</span>                     <span class="c">#重新设置步长</span>
+    <span class="k">return</span> <span class="n">ary</span>
+<span class="k">print</span> <span class="n">shell_sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+
+<span class="c"># 五、归并排序 MergeSort，时间复杂度O(nlogn)</span>
+<span class="c"># 归并排序是采用分治法的一个非常典型的应用。归并排序的思想就是先递归分解数组，再合并数组。</span>
+<span class="c"># 先考虑合并两个有序数组，基本思路是比较两个数组的最前面的数，谁小就先取谁，取了后相应的指针就往后移一位。然后再比较，直至一个数组为空，最后把另一个数组的剩余部分复制过来即可。</span>
+<span class="c"># 再考虑递归分解，基本思路是将数组分解成left和right，如果这两个数组内部数据是有序的，那么就可以用上面合并数组的方法将这两个数组合并排序。如何让这两个数组内部是有序的？可以再二分，直至分解出的小组只含有一个元素时为止，此时认为该小组内部已有序。然后合并排序相邻二个小组即可。</span>
+<span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">ary</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ary</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>       <span class="c">#二分分解</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">merge_sort</span><span class="p">(</span><span class="n">ary</span><span class="p">[:</span><span class="n">num</span><span class="p">])</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">merge_sort</span><span class="p">(</span><span class="n">ary</span><span class="p">[</span><span class="n">num</span><span class="p">:])</span>
+    <span class="k">return</span> <span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">right</span><span class="p">)</span>    <span class="c">#合并数组</span>
+
+<span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span><span class="n">right</span><span class="p">):</span>
+    <span class="n">l</span><span class="p">,</span><span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span>           <span class="c">#left与right数组的下标指针</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">l</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="ow">and</span> <span class="n">r</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">right</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">left</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">[</span><span class="n">r</span><span class="p">]:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">left</span><span class="p">[</span><span class="n">l</span><span class="p">])</span>
+            <span class="n">l</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">right</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+            <span class="n">r</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="n">left</span><span class="p">[</span><span class="n">l</span><span class="p">:]</span>  <span class="c"># 加left数组剩余的数</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="n">right</span><span class="p">[</span><span class="n">r</span><span class="p">:]</span> <span class="c"># 加right数组剩余的数</span>
+    <span class="k">return</span> <span class="n">result</span>
+<span class="k">print</span> <span class="n">merge_sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+
+<span class="c"># 六、快速排序 QuickSort，时间复杂度O(nlogn)</span>
+<span class="c"># 从数列中挑出一个元素作为基准数。</span>
+<span class="c"># 分区过程，将比基准数大的放到右边，小于或等于它的数都放到左边。</span>
+<span class="c"># 再对左右区间递归执行第二步，直至各区间只有一个数。</span>
+<span class="k">def</span> <span class="nf">quick_sort</span><span class="p">(</span><span class="n">ary</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">qsort</span><span class="p">(</span><span class="n">ary</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">qsort</span><span class="p">(</span><span class="n">ary</span><span class="p">,</span><span class="n">left</span><span class="p">,</span><span class="n">right</span><span class="p">):</span>
+    <span class="c">#快排函数，ary为待排序数组，left为待排序的左边界，right为右边界</span>
+    <span class="k">if</span> <span class="n">left</span> <span class="o">&gt;=</span> <span class="n">right</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ary</span>      <span class="c"># 如数组为空或只有一个元素</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">ary</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>     <span class="c">#取最左边的为基准数</span>
+    <span class="n">lp</span> <span class="o">=</span> <span class="n">left</span>           <span class="c">#左指针</span>
+    <span class="n">rp</span> <span class="o">=</span> <span class="n">right</span>          <span class="c">#右指针</span>
+    <span class="k">while</span> <span class="n">lp</span> <span class="o">&lt;</span> <span class="n">rp</span> <span class="p">:</span>
+        <span class="k">while</span> <span class="n">ary</span><span class="p">[</span><span class="n">rp</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">lp</span> <span class="o">&lt;</span> <span class="n">rp</span> <span class="p">:</span>
+            <span class="n">rp</span> <span class="o">-=</span> <span class="mi">1</span>    <span class="c"># 找到最右边小于基数的数</span>
+        <span class="k">while</span> <span class="n">ary</span><span class="p">[</span><span class="n">lp</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">key</span> <span class="ow">and</span> <span class="n">lp</span> <span class="o">&lt;</span> <span class="n">rp</span> <span class="p">:</span>
+            <span class="n">lp</span> <span class="o">+=</span> <span class="mi">1</span>    <span class="c"># 找到最左边大于基数的数</span>
+        <span class="n">ary</span><span class="p">[</span><span class="n">lp</span><span class="p">],</span><span class="n">ary</span><span class="p">[</span><span class="n">rp</span><span class="p">]</span> <span class="o">=</span> <span class="n">ary</span><span class="p">[</span><span class="n">rp</span><span class="p">],</span><span class="n">ary</span><span class="p">[</span><span class="n">lp</span><span class="p">]</span>    <span class="c">#交换</span>
+    <span class="n">ary</span><span class="p">[</span><span class="n">left</span><span class="p">],</span><span class="n">ary</span><span class="p">[</span><span class="n">lp</span><span class="p">]</span> <span class="o">=</span> <span class="n">ary</span><span class="p">[</span><span class="n">lp</span><span class="p">],</span><span class="n">ary</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>    <span class="c"># 基数左右全部交换完后，将左边界left与最左边的数交换</span>
+    <span class="n">qsort</span><span class="p">(</span><span class="n">ary</span><span class="p">,</span><span class="n">left</span><span class="p">,</span><span class="n">lp</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>    <span class="c"># 左区间做相同排序</span>
+    <span class="n">qsort</span><span class="p">(</span><span class="n">ary</span><span class="p">,</span><span class="n">rp</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">right</span><span class="p">)</span>   <span class="c"># 右区间做相同排序</span>
+    <span class="k">return</span> <span class="n">ary</span>
+<span class="k">print</span> <span class="n">quick_sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+
+<span class="c"># 七、堆排序 HeapSort，时间复杂度O(nlogn)</span>
+<span class="c"># 构建堆，将数组依次放入堆，并使上面都大于下面</span>
+<span class="c"># 将调整好的堆从上到下放入数组（不是有序的）</span>
+<span class="c"># 从堆的上面开始，一层一层往下比较，把下层较大的数和上层比较，并把其中大的换到上面。等到最下层，将顶端的大数换到最右下角，从堆中删去。</span>
+<span class="c"># 由于每次都是将最大的数并入到后面的有序区间，故操作完后整个数组就是有序的了。</span>
+
+<span class="k">def</span> <span class="nf">heap_sort</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>       <span class="c">#最后一个非叶子节点，也就是倒数第二层最右边</span>
+    <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>     <span class="c">#第一步，构造大根堆，将最顶端到first倒着遍历一遍</span>
+        <span class="n">max_heapify</span><span class="p">(</span><span class="n">ary</span><span class="p">,</span><span class="n">start</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">end</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>           <span class="c">#第二步，堆排，将大根堆转换成有序数组</span>
+        <span class="n">ary</span><span class="p">[</span><span class="n">end</span><span class="p">],</span><span class="n">ary</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ary</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">ary</span><span class="p">[</span><span class="n">end</span><span class="p">]</span>  <span class="c"># 最上端和最下端交换后删除最下端最大数，再转换剩下的</span>
+        <span class="n">max_heapify</span><span class="p">(</span><span class="n">ary</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">end</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ary</span>
+
+<span class="c">#最大堆调整：将堆的末端子节点作调整，使得子节点永远小于父节点</span>
+<span class="c">#start为当前需要调整最大堆的位置，end为调整边界</span>
+<span class="k">def</span> <span class="nf">max_heapify</span><span class="p">(</span><span class="n">ary</span><span class="p">,</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">):</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="k">while</span> <span class="bp">True</span> <span class="p">:</span>
+        <span class="n">child</span> <span class="o">=</span> <span class="n">root</span><span class="o">*</span><span class="mi">2</span> <span class="o">+</span><span class="mi">1</span>               <span class="c">#调整节点的子节点</span>
+        <span class="k">if</span> <span class="n">child</span> <span class="o">&gt;</span> <span class="n">end</span> <span class="p">:</span> <span class="k">break</span>
+        <span class="k">if</span> <span class="n">child</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">end</span> <span class="ow">and</span> <span class="n">ary</span><span class="p">[</span><span class="n">child</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">ary</span><span class="p">[</span><span class="n">child</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">:</span>
+            <span class="n">child</span> <span class="o">=</span> <span class="n">child</span><span class="o">+</span><span class="mi">1</span>             <span class="c">#取较大的子节点</span>
+        <span class="k">if</span> <span class="n">ary</span><span class="p">[</span><span class="n">root</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">ary</span><span class="p">[</span><span class="n">child</span><span class="p">]</span> <span class="p">:</span>     <span class="c">#较大的子节点成为父节点</span>
+            <span class="n">ary</span><span class="p">[</span><span class="n">root</span><span class="p">],</span><span class="n">ary</span><span class="p">[</span><span class="n">child</span><span class="p">]</span> <span class="o">=</span> <span class="n">ary</span><span class="p">[</span><span class="n">child</span><span class="p">],</span><span class="n">ary</span><span class="p">[</span><span class="n">root</span><span class="p">]</span>     <span class="c">#交换</span>
+            <span class="n">root</span> <span class="o">=</span> <span class="n">child</span>    <span class="c"># 移动指针到该子节点</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">break</span>
+<span class="k">print</span> <span class="n">heap_sort</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+
+<span class="c"># 来源http://wuchong.me/blog/2014/02/09/algorithm-sort-summary/</span>
+</pre></div>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
