@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Welcome to Haven's blog! - python</title>
+        <title>Welcome to Haven's blog! - Python</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -15,7 +15,7 @@
                 <h1><a href="/">Welcome to Haven's blog! </a></h1>
                 <nav><ul>
                     <li><a href="/category/english.html">English</a></li>
-                    <li><a href="/category/python.html">Python</a></li>
+                    <li class="active"><a href="/category/python.html">Python</a></li>
                     <li><a href="/category/technology.html">Technology</a></li>
                     <li><a href="/category/travel.html">Travel</a></li>
                 </ul></nav>
@@ -23,90 +23,6 @@
 
                 <section id="content" class="body">
                     <ol id="posts-list" class="hfeed" start="9">
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/5-longest-palindromic-substring.html" rel="bookmark"
-                           title="Permalink to 5. Longest Palindromic Substring">5. Longest Palindromic Substring</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-10-22T21:10:00">
-                Sat 22 October 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">longestPalindrome</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type s: str</span>
-<span class="sd">        :rtype: str</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">long</span><span class="o">=</span><span class="s">&quot;&quot;</span>
-        <span class="n">temp</span><span class="o">=</span><span class="s">&quot;&quot;</span>
-        <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
-        <span class="n">gap</span> <span class="o">=</span> <span class="mi">2</span>
-        <span class="n">gap2</span><span class="o">=</span><span class="mi">1</span>
-
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">s</span>
-
-        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-</span><span class="n">gap</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">gap</span><span class="p">]:</span>
-                <span class="n">temp</span><span class="o">=</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">gap</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
-                <span class="n">ii</span><span class="o">=</span><span class="n">i</span>
-                <span class="n">ii</span><span class="o">-=</span><span class="mi">1</span>
-                <span class="n">gap</span><span class="o">+=</span><span class="mi">2</span>
-
-                <span class="k">while ...</span></pre></div>
-                <a class="readmore" href="/5-longest-palindromic-substring.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/3-longest-substring-without-repeating-characters.html" rel="bookmark"
-                           title="Permalink to 3. Longest Substring Without Repeating Characters">3. Longest Substring Without Repeating Characters</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-10-22T21:07:00">
-                Sat 22 October 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">lengthOfLongestSubstring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type s: str</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">new</span><span class="o">=</span><span class="s">&quot;&quot;</span>
-        <span class="nb">list</span><span class="o">=</span><span class="p">[]</span>
-        <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
-        <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">new</span><span class="p">:</span>
-                <span class="n">new</span><span class="o">+=</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">old</span><span class="o">=</span><span class="n">new</span>
-                <span class="nb">list</span><span class="o">+=</span><span class="p">[</span><span class="n">old</span><span class="p">]</span>
-                <span class="n">ind</span><span class="o">=</span><span class="n">old</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-                <span class="n">new</span><span class="o">=</span><span class="s">&quot;&quot;</span>
-                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">old ...</span></pre></div>
-                <a class="readmore" href="/3-longest-substring-without-repeating-characters.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
             <li><article class="hentry">
                 <header>
                     <h1><a href="/2-add-two-numbers.html" rel="bookmark"
@@ -181,43 +97,6 @@
     <span class="n">answer</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">()</span>
     <span class="n">nums</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11 ...</span></pre></div>
                 <a class="readmore" href="/1-two-sum.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/download-bird.html" rel="bookmark"
-                           title="Permalink to Download Bird">Download Bird</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-10-05T12:00:00">
-                Wed 05 October 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/technology.html">Technology</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a><a href="/tag/download.html">download</a><a href="/tag/beautifulsoup.html">BeautifulSoup</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">from</span> <span class="nn">urlparse</span> <span class="kn">import</span> <span class="n">urljoin</span>
-<span class="kn">import</span> <span class="nn">re</span>
-
-
-<span class="k">def</span> <span class="nf">generate_url_list</span><span class="p">(</span><span class="n">input_url</span><span class="p">):</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">input_url</span><span class="p">)</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s">&#39;html.parser&#39;</span><span class="p">)</span>
-
-    <span class="n">page_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">&#39;a &gt; img&#39;</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s">&quot;org&quot;</span> <span class="ow">in</span> <span class="n">link</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;href&quot;</span><span class="p">):</span>
-            <span class="n">page_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;href&quot;</span><span class="p">))</span>
-            <span class="k">continue</span>
-        <span class="n">page_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;http ...</span></pre></div>
-                <a class="readmore" href="/download-bird.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
@@ -305,96 +184,9 @@
                 <a class="readmore" href="/20-valid-parentheses.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/break-continue-pass-and-the-loop-else.html" rel="bookmark"
-                           title="Permalink to break, continue, pass, and the Loop else">break, continue, pass, and the Loop else</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-09-19T12:43:00">
-                Mon 19 September 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/technology.html">Technology</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/break.html">break</a><a href="/tag/continue.html">continue</a><a href="/tag/pass.html">pass</a><a href="/tag/loop-else.html">loop else</a></p>
-</footer><!-- /.post-info -->                <h3>break</h3>
-<div class="highlight"><pre><span class="n">Jumps</span> <span class="n">out</span> <span class="n">of</span> <span class="n">the</span> <span class="n">closest</span> <span class="n">enclosing</span> <span class="n">loop</span> <span class="p">(</span><span class="n">past</span> <span class="n">the</span> <span class="n">entire</span> <span class="n">loop</span> <span class="n">statement</span><span class="p">)</span>
-</pre></div>
-
-
-<h3>continue</h3>
-<div class="highlight"><pre><span class="n">Jumps</span> <span class="n">to</span> <span class="n">the</span> <span class="n">top</span> <span class="n">of</span> <span class="n">the</span> <span class="n">closest</span> <span class="n">enclosing</span> <span class="n">loop</span> <span class="p">(</span><span class="n">to</span> <span class="n">the</span> <span class="n">loop</span><span class="err">’</span><span class="n">s</span> <span class="n">header</span> <span class="n">line</span><span class="p">)</span>
-</pre></div>
-
-
-<h3>pass</h3>
-<div class="highlight"><pre><span class="n">Does</span> <span class="n">nothing</span> <span class="n">at</span> <span class="n">all</span><span class="o">:</span> <span class="n">it</span><span class="err">’</span><span class="n">s</span> <span class="n">an</span> <span class="n">empty</span> <span class="n">statement</span> <span class="n">placeholder</span>
-</pre></div>
-
-
-<h3>Loop else block</h3>
-<div class="highlight"><pre><span class="n">Runs</span> <span class="k">if</span> <span class="n">and</span> <span class="n">only</span> <span class="k">if</span> <span class="n">the</span> <span class="n">loop ...</span></pre></div>
-                <a class="readmore" href="/break-continue-pass-and-the-loop-else.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/method-of-python.html" rel="bookmark"
-                           title="Permalink to Method of Python">Method of Python</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-08-21T17:30:00">
-                Sun 21 August 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/technology.html">Technology</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/method.html">method</a><a href="/tag/list.html">list</a></p>
-</footer><!-- /.post-info -->                <h2>Method of List</h2>
-<table>
-<thead>
-<tr>
-<th>Method Name</th>
-<th>Use</th>
-<th>Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>append</td>
-<td>alist.append(item)</td>
-<td>Adds a new item to the end of a list</td>
-</tr>
-<tr>
-<td>insert</td>
-<td>alist.insert(i,item)</td>
-<td>Inserts an item at the ith position in a list</td>
-</tr>
-<tr>
-<td>pop</td>
-<td>alist.pop()</td>
-<td>Removes and returns the last item in a list</td>
-</tr>
-<tr>
-<td>pop</td>
-<td>alist ...</td></tr></tbody></table>
-                <a class="readmore" href="/method-of-python.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
-        <a href="/tag/python13.html">&laquo;</a>
+        <a href="/category/python13.html">&laquo;</a>
     Page 14 / 14
 </p>
             </section><!-- /#content -->
