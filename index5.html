@@ -14,6 +14,7 @@
         <header id="banner" class="body">
                 <h1><a href="/">Welcome to Haven's blog! </a></h1>
                 <nav><ul>
+                    <li><a href="/category/about.html">About</a></li>
                     <li><a href="/category/english.html">English</a></li>
                     <li><a href="/category/python.html">Python</a></li>
                     <li><a href="/category/technology.html">Technology</a></li>
@@ -23,6 +24,40 @@
 
                 <section id="content" class="body">
                     <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/7-sort-methods.html" rel="bookmark"
+                           title="Permalink to 7 Sort Methods">7 Sort Methods</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-01-06T11:53:00">
+                Fri 06 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># 一、冒泡排序 BubbleSort，时间复杂度O(n2)</span>
+<span class="c"># 冒泡排序的原理非常简单，它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。</span>
+<span class="c"># 比较相邻的元素。如果第一个比第二个大，就交换他们两个。</span>
+<span class="c"># 对第0个到第n-1个数据做同样的工作。这时，最大的数就“浮”到了数组最后的位置上。</span>
+<span class="c"># 针对所有的元素重复以上的步骤，除了最后一个。</span>
+<span class="c"># 持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</span>
+<span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">arry</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arry</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">):</span>    <span class="c"># 从第二个数到上次沉淀的数前的数，开始往前比较</span>
+            <span class="k">if</span> <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arry</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                <span class="n">arry ...</span></pre></div>
+                <a class="readmore" href="/7-sort-methods.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
             <li><article class="hentry">
                 <header>
                     <h1><a href="/50-powx-n.html" rel="bookmark"
@@ -366,41 +401,6 @@
             <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">flag</span><span class="p">:</span>
                 <span class="n">newnums</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">count ...</span></pre></div>
                 <a class="readmore" href="/38-count-and-say.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/36-valid-sudoku.html" rel="bookmark"
-                           title="Permalink to 36. Valid Sudoku">36. Valid Sudoku</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-01-06T11:43:00">
-                Fri 06 January 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">isValidSudoku</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">board</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type board: List[List[str]]</span>
-<span class="sd">        :rtype: bool</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">!=</span><span class="s">&quot;.&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">checkSudoku</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">board</span><span class="p">):</span>
-                    <span class="k">return</span> <span class="bp">False</span>
-        <span class="k">return</span> <span class="bp">True</span>
-
-    <span class="k">def</span> <span class="nf">checkSudoku</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">board</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">compare</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9 ...</span></pre></div>
-                <a class="readmore" href="/36-valid-sudoku.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
