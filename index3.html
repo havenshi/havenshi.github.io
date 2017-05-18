@@ -26,14 +26,45 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/120-triangle.html" rel="bookmark"
-                           title="Permalink to 120. Triangle">120. Triangle</a></h1>
+                    <h1><a href="/163-missing-ranges.html" rel="bookmark"
+                           title="Permalink to 163. Missing Ranges">163. Missing Ranges</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:20:00">
-                Mon 20 March 2017
+        <abbr class="published" title="2017-05-17T19:41:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Given a sorted integer array where the range of elements are [lower, upper] inclusive,</span>
+<span class="c"># return its missing ranges.</span>
+<span class="c">#</span>
+<span class="c"># For example, given [0, 1, 3, 50, 75], lower = 0 and upper = 99,</span>
+<span class="c"># return [&quot;2&quot;, &quot;4-&gt;49&quot;, &quot;51-&gt;74&quot;, &quot;76-&gt;99&quot;].</span>
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">findMissingRanges</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type nums ...</span></pre></div>
+                <a class="readmore" href="/163-missing-ranges.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/162-find-peak-element.html" rel="bookmark"
+                           title="Permalink to 162. Find Peak Element">162. Find Peak Element</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:40:00">
+                Wed 17 May 2017
         </abbr>
 
         <address class="vcard author">
@@ -42,338 +73,70 @@
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
 </footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">minimumTotal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">triangle</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">findPeakElement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type triangle: List[List[int]]</span>
+<span class="sd">        :type nums: List[int]</span>
 <span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">start</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">nums</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">end</span><span class="p">]))</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2 ...</span></pre></div>
+                <a class="readmore" href="/162-find-peak-element.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/161-one-edit-distance.html" rel="bookmark"
+                           title="Permalink to 161. One Edit Distance">161. One Edit Distance</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:39:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Given two strings S and T, determine if they are both one edit distance apart.</span>
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">isOneEditDistance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type s: str</span>
+<span class="sd">        :type t: str</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">l1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">l2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">t</span><span class="p">:</span>
             <span class="k">return</span> <span class="mi">0</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">triangle</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
-        <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">triangle</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1 ...</span></pre></div>
-                <a class="readmore" href="/120-triangle.html">read more</a>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">l2 ...</span></pre></div>
+                <a class="readmore" href="/161-one-edit-distance.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/119-pascals-triangle-ii.html" rel="bookmark"
-                           title="Permalink to 119. Pascal's Triangle II">119. Pascal's Triangle II</a></h1>
+                    <h1><a href="/160-intersection-of-two-linked-lists.html" rel="bookmark"
+                           title="Permalink to 160. Intersection of Two Linked Lists">160. Intersection of Two Linked Lists</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:19:00">
-                Mon 20 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">getRow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rowIndex</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type rowIndex: int</span>
-<span class="sd">        :rtype: List[int]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">rowIndex</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">rowIndex</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">rowIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="n">newRow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
-                <span class="n">newRow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result ...</span></pre></div>
-                <a class="readmore" href="/119-pascals-triangle-ii.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/118-pascals-triangle.html" rel="bookmark"
-                           title="Permalink to 118. Pascal's Triangle">118. Pascal's Triangle</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:18:00">
-                Mon 20 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numRows</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type numRows: int</span>
-<span class="sd">        :rtype: List[List[int]]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">numRows</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[]</span>
-        <span class="k">if</span> <span class="n">numRows</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
-        <span class="k">if</span> <span class="n">numRows</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
-
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">numRows</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="n">newRow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result ...</span></pre></div>
-                <a class="readmore" href="/118-pascals-triangle.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/116-populating-next-right-pointers-in-each-node.html" rel="bookmark"
-                           title="Permalink to 116. Populating Next Right Pointers in Each Node">116. Populating Next Right Pointers in Each Node</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:16:00">
-                Mon 20 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for binary tree with next pointer.</span>
-<span class="c"># class TreeLinkNode:</span>
-<span class="c">#     def __init__(self, x):</span>
-<span class="c">#         self.val = x</span>
-<span class="c">#         self.left = None</span>
-<span class="c">#         self.right = None</span>
-<span class="c">#         self.next = None</span>
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="c"># @param root, a tree link node</span>
-    <span class="c"># @return nothing</span>
-    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">root</span> <span class="ow">and</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
-            <span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span>
-            <span class="k">if ...</span></pre></div>
-                <a class="readmore" href="/116-populating-next-right-pointers-in-each-node.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/114-flatten-binary-tree-to-linked-list.html" rel="bookmark"
-                           title="Permalink to 114. Flatten Binary Tree to Linked List">114. Flatten Binary Tree to Linked List</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:14:00">
-                Mon 20 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for a binary tree node.</span>
-<span class="c"># class TreeNode(object):</span>
-<span class="c">#     def __init__(self, x):</span>
-<span class="c">#         self.val = x</span>
-<span class="c">#         self.left = None</span>
-<span class="c">#         self.right = None</span>
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">flatten</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type root: TreeNode</span>
-<span class="sd">        :rtype: void Do not return anything, modify root in-place instead.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">root</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">root</span><span class="p">]</span>
-        <span class="k">while ...</span></pre></div>
-                <a class="readmore" href="/114-flatten-binary-tree-to-linked-list.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/113-path-sum-ii.html" rel="bookmark"
-                           title="Permalink to 113. Path Sum II">113. Path Sum II</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:13:00">
-                Mon 20 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for a binary tree node.</span>
-<span class="c"># class TreeNode(object):</span>
-<span class="c">#     def __init__(self, x):</span>
-<span class="c">#         self.val = x</span>
-<span class="c">#         self.left = None</span>
-<span class="c">#         self.right = None</span>
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">pathSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="nb">sum</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type root: TreeNode</span>
-<span class="sd">        :type sum: int</span>
-<span class="sd">        :rtype: List[List[int]]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">root</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[]</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">tmp ...</span></pre></div>
-                <a class="readmore" href="/113-path-sum-ii.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/112-path-sum.html" rel="bookmark"
-                           title="Permalink to 112. Path Sum">112. Path Sum</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:12:00">
-                Mon 20 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for a binary tree node.</span>
-<span class="c"># class TreeNode(object):</span>
-<span class="c">#     def __init__(self, x):</span>
-<span class="c">#         self.val = x</span>
-<span class="c">#         self.left = None</span>
-<span class="c">#         self.right = None</span>
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">hasPathSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="nb">sum</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type root: TreeNode</span>
-<span class="sd">        :type sum: int</span>
-<span class="sd">        :rtype: bool</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">root</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">False</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">tmp</span><span class="o">=</span><span class="p">[])</span>
-        <span class="k">return ...</span></pre></div>
-                <a class="readmore" href="/112-path-sum.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/111-minimum-depth-of-binary-tree.html" rel="bookmark"
-                           title="Permalink to 111. Minimum Depth of Binary Tree">111. Minimum Depth of Binary Tree</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:11:00">
-                Mon 20 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for a binary tree node.</span>
-<span class="c"># class TreeNode(object):</span>
-<span class="c">#     def __init__(self, x):</span>
-<span class="c">#         self.val = x</span>
-<span class="c">#         self.left = None</span>
-<span class="c">#         self.right = None</span>
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">minDepth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type root: TreeNode</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">depth</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">depth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">layer</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">root</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">layer ...</span></pre></div>
-                <a class="readmore" href="/111-minimum-depth-of-binary-tree.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/110-balanced-binary-tree.html" rel="bookmark"
-                           title="Permalink to 110. Balanced Binary Tree">110. Balanced Binary Tree</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:10:00">
-                Mon 20 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for a binary tree node.</span>
-<span class="c"># class TreeNode(object):</span>
-<span class="c">#     def __init__(self, x):</span>
-<span class="c">#         self.val = x</span>
-<span class="c">#         self.left = None</span>
-<span class="c">#         self.right = None</span>
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">isBalanced</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type root: TreeNode</span>
-<span class="sd">        :rtype: bool</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">root</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">True</span>
-        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">getHeight</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">2 ...</span></pre></div>
-                <a class="readmore" href="/110-balanced-binary-tree.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/109-convert-sorted-list-to-binary-search-tree.html" rel="bookmark"
-                           title="Permalink to 109. Convert Sorted List to Binary Search Tree">109. Convert Sorted List to Binary Search Tree</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:09:00">
-                Mon 20 March 2017
+        <abbr class="published" title="2017-05-17T19:38:00">
+                Wed 17 May 2017
         </abbr>
 
         <address class="vcard author">
@@ -382,30 +145,222 @@
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
 </footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for singly-linked list.</span>
-<span class="c"># class ListNode(object):</span>
-<span class="c">#     def __init__(self, x):</span>
-<span class="c">#         self.val = x</span>
-<span class="c">#         self.next = None</span>
-
-<span class="c"># Definition for a binary tree node.</span>
-<span class="c"># class TreeNode(object):</span>
-<span class="c">#     def __init__(self, x):</span>
-<span class="c">#         self.val = x</span>
-<span class="c">#         self.left = None</span>
-<span class="c">#         self.right = None</span>
+<span class="k">class</span> <span class="nc">ListNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">None</span>
 
 <span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">sortedListToBST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">getIntersectionNode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headA</span><span class="p">,</span> <span class="n">headB</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type head: ListNode</span>
-<span class="sd">        :rtype ...</span></pre></div>
-                <a class="readmore" href="/109-convert-sorted-list-to-binary-search-tree.html">read more</a>
+<span class="sd">        :type head1, head1: ListNode</span>
+<span class="sd">        :rtype: ListNode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tmpa</span> <span class="o">=</span> <span class="n">headA</span>
+        <span class="n">tmpb</span> <span class="o">=</span> <span class="n">headB</span>
+        <span class="n">counta</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">taila</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">while</span> <span class="n">tmpa</span><span class="p">:</span>
+            <span class="n">taila</span> <span class="o">=</span> <span class="n">tmpa</span>
+            <span class="n">counta</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">tmpa</span> <span class="o">=</span> <span class="n">tmpa</span><span class="o">.</span><span class="n">next</span>
+        <span class="n">countb</span> <span class="o">=</span> <span class="mi">0 ...</span></pre></div>
+                <a class="readmore" href="/160-intersection-of-two-linked-lists.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/159-longest-substring-with-at-most-two-distinct-characters.html" rel="bookmark"
+                           title="Permalink to 159. Longest Substring with At Most Two Distinct Characters">159. Longest Substring with At Most Two Distinct Characters</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:37:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Given a string, find the length of the longest substring T</span>
+<span class="c"># that contains at most 2 distinct characters.</span>
+<span class="c">#</span>
+<span class="c"># For example, Given s = &quot;eceba&quot;,</span>
+<span class="c">#</span>
+<span class="c"># T is &quot;ece&quot; which its length is 3.</span>
+<span class="c">#</span>
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="c"># @param s, a string</span>
+    <span class="c"># @return an integer</span>
+    <span class="k">def</span> <span class="nf">lengthOfLongestSubstringTwoDistinct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0 ...</span></pre></div>
+                <a class="readmore" href="/159-longest-substring-with-at-most-two-distinct-characters.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/158-read-n-characters-given-read4-ii.html" rel="bookmark"
+                           title="Permalink to 158. Read N Characters Given Read4 II">158. Read N Characters Given Read4 II</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:36:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># The API: int read4(char *buf) reads 4 characters at a time from a file.</span>
+<span class="c">#</span>
+<span class="c"># The return value is the actual number of characters read. For example, it returns 3 if there is only 3 characters left in the file.</span>
+<span class="c">#</span>
+<span class="c"># By using the read4 API, implement the function int read ...</span></pre></div>
+                <a class="readmore" href="/158-read-n-characters-given-read4-ii.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/157-read-n-characters-given-read4.html" rel="bookmark"
+                           title="Permalink to 157. Read N Characters Given Read4">157. Read N Characters Given Read4</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:35:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># The API: int read4(char *buf) reads 4 characters at a time from a file.</span>
+<span class="c">#</span>
+<span class="c"># The return value is the actual number of characters read. For example, it returns 3 if there is only 3 characters left in the file.</span>
+<span class="c">#</span>
+<span class="c"># By using the read4 API, implement the function int read ...</span></pre></div>
+                <a class="readmore" href="/157-read-n-characters-given-read4.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/156-binary-tree-upside-down.html" rel="bookmark"
+                           title="Permalink to 156. Binary Tree Upside Down">156. Binary Tree Upside Down</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:34:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Given a binary tree where all the right nodes are either leaf nodes with a sibling</span>
+<span class="c"># (a left node that shares the same parent node) or empty, flip it upside down and</span>
+<span class="c"># turn it into a tree where the original right nodes turned into left leaf nodes.</span>
+<span class="c"># Return the new ...</span></pre></div>
+                <a class="readmore" href="/156-binary-tree-upside-down.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/155-min-stack.html" rel="bookmark"
+                           title="Permalink to 155. Min Stack">155. Min Stack</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:33:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">MinStack</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        initialize your data structure here.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nums</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minv</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type x: int</span>
+<span class="sd">        :rtype: void</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">minv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">newmin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">minv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">minv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newmin</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">pop ...</span></pre></div>
+                <a class="readmore" href="/155-min-stack.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/154-find-minimum-in-rotated-sorted-array-ii.html" rel="bookmark"
+                           title="Permalink to 154. Find Minimum in Rotated Sorted Array II">154. Find Minimum in Rotated Sorted Array II</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:32:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">findMin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type nums: List[int]</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">right</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">right</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">right</span><span class="p">]:</span>  <span class="c"># must be a horizontal line on the left</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
+                <span class="k">while</span> <span class="n">nums</span><span class="p">[</span><span class="n">left</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">left</span> <span class="o">==</span> <span class="n">right</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="n">value</span> <span class="c"># all the ...</span></pre></div>
+                <a class="readmore" href="/154-find-minimum-in-rotated-sorted-array-ii.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
         <a href="/index2.html">&laquo;</a>
-    Page 3 / 19
+    Page 3 / 22
         <a href="/index4.html">&raquo;</a>
 </p>
             </section><!-- /#content -->

@@ -26,14 +26,14 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/34-search-for-a-range.html" rel="bookmark"
-                           title="Permalink to 34. Search for a Range">34. Search for a Range</a></h1>
+                    <h1><a href="/77-combinations.html" rel="bookmark"
+                           title="Permalink to 77. Combinations">77. Combinations</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2017-01-06T11:41:00">
-                Fri 06 January 2017
+        <abbr class="published" title="2017-02-25T20:20:00">
+                Sat 25 February 2017
         </abbr>
 
         <address class="vcard author">
@@ -42,100 +42,69 @@
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
 </footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">searchRange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">combine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type n: int</span>
+<span class="sd">        :type k: int</span>
+<span class="sd">        :rtype: List[List[int]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">createcombine</span><span class="p">([</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span><span class="n">l</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:],</span><span class="n">k</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">createcombine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pre</span><span class="p">,</span> <span class="n">cur</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len ...</span></pre></div>
+                <a class="readmore" href="/77-combinations.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/75-sort-colors.html" rel="bookmark"
+                           title="Permalink to 75. Sort Colors">75. Sort Colors</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-02-25T20:19:00">
+                Sat 25 February 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="c"># track两个index，一个是red的index，一个是blue的index，两边往中间走。</span>
+<span class="c"># i从0到blue index扫描，</span>
+<span class="c"># 遇到0，放在red index位置，red index后移；</span>
+<span class="c"># 遇到2，放在blue index位置，blue index前移；</span>
+<span class="c"># 遇到1，i后移。</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">sortColors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :type nums: List[int]</span>
-<span class="sd">        :type target: int</span>
-<span class="sd">        :rtype: List[int]</span>
+<span class="sd">        :rtype: void Do not return anything, modify nums in-place instead.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findtheleft</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
-        <span class="n">right</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">findtheright</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">]</span>
-
-    <span class="k">def</span> <span class="nf">findtheleft</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-        <span class="n">left</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">right</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">if ...</span></pre></div>
-                <a class="readmore" href="/34-search-for-a-range.html">read more</a>
+        <span class="n">red</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>   <span class="c"># red means position ...</span></pre></div>
+                <a class="readmore" href="/75-sort-colors.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/31-next-permutation.html" rel="bookmark"
-                           title="Permalink to 31. Next Permutation">31. Next Permutation</a></h1>
+                    <h1><a href="/73-set-matrix-zeroes.html" rel="bookmark"
+                           title="Permalink to 73. Set Matrix Zeroes">73. Set Matrix Zeroes</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2017-01-06T11:40:00">
-                Fri 06 January 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># 1. From right to left, find the first digit (PartitionNumber) which violate the increase trend.</span>
-<span class="c"># 2. From right to left, find the first digit which larger than PartitionNumber, call it ChangeNumber.</span>
-<span class="c"># 3. Swap the PartitionNumber and ChangeNumber.</span>
-<span class="c"># 4. Reverse all the digit on the right of partition index.</span>
-<span class="k">class</span> <span class="nc">Solution ...</span></pre></div>
-                <a class="readmore" href="/31-next-permutation.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/convert-pic-to-txt.html" rel="bookmark"
-                           title="Permalink to Convert pic to txt">Convert pic to txt</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-12-26T11:28:00">
-                Mon 26 December 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/technology.html">Technology</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a><a href="/tag/pillow.html">pillow</a><a href="/tag/image.html">image</a></p>
-</footer><!-- /.post-info -->                <h1>Look at my nyanko sensei picture! かわいい~~</h1>
-<p><img alt="cat" src="https://raw.githubusercontent.com/havenshi/havenshi.github.io/master/images/convertcat.jpg" /></p>
-<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-
-<span class="n">grey2char</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;@&#39;</span><span class="p">,</span> <span class="s">&#39;#&#39;</span><span class="p">,</span> <span class="s">&#39;$&#39;</span><span class="p">,</span> <span class="s">&#39;%&#39;</span><span class="p">,</span> <span class="s">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s">&#39;?&#39;</span><span class="p">,</span> <span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">,</span> <span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="s">&#39;{&#39;</span><span class="p">,</span> <span class="s">&#39;[&#39;</span><span class="p">,</span> <span class="s">&#39;(&#39;</span><span class="p">,</span> <span class="s">&#39;|&#39;</span><span class="p">,</span> <span class="s">&#39;!&#39;</span><span class="p">,</span> <span class="s">&#39;^&#39;</span><span class="p">,</span> <span class="s">&#39;~&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;_&#39;</span><span class="p">,</span> <span class="s">&#39;:&#39;</span><span class="p">,</span> <span class="s">&#39;;&#39;</span><span class="p">,</span> <span class="s">&#39;,&#39;</span><span class="p">,</span>
-             <span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="s">&#39;`&#39;</span><span class="p">,</span> <span class="s">&#39; &#39;</span><span class="p">]</span>
-<span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">grey2char</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">toText</span><span class="p">(</span><span class="n">image_file</span><span class="p">):</span>
-    <span class="n">image_file</span> <span class="o">=</span> <span class="n">image_file</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s">&#39;L&#39;</span><span class="p">)</span>  <span class="c"># 转灰度</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>  <span class="c"># 储存字符串</span>
-    <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">image_file</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>  <span class="c"># height</span>
-        <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">image_file</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>  <span class="c"># width</span>
-            <span class="n">gray</span> <span class="o">=</span> <span class="n">image_file</span><span class="o">.</span><span class="n">getpixel ...</span></pre></div>
-                <a class="readmore" href="/convert-pic-to-txt.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/29-divide-two-integers.html" rel="bookmark"
-                           title="Permalink to 29. Divide Two Integers">29. Divide Two Integers</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-12-20T12:29:00">
-                Tue 20 December 2016
+        <abbr class="published" title="2017-02-25T20:18:00">
+                Sat 25 February 2017
         </abbr>
 
         <address class="vcard author">
@@ -144,35 +113,31 @@
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
 </footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dividend</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setZeroes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type dividend: int</span>
-<span class="sd">        :type divisor: int</span>
-<span class="sd">        :rtype: int</span>
+<span class="sd">        :type matrix: List[List[int]]</span>
+<span class="sd">        :rtype: void Do not return anything, modify matrix in-place instead.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">INT_MAX</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">31</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
-        <span class="k">if</span> <span class="n">divisor</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">INT_MAX</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">symbol</span> <span class="o">=</span> <span class="n">dividend</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">divisor</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">dividend</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">divisor</span> <span class="o">&gt;</span> <span class="mi">0</span>
-            <span class="n">count</span><span class="o">=</span><span class="mi">0</span>
-            <span class="n">shift</span><span class="o">=</span><span class="mi">31</span>
-            <span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">dividend</span><span class="p">),</span><span class="nb">abs</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span>
-            <span class="k">while</span> <span class="n">shift ...</span></pre></div>
-                <a class="readmore" href="/29-divide-two-integers.html">read more</a>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">rownum</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+        <span class="n">colnum</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[</span><span class="bp">False</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rownum</span><span class="p">)]</span>  <span class="c"># false * rownum</span>
+        <span class="n">col</span> <span class="o">=</span> <span class="p">[</span><span class="bp">False</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">colnum ...</span></pre></div>
+                <a class="readmore" href="/73-set-matrix-zeroes.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/28-implement-strstr.html" rel="bookmark"
-                           title="Permalink to 28. Implement strStr()">28. Implement strStr()</a></h1>
+                    <h1><a href="/71-simplify-path.html" rel="bookmark"
+                           title="Permalink to 71. Simplify Path">71. Simplify Path</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-12-20T12:28:00">
-                Tue 20 December 2016
+        <abbr class="published" title="2017-02-25T20:17:00">
+                Sat 25 February 2017
         </abbr>
 
         <address class="vcard author">
@@ -181,113 +146,75 @@
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
 </footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">strStr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">haystack</span><span class="p">,</span> <span class="n">needle</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">simplifyPath</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type haystack: str</span>
-<span class="sd">        :type needle: str</span>
-<span class="sd">        :rtype: int</span>
+<span class="sd">        :type path: str</span>
+<span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">needle</span><span class="p">:</span>
-            <span class="k">return</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">haystack</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">needle</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">haystack</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">needle</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-                <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
-                <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">needle</span><span class="p">)</span> <span class="ow">and</span> <span class="n">haystack</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">needle</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
-                    <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">if ...</span></pre></div>
-                <a class="readmore" href="/28-implement-strstr.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/27-remove-element.html" rel="bookmark"
-                           title="Permalink to 27. Remove Element">27. Remove Element</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-12-20T12:27:00">
-                Tue 20 December 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">removeElement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type nums: List[int]</span>
-<span class="sd">        :type val: int</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">j</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">val</span><span class="p">:</span>
-                <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">],[</span><span class="n">i</span><span class="p">]</span>
-                <span class="n">j</span><span class="o">-=</span><span class="mi">1</span>
-        <span class="k">return</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">answer ...</span></pre></div>
-                <a class="readmore" href="/27-remove-element.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/26-remove-duplicates-from-sorted-array.html" rel="bookmark"
-                           title="Permalink to 26. Remove Duplicates from Sorted Array">26. Remove Duplicates from Sorted Array</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-12-20T12:26:00">
-                Tue 20 December 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">removeDuplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type nums: List[int]</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">nums</span> <span class="o">==</span> <span class="p">[]:</span>
-            <span class="k">return</span> <span class="mi">0</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
-                <span class="k">continue</span>
+        <span class="n">places</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">p</span> <span class="o">!=</span> <span class="s">&quot;.&quot;</span> <span class="ow">and</span> <span class="n">p</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">]</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">places</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span> <span class="o">!=</span> <span class="s">&#39;..&#39;</span><span class="p">:</span>
+                <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">nums</span><span class="p">[</span><span class="n">count</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">count</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>   <span class="c"># &#39;..&#39; means return parent path</span>
+                    <span class="n">l</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="s">&#39;/&#39;</span> <span class="o">+</span> <span class="s">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__ ...</span></pre></div>
+                <a class="readmore" href="/71-simplify-path.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/70-climbing-stairs.html" rel="bookmark"
+                           title="Permalink to 70. Climbing Stairs">70. Climbing Stairs</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-02-25T20:16:00">
+                Sat 25 February 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">climbStairs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type n: int</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">stepLst</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">:</span>
+            <span class="n">stepLst</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="n">stepLst</span><span class="p">[</span><span class="n">start</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">stepLst</span><span class="p">[</span><span class="n">start</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">stepLst</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">answer</span><span class="o">=</span><span class="n">Solution</span><span class="p">()</span>
-    <span class="k">print ...</span></pre></div>
-                <a class="readmore" href="/26-remove-duplicates-from-sorted-array.html">read more</a>
+    <span class="k">print</span> <span class="n">answer</span><span class="o">.</span><span class="n">climbStairs</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+                <a class="readmore" href="/70-climbing-stairs.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/24-swap-nodes-in-pairs.html" rel="bookmark"
-                           title="Permalink to 24. Swap Nodes in Pairs">24. Swap Nodes in Pairs</a></h1>
+                    <h1><a href="/69-sqrtx.html" rel="bookmark"
+                           title="Permalink to 69. Sqrt(x)">69. Sqrt(x)</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-12-20T12:24:00">
-                Tue 20 December 2016
+        <abbr class="published" title="2017-02-25T20:15:00">
+                Sat 25 February 2017
         </abbr>
 
         <address class="vcard author">
@@ -296,34 +223,35 @@
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
 </footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">fourSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mySqrt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type nums: List[int]</span>
-<span class="sd">        :type target: int</span>
-<span class="sd">        :rtype: List[List[int]]</span>
+<span class="sd">        :type x: int</span>
+<span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">head</span> <span class="o">==</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">head</span>
-        <span class="n">dummy</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-        <span class="n">dummy</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">dummy</span>
-        <span class="k">while</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
-            <span class="n">tmp</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next ...</span></pre></div>
-                <a class="readmore" href="/24-swap-nodes-in-pairs.html">read more</a>
+        <span class="n">sr</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">while</span> <span class="n">sr</span><span class="o">**</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">:</span>
+            <span class="n">better</span> <span class="o">=</span> <span class="p">(</span><span class="n">sr</span><span class="o">+</span><span class="n">x</span><span class="o">/</span><span class="n">sr</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+            <span class="n">sr</span> <span class="o">=</span> <span class="n">better</span>
+        <span class="k">return</span> <span class="n">sr</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">answer</span><span class="o">=</span><span class="n">Solution</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">answer</span><span class="o">.</span><span class="n">mySqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+                <a class="readmore" href="/69-sqrtx.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/22-generate-parentheses.html" rel="bookmark"
-                           title="Permalink to 22. Generate Parentheses">22. Generate Parentheses</a></h1>
+                    <h1><a href="/67-add-binary.html" rel="bookmark"
+                           title="Permalink to 67. Add Binary">67. Add Binary</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-12-20T12:22:00">
-                Tue 20 December 2016
+        <abbr class="published" title="2017-02-25T20:14:00">
+                Sat 25 February 2017
         </abbr>
 
         <address class="vcard author">
@@ -332,37 +260,73 @@
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
 </footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">generateParenthesis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">addBinary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type n: int</span>
-<span class="sd">        :rtype: List[str]</span>
+<span class="sd">        :type a: str</span>
+<span class="sd">        :type b: str</span>
+<span class="sd">        :rtype: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">mylist</span><span class="o">=</span><span class="p">[]</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">))]</span>
+        <span class="n">blist</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">b</span><span class="p">))]</span>
+
+        <span class="n">lengtha</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
+        <span class="n">lengthb</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">blist</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">lengtha</span> <span class="o">&lt;</span> <span class="n">lengthb</span><span class="p">:</span>
+            <span class="n">alist</span><span class="p">,</span> <span class="n">blist</span> <span class="o">=</span> <span class="n">blist</span><span class="p">,</span> <span class="n">alist</span>
+            <span class="n">lengtha</span><span class="p">,</span> <span class="n">lengthb</span> <span class="o">=</span> <span class="n">lengthb ...</span></pre></div>
+                <a class="readmore" href="/67-add-binary.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/66-plus-one.html" rel="bookmark"
+                           title="Permalink to 66. Plus One">66. Plus One</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-02-25T20:13:00">
+                Sat 25 February 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">plusOne</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">digits</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type digits: List[int]</span>
+<span class="sd">        :rtype: List[int]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">reverse_digits</span> <span class="o">=</span> <span class="n">digits</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">reverse_digits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="n">reverse_digits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">reverse_digits</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="k">return</span> <span class="p">[</span><span class="s">&quot;()&quot;</span><span class="p">]</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">generateParenthesis</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">):</span>
-                        <span class="n">newp</span><span class="o">=</span><span class="s">&quot;(&quot;</span><span class="o">+</span><span class="n">item</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="s">&quot;)&quot;</span><span class="o">+</span><span class="n">item</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span>
-                        <span class="k">if</span> <span class="n">newp</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mylist</span><span class="p">:</span>
-                            <span class="n">mylist ...</span></pre></div>
-                <a class="readmore" href="/22-generate-parentheses.html">read more</a>
+            <span class="n">carry</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">for</span> <span class="n">pos</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">reverse_digits</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">val</span> <span class="o">+</span> <span class="n">carry</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+                    <span class="n">reverse_digits</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="n">carry</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">reverse_digits</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">val ...</span></pre></div>
+                <a class="readmore" href="/66-plus-one.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/21-merge-two-sorted-lists.html" rel="bookmark"
-                           title="Permalink to 21. Merge Two Sorted Lists">21. Merge Two Sorted Lists</a></h1>
+                    <h1><a href="/64-minimum-path-sum.html" rel="bookmark"
+                           title="Permalink to 64. Minimum Path Sum">64. Minimum Path Sum</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2016-12-20T12:21:00">
-                Tue 20 December 2016
+        <abbr class="published" title="2017-02-25T20:11:00">
+                Sat 25 February 2017
         </abbr>
 
         <address class="vcard author">
@@ -370,31 +334,60 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for singly-linked list.</span>
-<span class="k">class</span> <span class="nc">ListNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">None</span>
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">mergeTwoLists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">):</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">minPathSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type l1: ListNode</span>
-<span class="sd">        :type l2: ListNode</span>
-<span class="sd">        :rtype: ListNode</span>
+<span class="sd">        :type grid: List[List[int]]</span>
+<span class="sd">        :rtype: int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">res</span><span class="o">=</span><span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">tmp</span><span class="o">=</span><span class="n">res</span>
-        <span class="k">while</span> <span class="n">l1</span> <span class="o">!=</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">l2</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">l1</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">l2</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
-                <span class="n">tmp ...</span></pre></div>
-                <a class="readmore" href="/21-merge-two-sorted-lists.html">read more</a>
+
+        <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">m</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="nb">sum</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">])</span>  <span class="c"># single row or column</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>             <span class="c"># set first column</span>
+            <span class="n">grid</span><span class="p">[</span><span class="n">i ...</span></pre></div>
+                <a class="readmore" href="/64-minimum-path-sum.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/63-unique-paths-ii.html" rel="bookmark"
+                           title="Permalink to 63. Unique Paths II">63. Unique Paths II</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-02-25T20:10:00">
+                Sat 25 February 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">uniquePathsWithObstacles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obstacleGrid</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type obstacleGrid: List[List[int]]</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">obstacleGrid</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">obstacleGrid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">obstacleGrid</span><span class="p">,</span><span class="n">path</span><span class="o">=</span><span class="p">{})</span>
+
+    <span class="k">def</span> <span class="nf">unique</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">obstacleGrid</span><span class="p">,</span><span class="n">path</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">obstacleGrid</span><span class="p">[</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c"># base statement ...</span></pre></div>
+                <a class="readmore" href="/63-unique-paths-ii.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
         <a href="/index9.html">&laquo;</a>
-    Page 10 / 19
+    Page 10 / 22
         <a href="/index11.html">&raquo;</a>
 </p>
             </section><!-- /#content -->

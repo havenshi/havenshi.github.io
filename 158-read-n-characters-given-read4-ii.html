@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>158. Read N Characters Given Read4 II</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Welcome to Haven's blog! </a></h1>
+                <nav><ul>
+                    <li><a href="/category/about.html">About</a></li>
+                    <li><a href="/category/english.html">English</a></li>
+                    <li class="active"><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/technology.html">Technology</a></li>
+                    <li><a href="/category/travel.html">Travel</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/158-read-n-characters-given-read4-ii.html" rel="bookmark"
+           title="Permalink to 158. Read N Characters Given Read4 II">158. Read N Characters Given Read4 II</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:36:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->      <div class="highlight"><pre><span class="c"># The API: int read4(char *buf) reads 4 characters at a time from a file.</span>
+<span class="c">#</span>
+<span class="c"># The return value is the actual number of characters read. For example, it returns 3 if there is only 3 characters left in the file.</span>
+<span class="c">#</span>
+<span class="c"># By using the read4 API, implement the function int read(char *buf, int n) that reads n characters from the file.</span>
+<span class="c">#</span>
+<span class="c"># Note:</span>
+<span class="c"># The read function may be called multiple times.</span>
+<span class="c">#</span>
+
+<span class="c"># The read4 API is already defined for you.</span>
+<span class="c"># @param buf, a list of characters</span>
+<span class="c"># @return an integer</span>
+<span class="k">def</span> <span class="nf">read4</span><span class="p">(</span><span class="n">buf</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">file_content</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">buf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_content</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">file_content</span> <span class="o">=</span> <span class="n">file_content</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">file_content</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">i</span>
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">remain</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type buf: Destination buffer (List[str])</span>
+<span class="sd">        :type n: Maximum number of characters to read (int)</span>
+<span class="sd">        :rtype: The number of characters read (int)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="nb">buffer</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span>
+        <span class="n">copyn</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">remain</span><span class="p">:</span> <span class="c"># read remain part from the last call</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">remain</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">copyn</span> <span class="o">&gt;</span> <span class="n">length</span><span class="p">:</span>  <span class="c"># append remain firstly</span>
+                <span class="n">buf</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">start</span> <span class="o">+</span> <span class="n">length</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">remain</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="n">length</span>
+                <span class="n">copyn</span> <span class="o">-=</span> <span class="n">length</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">buf</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">start</span> <span class="o">+</span> <span class="n">length</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">remain</span> <span class="c"># append add remain, no file left</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="n">length</span>
+                <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">copyn</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c"># if any group left</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="n">read4</span><span class="p">(</span><span class="nb">buffer</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">copyn</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="n">buf</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">start</span> <span class="o">+</span> <span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="nb">buffer</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="mi">4</span>
+                <span class="n">copyn</span> <span class="o">-=</span> <span class="mi">4</span>
+            <span class="k">else</span><span class="p">:</span>             <span class="c"># if remain group length is 1-3</span>
+                <span class="nb">buffer</span> <span class="o">=</span> <span class="nb">buffer</span><span class="p">[:</span><span class="n">size</span><span class="p">]</span> <span class="c"># only slice with size length from 4</span>
+                <span class="n">gap</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">copyn</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span> <span class="c"># get the minimum of copyn and size</span>
+                <span class="n">buf</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">start</span> <span class="o">+</span> <span class="n">gap</span><span class="p">]</span> <span class="o">=</span> <span class="nb">buffer</span><span class="p">[:</span><span class="n">gap</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">remain</span> <span class="o">=</span> <span class="nb">buffer</span><span class="p">[</span><span class="n">gap</span><span class="p">:]</span>  <span class="c"># remain part</span>
+                <span class="n">start</span> <span class="o">+=</span> <span class="n">gap</span>
+                <span class="k">break</span>
+        <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">global</span> <span class="n">file_content</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">()</span>
+    <span class="n">buf</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+    <span class="n">file_content</span> <span class="o">=</span> <span class="s">&quot;abcdefg&quot;</span>
+    <span class="k">print</span> <span class="n">buf</span><span class="p">[:</span><span class="n">answer</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+    <span class="k">print</span> <span class="n">buf</span><span class="p">[:</span><span class="n">answer</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</pre></div>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
