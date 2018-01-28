@@ -27,6 +27,45 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/165-compare-version-numbers.html" rel="bookmark"
+                           title="Permalink to 165. Compare Version Numbers">165. Compare Version Numbers</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:43:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">compareVersion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">version1</span><span class="p">,</span> <span class="n">version2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type version1: str</span>
+<span class="sd">        :type version2: str</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">v1Arr</span> <span class="o">=</span> <span class="n">version1</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span>
+        <span class="n">v2Arr</span> <span class="o">=</span> <span class="n">version2</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span>
+        <span class="n">len1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">v1Arr</span><span class="p">)</span>
+        <span class="n">len2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">v2Arr</span><span class="p">)</span>
+        <span class="n">lenMax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">len1</span><span class="p">,</span> <span class="n">len2</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lenMax</span><span class="p">):</span>
+            <span class="n">v1Token</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">len1</span><span class="p">:</span>
+                <span class="n">v1Token</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v1Arr</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+            <span class="n">v2Token</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">if</span> <span class="n">x ...</span></pre></div>
+                <a class="readmore" href="/165-compare-version-numbers.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/164-maximum-gap.html" rel="bookmark"
                            title="Permalink to 164. Maximum Gap">164. Maximum Gap</a></h1>
                 </header>
@@ -319,48 +358,6 @@
 <span class="c"># turn it into a tree where the original right nodes turned into left leaf nodes.</span>
 <span class="c"># Return the new ...</span></pre></div>
                 <a class="readmore" href="/156-binary-tree-upside-down.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/155-min-stack.html" rel="bookmark"
-                           title="Permalink to 155. Min Stack">155. Min Stack</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-05-17T19:33:00">
-                Wed 17 May 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">MinStack</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        initialize your data structure here.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nums</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">minv</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type x: int</span>
-<span class="sd">        :rtype: void</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nums</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">minv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">newmin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">minv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">minv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newmin</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">pop ...</span></pre></div>
-                <a class="readmore" href="/155-min-stack.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

@@ -27,6 +27,43 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/179-largest-number.html" rel="bookmark"
+                           title="Permalink to 179. Largest Number">179. Largest Number</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:53:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># -*- coding:utf8 -*-</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="c"># @param {integer[]} nums</span>
+    <span class="c"># @return {string}</span>
+    <span class="k">def</span> <span class="nf">largestNumber</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+        <span class="k">while</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">help</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;0&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s">&#39;0&#39;</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">help</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>  <span class="c"># 如果a＋b串大于b＋a串，那么a比较大，反之b比较大。</span>
+        <span class="n">strnums</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">]</span>
+        <span class="n">index ...</span></pre></div>
+                <a class="readmore" href="/179-largest-number.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/174-dungeon-game.html" rel="bookmark"
                            title="Permalink to 174. Dungeon Game">174. Dungeon Game</a></h1>
                 </header>
@@ -350,45 +387,6 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">return</span> <span class="s">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">before ...</span></pre></div>
                 <a class="readmore" href="/166-fraction-to-recurring-decimal.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/165-compare-version-numbers.html" rel="bookmark"
-                           title="Permalink to 165. Compare Version Numbers">165. Compare Version Numbers</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-05-17T19:43:00">
-                Wed 17 May 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">compareVersion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">version1</span><span class="p">,</span> <span class="n">version2</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type version1: str</span>
-<span class="sd">        :type version2: str</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">v1Arr</span> <span class="o">=</span> <span class="n">version1</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span>
-        <span class="n">v2Arr</span> <span class="o">=</span> <span class="n">version2</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span>
-        <span class="n">len1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">v1Arr</span><span class="p">)</span>
-        <span class="n">len2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">v2Arr</span><span class="p">)</span>
-        <span class="n">lenMax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">len1</span><span class="p">,</span> <span class="n">len2</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lenMax</span><span class="p">):</span>
-            <span class="n">v1Token</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">len1</span><span class="p">:</span>
-                <span class="n">v1Token</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v1Arr</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
-            <span class="n">v2Token</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">if</span> <span class="n">x ...</span></pre></div>
-                <a class="readmore" href="/165-compare-version-numbers.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

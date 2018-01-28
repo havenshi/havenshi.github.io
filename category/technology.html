@@ -25,7 +25,34 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/convert-pic-to-txt.html">Convert pic to txt</a></h1>
+                    <h1 class="entry-title"><a href="/do-to-list.html">Do to list</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-01-28T11:06:00">
+                Sun 28 January 2018
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/technology.html">Technology</a>. </p>
+<p>tags: <a href="/tag/machine-learning.html">machine learning</a></p>
+</footer><!-- /.post-info --><p>machine learning
+hadoop
+C/C++
+algorithm(stack,queue,kmp)</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/convert-pic-to-txt.html" rel="bookmark"
+                           title="Permalink to Convert pic to txt">Convert pic to txt</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2016-12-26T11:28:00">
                 Mon 26 December 2016
@@ -36,7 +63,7 @@
         </address>
 <p>In <a href="/category/technology.html">Technology</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a><a href="/tag/pillow.html">pillow</a><a href="/tag/image.html">image</a></p>
-</footer><!-- /.post-info --><h1>Look at my nyanko sensei picture! かわいい~~</h1>
+</footer><!-- /.post-info -->                <h1>Look at my nyanko sensei picture! かわいい~~</h1>
 <p><img alt="cat" src="https://raw.githubusercontent.com/havenshi/havenshi.github.io/master/images/convertcat.jpg" /></p>
 <div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
@@ -51,24 +78,10 @@
     <span class="n">result</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>  <span class="c"># 储存字符串</span>
     <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">image_file</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>  <span class="c"># height</span>
         <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">image_file</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>  <span class="c"># width</span>
-            <span class="n">gray</span> <span class="o">=</span> <span class="n">image_file</span><span class="o">.</span><span class="n">getpixel</span><span class="p">((</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
-            <span class="n">result</span> <span class="o">+=</span> <span class="n">grey2char</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">gray</span> <span class="o">/</span> <span class="p">(</span><span class="mi">255</span> <span class="o">/</span> <span class="p">(</span><span class="n">count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))]</span>
-        <span class="n">result</span> <span class="o">+=</span> <span class="s">&#39;</span><span class="se">\r\n</span><span class="s">&#39;</span>
-    <span class="k">return</span> <span class="n">result</span>
-
-
-<span class="n">image_file</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&quot;nyanko.jpg&quot;</span><span class="p">)</span>  <span class="c"># 打开图片</span>
-<span class="n">image_file</span> <span class="o">=</span> <span class="n">image_file</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">image_file</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mf">0.2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">image_file</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.1</span><span class="p">)))</span>  <span class="c"># 调整图片大小</span>
-
-<span class="n">output</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;outputcat.txt&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
-<span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">toText</span><span class="p">(</span><span class="n">image_file</span><span class="p">))</span>
-<span class="n">output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+            <span class="n">gray</span> <span class="o">=</span> <span class="n">image_file</span><span class="o">.</span><span class="n">getpixel ...</span></pre></div>
+                <a class="readmore" href="/convert-pic-to-txt.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>

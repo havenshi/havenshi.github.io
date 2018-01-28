@@ -27,6 +27,45 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/39-combination-sum.html" rel="bookmark"
+                           title="Permalink to 39. Combination Sum">39. Combination Sum</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-01-06T11:45:00">
+                Fri 06 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">combinationSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">candidates</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type candidates: List[int]</span>
+<span class="sd">        :type target: int</span>
+<span class="sd">        :rtype: List[List[int]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">candidates</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">candidates</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">recursive_comb</span><span class="p">([</span><span class="n">candidates</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">candidates</span><span class="p">[</span><span class="n">i</span><span class="p">:],</span> <span class="n">target</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span>
+
+
+    <span class="k">def</span> <span class="nf">recursive_comb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp_array</span><span class="p">,</span> <span class="n">rest_array</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">temp_array ...</span></pre></div>
+                <a class="readmore" href="/39-combination-sum.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/38-count-and-say.html" rel="bookmark"
                            title="Permalink to 38. Count and Say">38. Count and Say</a></h1>
                 </header>
@@ -351,47 +390,6 @@
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">answer ...</span></pre></div>
                 <a class="readmore" href="/27-remove-element.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/26-remove-duplicates-from-sorted-array.html" rel="bookmark"
-                           title="Permalink to 26. Remove Duplicates from Sorted Array">26. Remove Duplicates from Sorted Array</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-12-20T12:26:00">
-                Tue 20 December 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">removeDuplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type nums: List[int]</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">nums</span> <span class="o">==</span> <span class="p">[]:</span>
-            <span class="k">return</span> <span class="mi">0</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="ow">and</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]:</span>
-                <span class="k">continue</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">nums</span><span class="p">[</span><span class="n">count</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">count</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">answer</span><span class="o">=</span><span class="n">Solution</span><span class="p">()</span>
-    <span class="k">print ...</span></pre></div>
-                <a class="readmore" href="/26-remove-duplicates-from-sorted-array.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

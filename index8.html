@@ -27,6 +27,45 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/102-binary-tree-level-order-traversal.html" rel="bookmark"
+                           title="Permalink to 102. Binary Tree Level Order Traversal">102. Binary Tree Level Order Traversal</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-03-20T19:01:00">
+                Mon 20 March 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="kn">import</span> <span class="nn">Queue</span>
+<span class="c"># Definition for a binary tree node.</span>
+<span class="c"># class TreeNode(object):</span>
+<span class="c">#     def __init__(self, x):</span>
+<span class="c">#         self.val = x</span>
+<span class="c">#         self.left = None</span>
+<span class="c">#         self.right = None</span>
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">levelOrder</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type root: TreeNode</span>
+<span class="sd">        :rtype: List[List[int]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">root</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">()</span>
+        <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>  <span class="c"># record each ...</span></pre></div>
+                <a class="readmore" href="/102-binary-tree-level-order-traversal.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/101-symmetric-tree.html" rel="bookmark"
                            title="Permalink to 101. Symmetric Tree">101. Symmetric Tree</a></h1>
                 </header>
@@ -355,30 +394,6 @@ As a woman in tech, I’m passionate about using technology to make my job more 
         <span class="n">cons</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
         <span class="n">cur</span> <span class="o">=</span> <span class="n">cons ...</span></pre></div>
                 <a class="readmore" href="/92-reverse-linked-list-ii.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/personified-banks-department-characters.html" rel="bookmark"
-                           title="Permalink to Personified Bank's Department Characters">Personified Bank's Department Characters</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-02-25T22:30:00">
-                Sat 25 February 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/drawing.html">Drawing</a>. </p>
-
-</footer><!-- /.post-info -->                <h1>These pictures are drawn when I worked in Bank of China.</h1>
-<p><strong>Personified characters</strong> has a growing popularity in Japan. It means draw a series of things, like food, courses, countries or even programming language as certain kinds of cartoon characters. It could be also used to departments.</p>
-<p>When I worked ...</p>
-                <a class="readmore" href="/personified-banks-department-characters.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
