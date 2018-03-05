@@ -27,6 +27,79 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/1-two-sum.html" rel="bookmark"
+                           title="Permalink to 1. Two Sum">1. Two Sum</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-10-22T20:58:00">
+                Sat 22 October 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">twoSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type nums: List[int]</span>
+<span class="sd">        :type target: int</span>
+<span class="sd">        :rtype: List[int]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="n">target</span><span class="o">-</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">nums</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+                    <span class="k">return</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">()</span>
+    <span class="n">nums</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11 ...</span></pre></div>
+                <a class="readmore" href="/1-two-sum.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/download-bird.html" rel="bookmark"
+                           title="Permalink to Download Bird">Download Bird</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-10-05T12:00:00">
+                Wed 05 October 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/technology.html">Technology</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a><a href="/tag/download.html">download</a><a href="/tag/beautifulsoup.html">BeautifulSoup</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">urlparse</span> <span class="kn">import</span> <span class="n">urljoin</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+
+<span class="k">def</span> <span class="nf">generate_url_list</span><span class="p">(</span><span class="n">input_url</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">input_url</span><span class="p">)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s">&#39;html.parser&#39;</span><span class="p">)</span>
+
+    <span class="n">page_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">&#39;a &gt; img&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s">&quot;org&quot;</span> <span class="ow">in</span> <span class="n">link</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;href&quot;</span><span class="p">):</span>
+            <span class="n">page_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&quot;href&quot;</span><span class="p">))</span>
+            <span class="k">continue</span>
+        <span class="n">page_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;http ...</span></pre></div>
+                <a class="readmore" href="/download-bird.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/zootopia-pictures-i-drew.html" rel="bookmark"
                            title="Permalink to Zootopia pictures I drew">Zootopia pictures I drew</a></h1>
                 </header>
@@ -339,44 +412,11 @@
                 <a class="readmore" href="/practical-japan-travel-tips.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/create-blog.html" rel="bookmark"
-                           title="Permalink to Use Pelican and GitHub Page to create blog">Use Pelican and GitHub Page to create blog</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-08-16T10:00:00">
-                Tue 16 August 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/technology.html">Technology</a>. </p>
-<p>tags: <a href="/tag/pelican.html">pelican</a><a href="/tag/github-page.html">github page</a></p>
-</footer><!-- /.post-info -->                <h2>This is a test</h2>
-<p>Code blocks must be indented by 4 whitespaces.
-Python-Markdown has a auto-guess function which works
-pretty well:</p>
-<div class="highlight"><pre><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, World&quot;</span><span class="p">)</span>
-<span class="cp"># some comment</span>
-<span class="k">for</span> <span class="n">letter</span> <span class="n">in</span> <span class="s">&quot;this is a test&quot;</span><span class="o">:</span>
-    <span class="n">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
-</pre></div>
-
-
-<p>In cases where Python-Markdown has problems figuring out which
-programming language we use, we can ...</p>
-                <a class="readmore" href="/create-blog.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
         <a href="/author/haven21.html">&laquo;</a>
-    Page 22 / 22
+    Page 22 / 23
+        <a href="/author/haven23.html">&raquo;</a>
 </p>
             </section><!-- /#content -->
         <section id="extras" class="body">
