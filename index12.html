@@ -27,6 +27,42 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/56-merge-intervals.html" rel="bookmark"
+                           title="Permalink to 56. Merge Intervals">56. Merge Intervals</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-02-25T20:04:00">
+                Sat 25 February 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for an interval.</span>
+<span class="k">class</span> <span class="nc">Interval</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">s</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">e</span>
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">intervals</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type intervals: List[Interval]</span>
+<span class="sd">        :rtype: List[Interval]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">intervals</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c"># sort, firstly sort start, then end, example [2,19],[15,18]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">intervals ...</span></pre></div>
+                <a class="readmore" href="/56-merge-intervals.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/55-jump-game.html" rel="bookmark"
                            title="Permalink to 55. Jump Game">55. Jump Game</a></h1>
                 </header>
@@ -364,44 +400,6 @@
 
     <span class="k">def</span> <span class="nf">recursive_comb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp_array</span><span class="p">,</span> <span class="n">rest_array ...</span></pre></div>
                 <a class="readmore" href="/47-permutations-ii.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/46-permutations.html" rel="bookmark"
-                           title="Permalink to 46. Permutations">46. Permutations</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-01-06T11:48:00">
-                Fri 06 January 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">permute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type nums: List[int]</span>
-<span class="sd">        :rtype: List[List[int]]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-            <span class="n">length</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">recursive_comb</span><span class="p">([</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">nums</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">length</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span>
-
-
-    <span class="k">def</span> <span class="nf">recursive_comb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">temp_array</span><span class="p">,</span> <span class="n">rest_array</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp_array ...</span></pre></div>
-                <a class="readmore" href="/46-permutations.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

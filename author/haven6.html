@@ -27,6 +27,43 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/133-clone-graph.html" rel="bookmark"
+                           title="Permalink to 133. Clone Graph">133. Clone Graph</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-03-20T19:33:00">
+                Mon 20 March 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for a undirected graph node</span>
+<span class="c"># class UndirectedGraphNode:</span>
+<span class="c">#     def __init__(self, x):</span>
+<span class="c">#         self.label = x</span>
+<span class="c">#         self.neighbors = []</span>
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="c"># @param node, a undirected graph node</span>
+    <span class="c"># @return a undirected graph node</span>
+    <span class="k">def</span> <span class="nf">cloneGraph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">clone</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="nb">dict</span><span class="o">=</span><span class="p">{})</span>
+
+    <span class="k">def</span> <span class="nf">clone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">node</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">if ...</span></pre></div>
+                <a class="readmore" href="/133-clone-graph.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/131-palindrome-partitioning.html" rel="bookmark"
                            title="Permalink to 131. Palindrome Partitioning">131. Palindrome Partitioning</a></h1>
                 </header>
@@ -357,42 +394,6 @@
             <span class="n">newRow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result ...</span></pre></div>
                 <a class="readmore" href="/118-pascals-triangle.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/116-populating-next-right-pointers-in-each-node.html" rel="bookmark"
-                           title="Permalink to 116. Populating Next Right Pointers in Each Node">116. Populating Next Right Pointers in Each Node</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:16:00">
-                Mon 20 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for binary tree with next pointer.</span>
-<span class="c"># class TreeLinkNode:</span>
-<span class="c">#     def __init__(self, x):</span>
-<span class="c">#         self.val = x</span>
-<span class="c">#         self.left = None</span>
-<span class="c">#         self.right = None</span>
-<span class="c">#         self.next = None</span>
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="c"># @param root, a tree link node</span>
-    <span class="c"># @return nothing</span>
-    <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">root</span> <span class="ow">and</span> <span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">:</span>
-            <span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">right</span>
-            <span class="k">if ...</span></pre></div>
-                <a class="readmore" href="/116-populating-next-right-pointers-in-each-node.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

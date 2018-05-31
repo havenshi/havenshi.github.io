@@ -27,6 +27,46 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/82-remove-duplicates-from-sorted-list-ii.html" rel="bookmark"
+                           title="Permalink to 82. Remove Duplicates from Sorted List II">82. Remove Duplicates from Sorted List II</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-02-25T20:25:00">
+                Sat 25 February 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for singly-linked list.</span>
+<span class="c"># class ListNode(object):</span>
+<span class="c">#     def __init__(self, x):</span>
+<span class="c">#         self.val = x</span>
+<span class="c">#         self.next = None</span>
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">deleteDuplicates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type head: ListNode</span>
+<span class="sd">        :rtype: ListNode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">head</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">head</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">head</span>
+        <span class="n">previous</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">prepre</span> <span class="o">=</span> <span class="bp">None</span>  <span class="c"># third cursor</span>
+        <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">current</span> <span class="o">!=</span> <span class="bp">None</span><span class="p">:</span>  <span class="c"># test several times ...</span></pre></div>
+                <a class="readmore" href="/82-remove-duplicates-from-sorted-list-ii.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/81-search-in-rotated-sorted-array-ii.html" rel="bookmark"
                            title="Permalink to 81. Search in Rotated Sorted Array II">81. Search in Rotated Sorted Array II</a></h1>
                 </header>
@@ -351,43 +391,6 @@
     <span class="k">print</span> <span class="n">answer</span><span class="o">.</span><span class="n">climbStairs</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
                 <a class="readmore" href="/70-climbing-stairs.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/69-sqrtx.html" rel="bookmark"
-                           title="Permalink to 69. Sqrt(x)">69. Sqrt(x)</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-02-25T20:15:00">
-                Sat 25 February 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">mySqrt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type x: int</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">sr</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="k">while</span> <span class="n">sr</span><span class="o">**</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">:</span>
-            <span class="n">better</span> <span class="o">=</span> <span class="p">(</span><span class="n">sr</span><span class="o">+</span><span class="n">x</span><span class="o">/</span><span class="n">sr</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
-            <span class="n">sr</span> <span class="o">=</span> <span class="n">better</span>
-        <span class="k">return</span> <span class="n">sr</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">answer</span><span class="o">=</span><span class="n">Solution</span><span class="p">()</span>
-    <span class="k">print</span> <span class="n">answer</span><span class="o">.</span><span class="n">mySqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-                <a class="readmore" href="/69-sqrtx.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

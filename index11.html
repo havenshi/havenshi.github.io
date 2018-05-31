@@ -27,6 +27,43 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/69-sqrtx.html" rel="bookmark"
+                           title="Permalink to 69. Sqrt(x)">69. Sqrt(x)</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-02-25T20:15:00">
+                Sat 25 February 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mySqrt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type x: int</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sr</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">while</span> <span class="n">sr</span><span class="o">**</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">:</span>
+            <span class="n">better</span> <span class="o">=</span> <span class="p">(</span><span class="n">sr</span><span class="o">+</span><span class="n">x</span><span class="o">/</span><span class="n">sr</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+            <span class="n">sr</span> <span class="o">=</span> <span class="n">better</span>
+        <span class="k">return</span> <span class="n">sr</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">answer</span><span class="o">=</span><span class="n">Solution</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">answer</span><span class="o">.</span><span class="n">mySqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+                <a class="readmore" href="/69-sqrtx.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/67-add-binary.html" rel="bookmark"
                            title="Permalink to 67. Add Binary">67. Add Binary</a></h1>
                 </header>
@@ -336,42 +373,6 @@
     <span class="k">print</span> <span class="n">answer</span><span class="o">.</span><span class="n">lengthOfLastWord</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
 </pre></div>
                 <a class="readmore" href="/58-length-of-last-word.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/56-merge-intervals.html" rel="bookmark"
-                           title="Permalink to 56. Merge Intervals">56. Merge Intervals</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-02-25T20:04:00">
-                Sat 25 February 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for an interval.</span>
-<span class="k">class</span> <span class="nc">Interval</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">s</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">end</span> <span class="o">=</span> <span class="n">e</span>
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">intervals</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type intervals: List[Interval]</span>
-<span class="sd">        :rtype: List[Interval]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">intervals</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c"># sort, firstly sort start, then end, example [2,19],[15,18]</span>
-
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">intervals ...</span></pre></div>
-                <a class="readmore" href="/56-merge-intervals.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

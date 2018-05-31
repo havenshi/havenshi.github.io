@@ -27,6 +27,44 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/46-permutations.html" rel="bookmark"
+                           title="Permalink to 46. Permutations">46. Permutations</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-01-06T11:48:00">
+                Fri 06 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">permute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type nums: List[int]</span>
+<span class="sd">        :rtype: List[List[int]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+            <span class="n">length</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">recursive_comb</span><span class="p">([</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">nums</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">length</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span>
+
+
+    <span class="k">def</span> <span class="nf">recursive_comb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">temp_array</span><span class="p">,</span> <span class="n">rest_array</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp_array ...</span></pre></div>
+                <a class="readmore" href="/46-permutations.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/43-multiply-strings.html" rel="bookmark"
                            title="Permalink to 43. Multiply Strings">43. Multiply Strings</a></h1>
                 </header>
@@ -358,43 +396,6 @@
         <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">image_file</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>  <span class="c"># width</span>
             <span class="n">gray</span> <span class="o">=</span> <span class="n">image_file</span><span class="o">.</span><span class="n">getpixel ...</span></pre></div>
                 <a class="readmore" href="/convert-pic-to-txt.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/29-divide-two-integers.html" rel="bookmark"
-                           title="Permalink to 29. Divide Two Integers">29. Divide Two Integers</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-12-20T12:29:00">
-                Tue 20 December 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dividend</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type dividend: int</span>
-<span class="sd">        :type divisor: int</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">INT_MAX</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="mi">31</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
-        <span class="k">if</span> <span class="n">divisor</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">INT_MAX</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">symbol</span> <span class="o">=</span> <span class="n">dividend</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">divisor</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">dividend</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">divisor</span> <span class="o">&gt;</span> <span class="mi">0</span>
-            <span class="n">count</span><span class="o">=</span><span class="mi">0</span>
-            <span class="n">shift</span><span class="o">=</span><span class="mi">31</span>
-            <span class="n">dividend</span><span class="p">,</span><span class="n">divisor</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">dividend</span><span class="p">),</span><span class="nb">abs</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span>
-            <span class="k">while</span> <span class="n">shift ...</span></pre></div>
-                <a class="readmore" href="/29-divide-two-integers.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
