@@ -16,6 +16,7 @@
                 <nav><ul>
                     <li><a href="/category/about.html">About</a></li>
                     <li><a href="/category/drawing.html">Drawing</a></li>
+                    <li><a href="/category/drawing-technology-python.html">Drawing, Technology, Python</a></li>
                     <li><a href="/category/english.html">English</a></li>
                     <li><a href="/category/python.html">Python</a></li>
                     <li><a href="/category/technology.html">Technology</a></li>
@@ -25,6 +26,37 @@
 
                 <section id="content" class="body">
                     <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/6to-solve-all-the-prime-numbers-within-100.html" rel="bookmark"
+                           title="Permalink to 6.To solve all the prime Numbers within 100">6.To solve all the prime Numbers within 100</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-11-20T13:16:00">
+                Sun 20 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">primes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">t</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">primes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">primes</span>
+<span class="k">print</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">primes</span><span class="p">))</span>
+</pre></div>
+                <a class="readmore" href="/6to-solve-all-the-prime-numbers-within-100.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
             <li><article class="hentry">
                 <header>
                     <h1><a href="/5the-output-characters-of-the-odd-location-of-the-string.html" rel="bookmark"
@@ -344,46 +376,6 @@
 
                 <span class="k">while ...</span></pre></div>
                 <a class="readmore" href="/5-longest-palindromic-substring.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/3-longest-substring-without-repeating-characters.html" rel="bookmark"
-                           title="Permalink to 3. Longest Substring Without Repeating Characters">3. Longest Substring Without Repeating Characters</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-10-22T21:07:00">
-                Sat 22 October 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">lengthOfLongestSubstring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type s: str</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">new</span><span class="o">=</span><span class="s">&quot;&quot;</span>
-        <span class="nb">list</span><span class="o">=</span><span class="p">[]</span>
-        <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
-        <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">new</span><span class="p">:</span>
-                <span class="n">new</span><span class="o">+=</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-                <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">old</span><span class="o">=</span><span class="n">new</span>
-                <span class="nb">list</span><span class="o">+=</span><span class="p">[</span><span class="n">old</span><span class="p">]</span>
-                <span class="n">ind</span><span class="o">=</span><span class="n">old</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-                <span class="n">new</span><span class="o">=</span><span class="s">&quot;&quot;</span>
-                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">old ...</span></pre></div>
-                <a class="readmore" href="/3-longest-substring-without-repeating-characters.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

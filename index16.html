@@ -16,6 +16,7 @@
                 <nav><ul>
                     <li><a href="/category/about.html">About</a></li>
                     <li><a href="/category/drawing.html">Drawing</a></li>
+                    <li><a href="/category/drawing-technology-python.html">Drawing, Technology, Python</a></li>
                     <li><a href="/category/english.html">English</a></li>
                     <li><a href="/category/python.html">Python</a></li>
                     <li><a href="/category/technology.html">Technology</a></li>
@@ -25,6 +26,34 @@
 
                 <section id="content" class="body">
                     <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/59-a-square-joining-together.html" rel="bookmark"
+                           title="Permalink to 59. A square joining together">59. A square joining together</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-11-27T13:10:00">
+                Sun 27 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># A square joining together</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">removeoneside</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nums</span><span class="p">,</span><span class="n">side</span><span class="p">):</span>
+        <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">side</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="c"># res[i][j] = max(res[i - 1][j],res[i-1][j-nums[i-1]]+nums[i-1])</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1 ...</span></pre></div>
+                <a class="readmore" href="/59-a-square-joining-together.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
             <li><article class="hentry">
                 <header>
                     <h1><a href="/58the-least-common-multiple-i.html" rel="bookmark"
@@ -280,38 +309,6 @@
 <span class="k">print</span> <span class="s">&#39;</span><span class="si">%.3f</span><span class="s">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">math</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
 </pre></div>
                 <a class="readmore" href="/50py-throw-the-shot-put.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/49hexadecimal-conversion.html" rel="bookmark"
-                           title="Permalink to 49.hexadecimal conversion">49.hexadecimal conversion</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:49:00">
-                Sun 20 November 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="mi">184</span>
-<span class="n">b</span><span class="o">=</span><span class="mi">16</span>
-<span class="k">if</span> <span class="n">a</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
-    <span class="n">a</span><span class="o">=-</span><span class="n">a</span>
-    <span class="n">flag</span><span class="o">=</span><span class="s">&#39;-&#39;</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">flag</span><span class="o">=</span><span class="s">&#39;&#39;</span>
-<span class="n">res</span><span class="o">=</span><span class="p">[]</span>
-<span class="n">d</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s">&#39;0&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s">&#39;1&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s">&#39;2&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s">&#39;3&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="s">&#39;4&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">:</span><span class="s">&#39;5&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">:</span><span class="s">&#39;6&#39;</span><span class="p">,</span><span class="mi">7</span><span class="p">:</span><span class="s">&#39;7&#39;</span><span class="p">,</span><span class="mi">8</span><span class="p">:</span><span class="s">&#39;8&#39;</span><span class="p">,</span><span class="mi">9</span><span class="p">:</span><span class="s">&#39;9&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">:</span><span class="s">&#39;A&#39;</span><span class="p">,</span><span class="mi">11</span><span class="p">:</span><span class="s">&#39;B&#39;</span><span class="p">,</span><span class="mi">12</span><span class="p">:</span><span class="s">&#39;C&#39;</span><span class="p">,</span><span class="mi">13</span><span class="p">:</span><span class="s">&#39;D&#39;</span><span class="p">,</span><span class="mi">14</span><span class="p">:</span><span class="s">&#39;E&#39;</span><span class="p">,</span><span class="mi">15</span><span class="p">:</span><span class="s">&#39;F&#39;</span><span class="p">}</span>
-<span class="k">while</span> <span class="n">a</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
-    <span class="n">res ...</span></pre></div>
-                <a class="readmore" href="/49hexadecimal-conversion.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

@@ -16,6 +16,7 @@
                 <nav><ul>
                     <li><a href="/category/about.html">About</a></li>
                     <li><a href="/category/drawing.html">Drawing</a></li>
+                    <li><a href="/category/drawing-technology-python.html">Drawing, Technology, Python</a></li>
                     <li><a href="/category/english.html">English</a></li>
                     <li><a href="/category/python.html">Python</a></li>
                     <li><a href="/category/technology.html">Technology</a></li>
@@ -25,6 +26,40 @@
 
                 <section id="content" class="body">
                     <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/58-length-of-last-word.html" rel="bookmark"
+                           title="Permalink to 58. Length of Last Word">58. Length of Last Word</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-02-25T20:05:00">
+                Sat 25 February 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">lengthOfLastWord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type s: str</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">l</span><span class="o">=</span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">answer</span><span class="o">=</span><span class="n">Solution</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">answer</span><span class="o">.</span><span class="n">lengthOfLastWord</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+                <a class="readmore" href="/58-length-of-last-word.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
             <li><article class="hentry">
                 <header>
                     <h1><a href="/56-merge-intervals.html" rel="bookmark"
@@ -363,43 +398,6 @@
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
                 <span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">matrix</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">j</span><span class="p">][</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1 ...</span></pre></div>
                 <a class="readmore" href="/48-rotate-image.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/47-permutations-ii.html" rel="bookmark"
-                           title="Permalink to 47. Permutations II">47. Permutations II</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-01-06T11:49:00">
-                Fri 06 January 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">permute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type nums: List[int]</span>
-<span class="sd">        :rtype: List[List[int]]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-            <span class="n">i</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-            <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">recursive_comb</span><span class="p">([</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">nums</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">length</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span>
-
-    <span class="k">def</span> <span class="nf">recursive_comb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp_array</span><span class="p">,</span> <span class="n">rest_array ...</span></pre></div>
-                <a class="readmore" href="/47-permutations-ii.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
