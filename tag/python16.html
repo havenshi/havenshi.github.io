@@ -16,7 +16,6 @@
                 <nav><ul>
                     <li><a href="/category/about.html">About</a></li>
                     <li><a href="/category/drawing.html">Drawing</a></li>
-                    <li><a href="/category/drawing-technology-python.html">Drawing, Technology, Python</a></li>
                     <li><a href="/category/english.html">English</a></li>
                     <li><a href="/category/python.html">Python</a></li>
                     <li><a href="/category/technology.html">Technology</a></li>
@@ -26,6 +25,37 @@
 
                 <section id="content" class="body">
                     <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/52factor-sum-of-squares.html" rel="bookmark"
+                           title="Permalink to 52.Factor sum of squares">52.Factor sum of squares</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-11-20T15:52:00">
+                Sun 20 November 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="c"># s = 0</span>
+<span class="c"># for i in range(1,N+1):</span>
+<span class="c">#   s = s + i**2*(N//i)    # step 1</span>
+<span class="c"># print (s)</span>
+
+<span class="c"># N = 16</span>
+<span class="c"># L1 = list(range(1,N+1))</span>
+<span class="c"># L2 = [N//i for i in L1]    # step 2 [16, 8, 5, 4, 3, 2, 2, 2, 1, 1, 1, 1 ...</span></pre></div>
+                <a class="readmore" href="/52factor-sum-of-squares.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
             <li><article class="hentry">
                 <header>
                     <h1><a href="/51descending-order.html" rel="bookmark"
@@ -283,47 +313,10 @@
                 <a class="readmore" href="/43the-fibonacci-sequence.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/42splitting-the-prime-numbers-sum.html" rel="bookmark"
-                           title="Permalink to 42.Splitting the prime Numbers sum">42.Splitting the prime Numbers sum</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-11-20T15:42:00">
-                Sun 20 November 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="n">n</span><span class="o">=</span><span class="mi">10</span>
-
-<span class="k">def</span> <span class="nf">isPrime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">False</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">False</span>
-    <span class="k">return</span> <span class="bp">True</span>
-
-<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">isPrime</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="ow">and</span> <span class="n">isPrime</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">):</span>
-        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="k">print</span> <span class="n">count</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-                <a class="readmore" href="/42splitting-the-prime-numbers-sum.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
         <a href="/tag/python15.html">&laquo;</a>
-    Page 16 / 21
+    Page 16 / 22
         <a href="/tag/python17.html">&raquo;</a>
 </p>
             </section><!-- /#content -->
