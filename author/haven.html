@@ -37,16 +37,26 @@
 <p>In <a href="/category/technology.html">Technology</a>. </p>
 <p>tags: <a href="/tag/kafka.html">Kafka</a><a href="/tag/zookeeper.html">Zookeeper</a></p>
 </footer><!-- /.post-info --><p>Changing from user to superuser: <strong>sudo su</strong></p>
-<p>bin/zookeeper-server-start.sh config/zookeeper.properties</p>
-<p>bin/kafka-server-start.sh config/server.properties</p>
-<p>should be run in two terminals</p>
+<div class="highlight"><pre><span class="nb">bin</span><span class="o">/</span><span class="n">zookeeper</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">start</span><span class="o">.</span><span class="n">sh</span> <span class="n">config</span><span class="o">/</span><span class="n">zookeeper</span><span class="o">.</span><span class="n">properties</span>
+<span class="nb">bin</span><span class="o">/</span><span class="n">kafka</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">start</span><span class="o">.</span><span class="n">sh</span> <span class="n">config</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">properties</span>
+</pre></div>
+
+
+<p>should be run in <strong>two terminals</strong></p>
 <p>found port 2181 used, kill the program run on port 2181</p>
-<p>env | grep JAVA</p>
-<p>JAVA_HOME=/opt/jdk/jdk1.8.0_181</p>
-<p>vi .bashrc</p>
-<p>export JAVA_HOME="/opt/jdk/jdk1.8.0_181"</p>
-<p>export PATH=$JAVA_HOME/bin:$PATH</p>
-<p>source .bashrc</p>
+<div class="highlight"><pre><span class="n">env</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">JAVA</span>
+<span class="n">JAVA_HOME</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">jdk</span><span class="o">/</span><span class="n">jdk1</span><span class="o">.</span><span class="mf">8.0</span><span class="n">_181</span>
+
+
+<span class="n">vi</span> <span class="o">.</span><span class="n">bashrc</span>
+
+<span class="n">export</span> <span class="n">JAVA_HOME</span><span class="o">=</span><span class="s">&quot;/opt/jdk/jdk1.8.0_181&quot;</span>
+<span class="n">export</span> <span class="n">PATH</span><span class="o">=</span><span class="err">$</span><span class="n">JAVA_HOME</span><span class="o">/</span><span class="nb">bin</span><span class="p">:</span><span class="err">$</span><span class="n">PATH</span>
+
+<span class="n">source</span> <span class="o">.</span><span class="n">bashrc</span>
+</pre></div>
+
+
 <p>open another terminal</p>
 <h5>1.Creating a Kafka Topic</h5>
 <ul>
