@@ -27,6 +27,39 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/191-number-of-1-bits.html" rel="bookmark"
+                           title="Permalink to 191. Number of 1 Bits">191. Number of 1 Bits</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:58:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">hammingWeight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type n: int</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">i</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">count</span>
+</pre></div>
+                <a class="readmore" href="/191-number-of-1-bits.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/190-reverse-bits.html" rel="bookmark"
                            title="Permalink to 190. Reverse Bits">190. Reverse Bits</a></h1>
                 </header>
@@ -346,37 +379,6 @@
         <span class="k">return</span> <span class="n">res</span>
 </pre></div>
                 <a class="readmore" href="/171-excel-sheet-column-number.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/170-two-sum-iii-data-structure-design.html" rel="bookmark"
-                           title="Permalink to 170. Two Sum III - Data structure design">170. Two Sum III - Data structure design</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-05-17T19:48:00">
-                Wed 17 May 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Time:  O(n)</span>
-<span class="c"># Space: O(n)</span>
-
-<span class="c"># Design and implement a TwoSum class. It should support the following operations: add and find.</span>
-<span class="c">#</span>
-<span class="c"># add - Add the number to an internal data structure.</span>
-<span class="c"># find - Find if there exists any pair of numbers which sum is equal to the value.</span>
-<span class="c">#</span>
-<span class="c"># For example,</span>
-<span class="c"># add(1 ...</span></pre></div>
-                <a class="readmore" href="/170-two-sum-iii-data-structure-design.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

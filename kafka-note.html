@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Kafka note</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Welcome to Haven's blog! </a></h1>
+                <nav><ul>
+                    <li><a href="/category/about.html">About</a></li>
+                    <li><a href="/category/drawing.html">Drawing</a></li>
+                    <li><a href="/category/english.html">English</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li class="active"><a href="/category/technology.html">Technology</a></li>
+                    <li><a href="/category/travel.html">Travel</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/kafka-note.html" rel="bookmark"
+           title="Permalink to Kafka note">Kafka note</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2018-09-10T20:40:00">
+                Mon 10 September 2018
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/technology.html">Technology</a>. </p>
+<p>tags: <a href="/tag/kafka.html">Kafka</a><a href="/tag/zookeeper.html">Zookeeper</a></p>
+</footer><!-- /.post-info -->      <p>Changing from user to superuser: sudo su</p>
+<p>bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/kafka-server-start.sh config/server.properties
+should be run in two terminals</p>
+<p>found port 2181 used, kill the program run on port 2181</p>
+<p>env | grep JAVA
+JAVA_HOME=/opt/jdk/jdk1.8.0_181</p>
+<p>vi .bashrc
+export JAVA_HOME="/opt/jdk/jdk1.8.0_181"
+export PATH=$JAVA_HOME/bin:$PATH
+source .bashrc</p>
+<p>open another terminal
+1.Creating a Kafka Topic
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test</p>
+<p>2.Start Producer to Send Messages
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Hello-Kafka</p>
+<p>open another terminal
+3.Start Consumer to Receive Messages
+bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic Hello-Kafka --from-beginning</p>
+<p>Start multiple brokers
+bin/kafka-server-start.sh config/server.properties
+bin/kafka-server-start.sh config/server-one.properties (modify broker.id=1, port=9093, log.dirs=/tmp/kafka-logs-1)
+bin/kafka-server-start.sh config/server-two.properties (modify broker.id=2, port=9094, log.dirs=/tmp/kafka-logs-2)</p>
+<p>Creat a topic
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 3 --partitions 1 --topic Multibrokerapplication
+bin/kafka-topics.sh --describe --zookeeper localhost:2181--topic Multibrokerappli-cation</p>
+<p>Start Producer to Send Messages
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Multibrokerapplication</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Welcome to Haven's blog! - Tags</title>
+        <title>Welcome to Haven's blog! - Zookeeper</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -23,41 +23,53 @@
                 </ul></nav>
         </header><!-- /#banner -->
 
-<section id="content" class="body">
-    <h1>Tags for Welcome to Haven's blog!</h1>        <li><a href="/tag/.html"></a> (1)</li>
-        <li><a href="/tag/beautifulsoup.html">BeautifulSoup</a> (1)</li>
-        <li><a href="/tag/blog.html">blog</a> (1)</li>
-        <li><a href="/tag/break.html">break</a> (1)</li>
-        <li><a href="/tag/c.html">c++</a> (2)</li>
-        <li><a href="/tag/code.html">code</a> (208)</li>
-        <li><a href="/tag/continue.html">continue</a> (1)</li>
-        <li><a href="/tag/devstack.html">devstack</a> (1)</li>
-        <li><a href="/tag/download.html">download</a> (1)</li>
-        <li><a href="/tag/drawing.html">drawing</a> (3)</li>
-        <li><a href="/tag/email.html">email</a> (1)</li>
-        <li><a href="/tag/english.html">english</a> (2)</li>
-        <li><a href="/tag/flight-time.html">flight time</a> (1)</li>
-        <li><a href="/tag/game.html">game</a> (1)</li>
-        <li><a href="/tag/github-page.html">github page</a> (1)</li>
-        <li><a href="/tag/gui.html">GUI</a> (1)</li>
-        <li><a href="/tag/image.html">image</a> (1)</li>
-        <li><a href="/tag/java.html">java</a> (2)</li>
-        <li><a href="/tag/kafka.html">Kafka</a> (1)</li>
-        <li><a href="/tag/keyboard.html">keyboard</a> (1)</li>
-        <li><a href="/tag/list.html">list</a> (1)</li>
-        <li><a href="/tag/loop-else.html">loop else</a> (1)</li>
-        <li><a href="/tag/machine-learning.html">machine learning</a> (1)</li>
-        <li><a href="/tag/manga.html">manga</a> (1)</li>
-        <li><a href="/tag/method.html">method</a> (1)</li>
-        <li><a href="/tag/pass.html">pass</a> (1)</li>
-        <li><a href="/tag/pelican.html">pelican</a> (1)</li>
-        <li><a href="/tag/personification.html">personification</a> (1)</li>
-        <li><a href="/tag/pillow.html">pillow</a> (1)</li>
-        <li><a href="/tag/python.html">python</a> (211)</li>
-        <li><a href="/tag/world-clock.html">world clock</a> (1)</li>
-        <li><a href="/tag/zookeeper.html">Zookeeper</a> (1)</li>
-</section>
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/kafka-note.html">Kafka note</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-09-10T20:40:00">
+                Mon 10 September 2018
+        </abbr>
 
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/technology.html">Technology</a>. </p>
+<p>tags: <a href="/tag/kafka.html">Kafka</a><a href="/tag/zookeeper.html">Zookeeper</a></p>
+</footer><!-- /.post-info --><p>Changing from user to superuser: sudo su</p>
+<p>bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/kafka-server-start.sh config/server.properties
+should be run in two terminals</p>
+<p>found port 2181 used, kill the program run on port 2181</p>
+<p>env | grep JAVA
+JAVA_HOME=/opt/jdk/jdk1.8.0_181</p>
+<p>vi .bashrc
+export JAVA_HOME="/opt/jdk/jdk1.8.0_181"
+export PATH=$JAVA_HOME/bin:$PATH
+source .bashrc</p>
+<p>open another terminal
+1.Creating a Kafka Topic
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test</p>
+<p>2.Start Producer to Send Messages
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Hello-Kafka</p>
+<p>open another terminal
+3.Start Consumer to Receive Messages
+bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic Hello-Kafka --from-beginning</p>
+<p>Start multiple brokers
+bin/kafka-server-start.sh config/server.properties
+bin/kafka-server-start.sh config/server-one.properties (modify broker.id=1, port=9093, log.dirs=/tmp/kafka-logs-1)
+bin/kafka-server-start.sh config/server-two.properties (modify broker.id=2, port=9094, log.dirs=/tmp/kafka-logs-2)</p>
+<p>Creat a topic
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 3 --partitions 1 --topic Multibrokerapplication
+bin/kafka-topics.sh --describe --zookeeper localhost:2181--topic Multibrokerappli-cation</p>
+<p>Start Producer to Send Messages
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Multibrokerapplication</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>

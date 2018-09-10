@@ -25,7 +25,58 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/personification-of-programming-languages.html">Personification of Programming Languages</a></h1>
+                    <h1 class="entry-title"><a href="/kafka-note.html">Kafka note</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-09-10T20:40:00">
+                Mon 10 September 2018
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/technology.html">Technology</a>. </p>
+<p>tags: <a href="/tag/kafka.html">Kafka</a><a href="/tag/zookeeper.html">Zookeeper</a></p>
+</footer><!-- /.post-info --><p>Changing from user to superuser: sudo su</p>
+<p>bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/kafka-server-start.sh config/server.properties
+should be run in two terminals</p>
+<p>found port 2181 used, kill the program run on port 2181</p>
+<p>env | grep JAVA
+JAVA_HOME=/opt/jdk/jdk1.8.0_181</p>
+<p>vi .bashrc
+export JAVA_HOME="/opt/jdk/jdk1.8.0_181"
+export PATH=$JAVA_HOME/bin:$PATH
+source .bashrc</p>
+<p>open another terminal
+1.Creating a Kafka Topic
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test</p>
+<p>2.Start Producer to Send Messages
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Hello-Kafka</p>
+<p>open another terminal
+3.Start Consumer to Receive Messages
+bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic Hello-Kafka --from-beginning</p>
+<p>Start multiple brokers
+bin/kafka-server-start.sh config/server.properties
+bin/kafka-server-start.sh config/server-one.properties (modify broker.id=1, port=9093, log.dirs=/tmp/kafka-logs-1)
+bin/kafka-server-start.sh config/server-two.properties (modify broker.id=2, port=9094, log.dirs=/tmp/kafka-logs-2)</p>
+<p>Creat a topic
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 3 --partitions 1 --topic Multibrokerapplication
+bin/kafka-topics.sh --describe --zookeeper localhost:2181--topic Multibrokerappli-cation</p>
+<p>Start Producer to Send Messages
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Multibrokerapplication</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/personification-of-programming-languages.html" rel="bookmark"
+                           title="Permalink to Personification of Programming Languages">Personification of Programming Languages</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2018-07-05T13:25:00">
                 Thu 05 July 2018
@@ -36,62 +87,11 @@
         </address>
 <p>In <a href="/category/drawing.html">Drawing</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/java.html">java</a><a href="/tag/c.html">c++</a><a href="/tag/personification.html">personification</a><a href="/tag/drawing.html">drawing</a></p>
-</footer><!-- /.post-info --><h1>编程语言拟人图</h1>
-<p>In the past few years, I have drawn a series of the personified bank departments. I tried to draw the <strong>programming language personification</strong> these days. There are three languages ​​that I have learned so far. The characteristics of those programming languages ​​are marked according to my personal understanding, and the colors are taken from the language logo (<strong><strong>Python, Java, C++</strong></strong>). </p>
-<p>前几年画了银行部门拟人图，这两天尝试了一下编程语言拟人图。目前学过的语言只有三种(Python, Java, C++)，这里仅根据我的个人一点理解给这些拟人化的编程语言标注了特点，颜色多取自语言logo。</p>
-<p><img alt="Programming Languages" src="https://raw.githubusercontent.com/havenshi/havenshi.github.io/master/images/programming%20languages%20700.jpg" /></p>
-<p>I happened to view my previous pictures and was <strong><em>surprised</em></strong> that the level of my painting skill has improved a lot, therefore, I summarize some tips as follows:</p>
-<p>存档的时候看了下之前的文件，感叹个人作画水平提高了不少，于是总结几点tips：</p>
-<h1>Tips:</h1>
-<h5>1. The line draft should be clear</h5>
-<h5>1. 线稿要清晰</h5>
-<ul>
-<li>
-<p>Since I have not been trained systematically before, it is impossible to express the author's intention completely with the same lines as the experts do. So, when drawing the line draft, it is necessary to draw the details of each character including the shadow, folds, in order to avoid not understanding what the original lines want to express when filling color.</p>
-</li>
-<li>
-<p>由于没有经过系统训练，无法做到跟业界大牛一样线条可以完全的精准的表达作者意图，因此画线稿的时候一定要把每个人物细节包括阴影褶皱都画清晰，避免涂色时不明白原始线条想表达什么意思。</p>
-</li>
-</ul>
-<h5>2. The character structure should be accurate</h5>
-<h5>2. 人物结构要准确</h5>
-<ul>
-<li>
-<p>Most amateur authors want to draw a big head and lack the experience of the body structure because lack of sketch practice. In this case, if you don't have much time to practice sketching, you need to observe more and learn more of human structures in spare time.</p>
-</li>
-<li>
-<p>大多数业余作者喜欢画个大头而身体结构缺乏经验，其原因是没有经过素描联系。碰到这种情况，若平时没有时间练习素描，平时需要多观察现实中人的结构，多学习多思考。</p>
-</li>
-</ul>
-<h5>3. The color should be bold</h5>
-<h5>3. 颜色要大胆</h5>
-<ul>
-<li>
-<p>For example, when drawing shadows, you need to not only reduce Saturation or Brightness, but also boldly adjust Hue to add warm colors, so that Hue can be closer to nature of various shadows. In real life, the color we see is the result of light interaction of different wavelengths.</p>
-</li>
-<li>
-<p>例如画阴影的时候，不只是降低Saturation或者Brightness ，也要大胆的调节Hue加入暖色调，这样hue不同了阴影才能更贴近自然，现实生活中我们所看到的颜色正是不同波长的光相互作用的结果。</p>
-</li>
-</ul>
-<h5>4. The use of painting software</h5>
-<h5>4. 绘画软件的运用</h5>
-<ul>
-<li>
-<p>I used photoshop and painter before, but I was eager to work on it at that time, so I didn’t learn the painting software very well. Now I am using Procreate, and I’m also familiar with its various functions. I’m not quite capable of making everything work, but at least it will like a duck to work. Therefore, it is very important to learn the software well, and use various shortcut keys to liberate your hands.</p>
-</li>
-<li>
-<p>以前用过photoshop，painter，不过很遗憾那时候急于求成所以绘画软件都没学透。现在我用的是procreate，也抽空熟悉了它的各种功能，作起画来不说做能到游刃有余，但至少也会如鱼得水。所以，学好软件很重要，擅用各种快捷键，解放双手。</p>
-</li>
-</ul>
-<p>Let's stop here, the picture on this blog is zoomed out, if you are also a paint enthusiast and would like to discuss further, please find my contact information through the about tag.</p>
-<p>先说到这里，blog上的图是经过缩放的，如果你也是绘画爱好者并且想要进一步讨论，你可以在about tag找到我的联系方式。</p>
-<p>~~aaaaaa my eyes~~</p>
-<h2><em>have been staring at the computer too long</em>**</h2>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                <h1>编程语言拟人图</h1>
+<p>In the past few years, I have drawn a series of the personified bank departments. I tried to draw the <strong>programming language personification</strong> these days. There are three languages ​​that I have learned so far. The characteristics of those programming languages ​​are marked according to my personal understanding, and ...</p>
+                <a class="readmore" href="/personification-of-programming-languages.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -340,39 +340,6 @@
         <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">i ...</span></pre></div>
                 <a class="readmore" href="/198-house-robber.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/191-number-of-1-bits.html" rel="bookmark"
-                           title="Permalink to 191. Number of 1 Bits">191. Number of 1 Bits</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-05-17T19:58:00">
-                Wed 17 May 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">hammingWeight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type n: int</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
-            <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">i</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">count</span>
-</pre></div>
-                <a class="readmore" href="/191-number-of-1-bits.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

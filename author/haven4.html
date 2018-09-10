@@ -27,6 +27,48 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/160-intersection-of-two-linked-lists.html" rel="bookmark"
+                           title="Permalink to 160. Intersection of Two Linked Lists">160. Intersection of Two Linked Lists</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:38:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for singly-linked list.</span>
+<span class="k">class</span> <span class="nc">ListNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">getIntersectionNode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">headA</span><span class="p">,</span> <span class="n">headB</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type head1, head1: ListNode</span>
+<span class="sd">        :rtype: ListNode</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tmpa</span> <span class="o">=</span> <span class="n">headA</span>
+        <span class="n">tmpb</span> <span class="o">=</span> <span class="n">headB</span>
+        <span class="n">counta</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">taila</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">while</span> <span class="n">tmpa</span><span class="p">:</span>
+            <span class="n">taila</span> <span class="o">=</span> <span class="n">tmpa</span>
+            <span class="n">counta</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">tmpa</span> <span class="o">=</span> <span class="n">tmpa</span><span class="o">.</span><span class="n">next</span>
+        <span class="n">countb</span> <span class="o">=</span> <span class="mi">0 ...</span></pre></div>
+                <a class="readmore" href="/160-intersection-of-two-linked-lists.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/159-longest-substring-with-at-most-two-distinct-characters.html" rel="bookmark"
                            title="Permalink to 159. Longest Substring with At Most Two Distinct Characters">159. Longest Substring with At Most Two Distinct Characters</a></h1>
                 </header>
@@ -312,46 +354,6 @@
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
             <span class="k">if</span> <span class="n">s ...</span></pre></div>
                 <a class="readmore" href="/151-reverse-words-in-a-string.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/150-evaluate-reverse-polish-notation.html" rel="bookmark"
-                           title="Permalink to 150. Evaluate Reverse Polish Notation">150. Evaluate Reverse Polish Notation</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:50:00">
-                Mon 20 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">evalRPN</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type tokens: List[str]</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">queue</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s">&quot;*&quot;</span> <span class="ow">or</span> <span class="n">item</span> <span class="o">==</span> <span class="s">&quot;/&quot;</span> <span class="ow">or</span> <span class="n">item</span> <span class="o">==</span> <span class="s">&quot;+&quot;</span> <span class="ow">or</span> <span class="n">item</span> <span class="o">==</span> <span class="s">&quot;-&quot;</span><span class="p">:</span>
-                <span class="n">operand2</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-                <span class="n">operand1</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">operand1</span><span class="p">,</span> <span class="n">operand2</span><span class="p">)</span>
-                <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
-
-        <span class="k">return</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-
-    <span class="k">def ...</span></pre></div>
-                <a class="readmore" href="/150-evaluate-reverse-polish-notation.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
