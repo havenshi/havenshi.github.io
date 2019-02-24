@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Welcome to Haven's blog! - Kafka</title>
+        <title>Publish Avro message to Kafka topic</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -18,14 +18,19 @@
                     <li><a href="/category/drawing.html">Drawing</a></li>
                     <li><a href="/category/english.html">English</a></li>
                     <li><a href="/category/python.html">Python</a></li>
-                    <li><a href="/category/technology.html">Technology</a></li>
+                    <li class="active"><a href="/category/technology.html">Technology</a></li>
                     <li><a href="/category/travel.html">Travel</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/publish-avro-message-to-kafka-topic.html" rel="bookmark"
+           title="Permalink to Publish Avro message to Kafka topic">Publish Avro message to Kafka topic</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/publish-avro-message-to-kafka-topic.html">Publish Avro message to Kafka topic</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-02-23T10:50:00">
                 Sat 23 February 2019
@@ -36,7 +41,7 @@
         </address>
 <p>In <a href="/category/technology.html">Technology</a>. </p>
 <p>tags: <a href="/tag/kafka.html">Kafka</a><a href="/tag/avro.html">Avro</a><a href="/tag/spark.html">Spark</a><a href="/tag/hive.html">Hive</a></p>
-</footer><!-- /.post-info --><p>This article combines high level architectural design and hands-on scripting experience from Kafka POC project.</p>
+</footer><!-- /.post-info -->      <p>This article combines high level architectural design and hands-on scripting experience from Kafka POC project.</p>
 <h3>Driver</h3>
 <p>The first step is to create Driver. In the driver we use SparkConf to set parameter, then Spark cluster can allocate resources on cluster. We also need SparkContext, when the parameter is passed to SparkContext, it will ask Spark cluster manager to allocate resource for executers. Resource manager set master node and worker nodes (like Master-Slave model) to allocate executors, for example, when we use spark streaming to publish or consume data, RDDs will be sent to different worker nodes. </p>
 <div class="highlight"><pre><span class="n">val</span> <span class="n">conf</span> <span class="o">=</span> <span class="n">new</span> <span class="n">SparkConf</span><span class="p">()</span><span class="o">.</span><span class="n">setAppName</span><span class="p">(</span><span class="s">&quot;SparkDriverName&quot;</span><span class="p">)</span>
@@ -107,48 +112,11 @@
 <li>[https://www.slideshare.net/qubolemarketing/big-data-platform-at-pinterest/12-Centralized_Hive_MetastoreHiveMetastorePigCascadingHiveHDFSS3DataMetadata]https://www.slideshare.net/qubolemarketing/big-data-platform-at-pinterest/12-Centralized_Hive_MetastoreHiveMetastorePigCascadingHiveHDFSS3DataMetadata</li>
 <li>[https://www.confluent.io/blog/avro-kafka-data/]https://www.confluent.io/blog/avro-kafka-data/</li>
 <li>[http://aseigneurin.github.io/2016/03/04/kafka-spark-avro-producing-and-consuming-avro-messages.html]http://aseigneurin.github.io/2016/03/04/kafka-spark-avro-producing-and-consuming-avro-messages.html</li>
-</ul>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</ul>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/kafka-note.html" rel="bookmark"
-                           title="Permalink to Kafka note">Kafka note</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-09-10T20:40:00">
-                Mon 10 September 2018
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/technology.html">Technology</a>. </p>
-<p>tags: <a href="/tag/kafka.html">Kafka</a><a href="/tag/zookeeper.html">Zookeeper</a></p>
-</footer><!-- /.post-info -->                <p>Changing from user to superuser: <strong>sudo su</strong></p>
-<div class="highlight"><pre><span class="nb">bin</span><span class="o">/</span><span class="n">zookeeper</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">start</span><span class="o">.</span><span class="n">sh</span> <span class="n">config</span><span class="o">/</span><span class="n">zookeeper</span><span class="o">.</span><span class="n">properties</span>
-<span class="nb">bin</span><span class="o">/</span><span class="n">kafka</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">start</span><span class="o">.</span><span class="n">sh</span> <span class="n">config</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">properties</span>
-</pre></div>
-
-
-<p>should be run in <strong>two terminals</strong></p>
-<p>found port 2181 used, kill the program run on port 2181</p>
-<div class="highlight"><pre><span class="n">env</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">JAVA</span>
-<span class="n">JAVA_HOME</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">jdk</span><span class="o">/</span><span class="n">jdk1</span><span class="o">.</span><span class="mf">8.0</span><span class="n">_181 ...</span></pre></div>
-                <a class="readmore" href="/kafka-note.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
-            </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>

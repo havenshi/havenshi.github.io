@@ -27,6 +27,37 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/151-reverse-words-in-a-string.html" rel="bookmark"
+                           title="Permalink to 151. Reverse Words in a String">151. Reverse Words in a String</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-03-20T19:51:00">
+                Mon 20 March 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">reverseWords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type s: str</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># s = &quot; &quot;.join(s.split())  # replace interval with only one space. Create a new array! can&#39;t use it!</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="s">&#39; &#39;</span>  <span class="c"># if not add &#39; &#39;, the last word can not be extracted</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">s ...</span></pre></div>
+                <a class="readmore" href="/151-reverse-words-in-a-string.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/150-evaluate-reverse-polish-notation.html" rel="bookmark"
                            title="Permalink to 150. Evaluate Reverse Polish Notation">150. Evaluate Reverse Polish Notation</a></h1>
                 </header>
@@ -378,45 +409,6 @@
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
                 <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j ...</span></pre></div>
                 <a class="readmore" href="/139-word-break.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/138-copy-list-with-random-pointer.html" rel="bookmark"
-                           title="Permalink to 138. Copy List with Random Pointer">138. Copy List with Random Pointer</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-03-20T19:38:00">
-                Mon 20 March 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># -*- coding:utf-8 -*-</span>
-<span class="c"># Definition for singly-linked list with a random pointer.</span>
-<span class="c"># class RandomListNode(object):</span>
-<span class="c">#     def __init__(self, x):</span>
-<span class="c">#         self.label = x</span>
-<span class="c">#         self.next = None</span>
-<span class="c">#         self.random = None</span>
-
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">copyRandomList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">head</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type head: RandomListNode</span>
-<span class="sd">        :rtype: RandomListNode</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">if</span> <span class="n">head</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span> <span class="k">return</span> <span class="bp">None</span>
-        <span class="n">tmp</span> <span class="o">=</span> <span class="n">head</span>
-        <span class="k">while</span> <span class="n">tmp</span><span class="p">:</span>         <span class="c"># 首先，在原链表的每个节点后面都插入一个新节点，新节点的内容和前面的节点一样 ...</span></pre></div>
-                <a class="readmore" href="/138-copy-list-with-random-pointer.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
