@@ -61,27 +61,25 @@
 </pre></div>
 
 
-<p>Hive has metastore service which stores metadata including relationship and partition for relational database in master node, and the data is stored in HDFS server. Mostly we create internal table, security is controlled by Hive since delete the table will cause both metadata and data lost. Compared with external table, delete internal table only causes metadata deleted.</p>
+<p>Hive has metastore service which stores metadata including relationship and partition for relational database in master node, and the data is stored in HDFS server. Mostly we create internal table, security is controlled by Hive since delete the table will cause both metadata and data lost. Compared with internal table, delete external table only causes metadata deleted.</p>
 <h3>Dataframe</h3>
 <p>With Data access object with can use Spark SQL to create dataframe, the business logic will be implemented in this step. We use expr to input SQL query as a string variable and transform input dataframe to output dataframe. For this part research and test is necessary, since Spark SQL is not exactly the same as Oracle SQL.</p>
 <div class="highlight"><pre><span class="n">val</span> <span class="n">SQLExpression</span> <span class="o">=</span> <span class="err">”</span><span class="n">SQLQuery</span><span class="err">”</span>
 
 <span class="n">InputDataframe</span><span class="o">.</span><span class="k">as</span><span class="p">(</span><span class="err">“</span><span class="n">DfName</span><span class="err">”</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">InputDataframe2</span><span class="p">,</span> <span class="n">Seq</span><span class="p">(</span><span class="err">“</span><span class="n">ColumnName</span><span class="err">”</span><span class="p">),</span> <span class="err">“</span><span class="n">left_outer</span><span class="err">”</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="err">“</span><span class="n">ColumnName</span><span class="err">”</span><span class="p">,</span> <span class="n">SQLExpression</span><span class="p">))</span>
-
-<span class="n">val</span> <span class="n">sqlc</span> <span class="o">=</span> <span class="n">new</span> <span class="n">HiveContext</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
 </pre></div>
 
 
 <h3>Java Object</h3>
-<p>Avro has Json like data model and it can present complex data structure with business logic. With advantages as direct mapping to JSON and great binding for wide variety of programming languages, we can download an open source avro tools to generate Java object automatically from Avro schema. Then we use Jackson mapper to convert generic class to this format.</p>
+<p>Avro has Json like data model and it can present complex data structure with business logic. With advantages as direct mapping to JSON and great binding for wide variety of programming languages, we can download an open source avro tools to generate Java object automatically from Avro schema. Then we use Jackson mapper to convert generic class to this format. With Java class, Jackson mapper can be used to parse JSON (dataframe) content into Java object.</p>
 <div class="highlight"><pre><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">avro</span><span class="o">-</span><span class="n">tools</span><span class="o">-</span><span class="mf">1.8</span><span class="o">.</span><span class="n">x</span><span class="o">-</span><span class="n">cdhxxx</span><span class="o">.</span><span class="n">jar</span> <span class="nb">compile</span> <span class="n">schema</span> <span class="n">AvroSchemaName</span><span class="o">.</span><span class="n">avsc</span> <span class="n">FolderName</span>
 
-<span class="n">val</span> <span class="n">JavaObj</span><span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="n">readValue</span><span class="p">(</span><span class="n">JavaObject</span><span class="p">,</span> <span class="n">classof</span><span class="p">[</span><span class="n">JavaClassName</span><span class="p">])</span>
+<span class="n">val</span> <span class="n">JavaObj</span><span class="o">=</span> <span class="n">mapper</span><span class="o">.</span><span class="n">readValue</span><span class="p">(</span><span class="n">OutputDataframe</span><span class="p">,</span> <span class="n">classof</span><span class="p">[</span><span class="n">JavaClassName</span><span class="p">])</span>
 </pre></div>
 
 
 <h3>Serialize</h3>
-<p>After we register Avro schema on Confluent platform, we use data serialization system of Avro to convert Java object to a compact binary format which is faster and easier to publish. Please review the next step.</p>
+<p>After we register Avro schema on Confluent platform, we use data serialization system of Avro to convert Java object to a compact binary format which is faster and easier to publish. Please review the next step. The kafka serializer will be passed as property parameter to publisher.</p>
 <h3>Publish</h3>
 <p>The last step is publish. Spark streaming can accumulate the messages for a short period of time as RDStream rather than process the messages one by one, and then publish. Inside each DStream there are RDDs, and each RDD is composed with partitions. Messages is are divided into partitions, offset is assigned to partitions and it will be used to maintain the order and tell the publisher where to start.</p>
 <p>Since RDDs are scaled to multiple worker nodes, only if we use collect can do count/first/top or other action functions, otherwise we can only do transformation functions like filter/groupby.</p>
