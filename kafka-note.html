@@ -91,6 +91,19 @@
 <ul>
 <li>bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Multibrokerapplication</li>
 </ul>
+<p>if failed to Maven install:
+    :::python
+    rm -rf rm -rf ~/.m2/repository/org/apache/</p>
+<p>web.xml:
+    :::python
+    <plugin>          <br />
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-war-plugin</artifactId>
+      <configuration>
+        <webXml>src\main\webapp\WEB-INF\web.xml</webXml>      <br />
+      </configuration>
+    </plugin></p>
+<p>add dependency in pom.xml</p>
     </div><!-- /.entry-content -->
 
   </article>
