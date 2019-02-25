@@ -27,6 +27,42 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/162-find-peak-element.html" rel="bookmark"
+                           title="Permalink to 162. Find Peak Element">162. Find Peak Element</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:40:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">findPeakElement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type nums: List[int]</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">start</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">nums</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">end</span><span class="p">]))</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2 ...</span></pre></div>
+                <a class="readmore" href="/162-find-peak-element.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/161-one-edit-distance.html" rel="bookmark"
                            title="Permalink to 161. One Edit Distance">161. One Edit Distance</a></h1>
                 </header>
@@ -325,40 +361,6 @@
                 <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="k">else ...</span></pre></div>
                 <a class="readmore" href="/153-find-minimum-in-rotated-sorted-array.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/152-maximum-product-subarray.html" rel="bookmark"
-                           title="Permalink to 152. Maximum Product Subarray">152. Maximum Product Subarray</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-05-17T19:30:00">
-                Wed 17 May 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">maxProduct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type nums: List[int]</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">minproduct</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">maxproduct</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">totproduct</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-            <span class="n">copymin</span> <span class="o">=</span> <span class="n">minproduct</span>
-            <span class="n">minproduct</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">minproduct</span> <span class="o">*</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">maxproduct</span> <span class="o">*</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-            <span class="n">maxproduct</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">copymin</span> <span class="o">*</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">maxproduct</span> <span class="o">*</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">nums ...</span></pre></div>
-                <a class="readmore" href="/152-maximum-product-subarray.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

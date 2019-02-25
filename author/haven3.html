@@ -27,6 +27,39 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/172-factorial-trailing-zeroes.html" rel="bookmark"
+                           title="Permalink to 172. Factorial Trailing Zeroes">172. Factorial Trailing Zeroes</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:50:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">trailingZeroes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type n: int</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">/=</span> <span class="mi">5</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="n">n</span>
+        <span class="k">return</span> <span class="n">res</span>
+</pre></div>
+                <a class="readmore" href="/172-factorial-trailing-zeroes.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/171-excel-sheet-column-number.html" rel="bookmark"
                            title="Permalink to 171. Excel Sheet Column Number">171. Excel Sheet Column Number</a></h1>
                 </header>
@@ -347,42 +380,6 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        :type nums ...</span></pre></div>
                 <a class="readmore" href="/163-missing-ranges.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/162-find-peak-element.html" rel="bookmark"
-                           title="Permalink to 162. Find Peak Element">162. Find Peak Element</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-05-17T19:40:00">
-                Wed 17 May 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">findPeakElement</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type nums: List[int]</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">start</span>
-        <span class="k">if</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">end</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">nums</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="n">end</span><span class="p">]))</span>
-        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">end</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2 ...</span></pre></div>
-                <a class="readmore" href="/162-find-peak-element.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
