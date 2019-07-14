@@ -17,7 +17,6 @@
                     <li><a href="/category/about.html">About</a></li>
                     <li><a href="/category/drawing.html">Drawing</a></li>
                     <li><a href="/category/english.html">English</a></li>
-                    <li><a href="/category/game-python.html">Game, Python</a></li>
                     <li><a href="/category/python.html">Python</a></li>
                     <li><a href="/category/technology.html">Technology</a></li>
                     <li><a href="/category/travel.html">Travel</a></li>
@@ -26,6 +25,47 @@
 
                 <section id="content" class="body">
                     <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/infix-prefix-postfix.html" rel="bookmark"
+                           title="Permalink to infix-prefix-postfix">infix-prefix-postfix</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-01-06T11:54:00">
+                Fri 06 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">pythonds.basic.stack</span> <span class="kn">import</span> <span class="n">Stack</span>
+<span class="c"># 中缀转后缀</span>
+<span class="k">def</span> <span class="nf">infixToPostfix</span><span class="p">(</span><span class="n">infixexpr</span><span class="p">):</span>
+    <span class="n">prec</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;*&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;/&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;+&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;-&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">prec</span><span class="p">[</span><span class="s">&quot;(&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">opStack</span> <span class="o">=</span> <span class="n">Stack</span><span class="p">()</span>
+    <span class="n">postfixList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">tokenList</span> <span class="o">=</span> <span class="n">infixexpr</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokenList</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">token</span> <span class="ow">in</span> <span class="s">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span> <span class="ow">or</span> <span class="n">token</span> <span class="ow">in</span> <span class="s">&quot;0123456789&quot;</span><span class="p">:</span>
+            <span class="n">postfixList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">token</span> <span class="o">==</span> <span class="s">&#39;(&#39;</span><span class="p">:</span>
+            <span class="n">opStack</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="k">elif ...</span></pre></div>
+                <a class="readmore" href="/infix-prefix-postfix.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
             <li><article class="hentry">
                 <header>
                     <h1><a href="/7-sort-methods.html" rel="bookmark"
@@ -364,45 +404,6 @@
     <span class="k">def</span> <span class="nf">recursive_comb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp_array</span><span class="p">,</span> <span class="n">rest_array</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">temp_array ...</span></pre></div>
                 <a class="readmore" href="/39-combination-sum.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/38-count-and-say.html" rel="bookmark"
-                           title="Permalink to 38. Count and Say">38. Count and Say</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-01-06T11:44:00">
-                Fri 06 January 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">countAndSay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type n: int</span>
-<span class="sd">        :rtype: str</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">s</span><span class="o">=</span><span class="s">&quot;1&quot;</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-            <span class="n">s</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">generator</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">s</span>
-
-    <span class="k">def</span> <span class="nf">generator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nums</span><span class="p">):</span>
-        <span class="n">flag</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="n">newnums</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
-            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">flag</span><span class="p">:</span>
-                <span class="n">newnums</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">count ...</span></pre></div>
-                <a class="readmore" href="/38-count-and-say.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

@@ -17,7 +17,6 @@
                     <li><a href="/category/about.html">About</a></li>
                     <li><a href="/category/drawing.html">Drawing</a></li>
                     <li><a href="/category/english.html">English</a></li>
-                    <li><a href="/category/game-python.html">Game, Python</a></li>
                     <li><a href="/category/python.html">Python</a></li>
                     <li><a href="/category/technology.html">Technology</a></li>
                     <li><a href="/category/travel.html">Travel</a></li>
@@ -26,6 +25,46 @@
 
                 <section id="content" class="body">
                     <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/166-fraction-to-recurring-decimal.html" rel="bookmark"
+                           title="Permalink to 166. Fraction to Recurring Decimal">166. Fraction to Recurring Decimal</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:44:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fractionToDecimal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type numerator: int</span>
+<span class="sd">        :type denominator: int</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">numerator</span> <span class="o">*</span> <span class="n">denominator</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">flag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">numerator</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">numerator</span><span class="p">)</span>
+            <span class="n">denominator</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">denominator</span><span class="p">)</span>
+        <span class="n">before</span> <span class="o">=</span> <span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
+        <span class="n">remain</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">-</span> <span class="n">before</span> <span class="o">*</span> <span class="n">denominator</span>
+        <span class="k">if</span> <span class="n">remain</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">flag</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">before</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">before ...</span></pre></div>
+                <a class="readmore" href="/166-fraction-to-recurring-decimal.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
             <li><article class="hentry">
                 <header>
                     <h1><a href="/165-compare-version-numbers.html" rel="bookmark"
@@ -334,31 +373,6 @@
 <span class="c">#</span>
 <span class="c"># By using the read4 API, implement the function int read ...</span></pre></div>
                 <a class="readmore" href="/157-read-n-characters-given-read4.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/156-binary-tree-upside-down.html" rel="bookmark"
-                           title="Permalink to 156. Binary Tree Upside Down">156. Binary Tree Upside Down</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-05-17T19:34:00">
-                Wed 17 May 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Given a binary tree where all the right nodes are either leaf nodes with a sibling</span>
-<span class="c"># (a left node that shares the same parent node) or empty, flip it upside down and</span>
-<span class="c"># turn it into a tree where the original right nodes turned into left leaf nodes.</span>
-<span class="c"># Return the new ...</span></pre></div>
-                <a class="readmore" href="/156-binary-tree-upside-down.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

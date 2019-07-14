@@ -17,7 +17,6 @@
                     <li><a href="/category/about.html">About</a></li>
                     <li><a href="/category/drawing.html">Drawing</a></li>
                     <li><a href="/category/english.html">English</a></li>
-                    <li><a href="/category/game-python.html">Game, Python</a></li>
                     <li><a href="/category/python.html">Python</a></li>
                     <li><a href="/category/technology.html">Technology</a></li>
                     <li><a href="/category/travel.html">Travel</a></li>
@@ -26,6 +25,38 @@
 
                 <section id="content" class="body">
                     <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/186-reverse-words-in-a-string-ii.html" rel="bookmark"
+                           title="Permalink to 186. Reverse Words in a String II">186. Reverse Words in a String II</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:54:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Time: O(n)</span>
+<span class="c"># Space:O(1)</span>
+<span class="c">#</span>
+<span class="c"># Given an input string, reverse the string word by word.</span>
+<span class="c"># A word is defined as a sequence of non-space characters.</span>
+<span class="c">#</span>
+<span class="c"># The input string does not contain leading or trailing spaces</span>
+<span class="c"># and the words are always separated by a single space.</span>
+<span class="c">#</span>
+<span class="c"># For example,</span>
+<span class="c"># Given s ...</span></pre></div>
+                <a class="readmore" href="/186-reverse-words-in-a-string-ii.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
             <li><article class="hentry">
                 <header>
                     <h1><a href="/179-largest-number.html" rel="bookmark"
@@ -348,46 +379,6 @@
                 <span class="n">m</span><span class="p">[</span><span class="n">target</span> <span class="o">-</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">i</span>
 </pre></div>
                 <a class="readmore" href="/167-two-sum-ii-input-array-is-sorted.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/166-fraction-to-recurring-decimal.html" rel="bookmark"
-                           title="Permalink to 166. Fraction to Recurring Decimal">166. Fraction to Recurring Decimal</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-05-17T19:44:00">
-                Wed 17 May 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">fractionToDecimal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type numerator: int</span>
-<span class="sd">        :type denominator: int</span>
-<span class="sd">        :rtype: str</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">numerator</span> <span class="o">*</span> <span class="n">denominator</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">flag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-            <span class="n">numerator</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">numerator</span><span class="p">)</span>
-            <span class="n">denominator</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">denominator</span><span class="p">)</span>
-        <span class="n">before</span> <span class="o">=</span> <span class="n">numerator</span><span class="o">/</span><span class="n">denominator</span>
-        <span class="n">remain</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">-</span> <span class="n">before</span> <span class="o">*</span> <span class="n">denominator</span>
-        <span class="k">if</span> <span class="n">remain</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">flag</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">before</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="s">&#39;-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">before ...</span></pre></div>
-                <a class="readmore" href="/166-fraction-to-recurring-decimal.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
