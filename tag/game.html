@@ -27,7 +27,7 @@
                 <article>
                     <h1 class="entry-title"><a href="/wo-zai-qi-nian-hou-deng-zhao-ni-de-he-zi-wen-ti.html">我在七年后等着你的盒子问题</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2019-07-14T12:26:00">
+        <abbr class="published" title="2019-07-14T00:26:00">
                 Sun 14 July 2019
         </abbr>
 
@@ -58,21 +58,9 @@
 </ul>
 <h1>设置类和属性如下：</h1>
 <ul>
-<li>
-<ol>
 <li>盒子Box 有correctColor属性，为Blue or Red两种情况，可以再最后优化的时候将红蓝设为随机数增加趣味性。是否lock，是否open，如果unlock了就可以open了。</li>
-</ol>
-</li>
-<li>
-<ol>
 <li>春人Haruto和葵Aoi都属于Human类，这里我们只关心他们是否alive。Alive与否受两个盒子的按钮与状态影响。</li>
-</ol>
-</li>
-<li>
-<ol>
 <li>Solution类包含了0-2周目的所有操作情况，0周目时春人先按的颜色之外的另一种颜色为葵打开盒子的颜色，1周目亦然。2周目实际上只关心两个盒子的四个按钮是否都按下。</li>
-</ol>
-</li>
 </ul>
 <p>写代码的过程种意识到卧槽这可是个穿越游戏，也就是说他们穿越回以前节点的时候，盒子的状态有可能是未改变过的，所以应当把盒子也作为Human的一个属性，就能保留盒子状态了。</p>
 <p><img alt="Game Picture" src="https://raw.githubusercontent.com/havenshi/havenshi.github.io/master/images/wozaiqinian.jpg" /></p>
@@ -101,9 +89,20 @@
     <span class="k">def</span> <span class="nf">setButton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">correctColor</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">correctColor</span> <span class="o">=</span> <span class="n">correctColor</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="bp">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">open</span> <span class="o">=</span> <span class="bp">True</span>
-    <span class="k">def</span> <span class="nf">printMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s">&quot;pressed the correct button &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">correctColor</span> <span class="o">+</span> <span class="s">&quot;, then open the box.&quot;</span>
+    <span class="k">def</span> <span class="nf">openBox</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">open</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">def</span> <span class="nf">printButton</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">blue</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">red</span><span class="p">:</span>
+           <span class="k">return</span> <span class="s">&quot; pressed both buttons Blue and Red!&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">blue</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">&quot; pressed any button Blue.&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s">&quot; pressed any button Red.&quot;</span>
+    <span class="k">def</span> <span class="nf">printCorrectButton</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;pressed the correct button &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">correctColor</span> <span class="o">+</span> <span class="s">&quot;.&quot;</span>
+    <span class="k">def</span> <span class="nf">printOpen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot; opened the box.&quot;</span>
 
 <span class="k">class</span> <span class="nc">Human</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -112,15 +111,15 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="k">def</span> <span class="nf">change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="n">box</span>
-        <span class="k">if</span> <span class="n">box</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">alive</span> <span class="o">=</span> <span class="bp">False</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">box</span><span class="o">.</span><span class="n">open</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">alive</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">alive</span> <span class="o">=</span> <span class="bp">False</span>
 
 <span class="k">class</span> <span class="nc">areTheyAlive</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">printMessage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">human1</span><span class="p">,</span> <span class="n">human2</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">human1</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">blue</span> <span class="ow">and</span> <span class="n">human1</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">red</span> <span class="ow">and</span> <span class="n">human2</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">blue</span> <span class="ow">and</span> <span class="n">human2</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">red</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s">&quot;Both of &quot;</span> <span class="o">+</span> <span class="n">human1</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">human2</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; are alive.&quot;</span>
+            <span class="k">print</span> <span class="s">&quot;Both of &quot;</span> <span class="o">+</span> <span class="n">human1</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; and &quot;</span> <span class="o">+</span> <span class="n">human2</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; are alive!&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">human1</span><span class="o">.</span><span class="n">alive</span><span class="p">:</span>
                 <span class="k">print</span> <span class="n">human1</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; is alive.&quot;</span>
@@ -141,35 +140,43 @@
         <span class="n">buttons</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;Blue&quot;</span><span class="p">,</span> <span class="s">&quot;Red&quot;</span><span class="p">]</span>
         <span class="n">zhoumu</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">while</span> <span class="n">zhoumu</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;</span>
             <span class="k">print</span> <span class="s">&quot;In zhoumu &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">zhoumu</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;:&quot;</span>
-
             <span class="k">if</span> <span class="n">zhoumu</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">Haruto_Box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">()</span>
                 <span class="n">button</span> <span class="o">=</span> <span class="n">buttons</span><span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
                 <span class="n">Haruto_Box</span><span class="o">.</span><span class="n">pressButton</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
-                <span class="k">print</span> <span class="n">haruto</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; pressed button &quot;</span> <span class="o">+</span> <span class="n">button</span>
+                <span class="k">print</span> <span class="n">haruto</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="n">Haruto_Box</span><span class="o">.</span><span class="n">printButton</span><span class="p">()</span>
                 <span class="n">haruto</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="n">Haruto_Box</span><span class="p">)</span>
                 <span class="n">Aoi_Box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">()</span>
                 <span class="n">Aoi_Box</span><span class="o">.</span><span class="n">setButton</span><span class="p">(</span><span class="n">Haruto_Box</span><span class="o">.</span><span class="n">correctColor</span><span class="p">)</span>
-                <span class="k">print</span> <span class="n">aoi</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">Aoi_Box</span><span class="o">.</span><span class="n">printMessage</span><span class="p">()</span>
+                <span class="k">print</span> <span class="n">aoi</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">Aoi_Box</span><span class="o">.</span><span class="n">printCorrectButton</span><span class="p">()</span>
+                <span class="n">Aoi_Box</span><span class="o">.</span><span class="n">openBox</span><span class="p">()</span>
+                <span class="k">print</span> <span class="n">aoi</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="n">Aoi_Box</span><span class="o">.</span><span class="n">printOpen</span><span class="p">()</span>
                 <span class="n">aoi</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="n">Aoi_Box</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">zhoumu</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">Aoi_Box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">()</span>
                 <span class="n">button</span> <span class="o">=</span> <span class="n">buttons</span><span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
                 <span class="n">Aoi_Box</span><span class="o">.</span><span class="n">pressButton</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
-                <span class="k">print</span> <span class="n">aoi</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; pressed button &quot;</span> <span class="o">+</span> <span class="n">button</span>
+                <span class="k">print</span> <span class="n">aoi</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="n">Aoi_Box</span><span class="o">.</span><span class="n">printButton</span><span class="p">()</span>
                 <span class="n">aoi</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="n">Aoi_Box</span><span class="p">)</span>
                 <span class="n">aoi</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">blue</span> <span class="o">=</span> <span class="bp">True</span>
                 <span class="n">aoi</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">red</span> <span class="o">=</span> <span class="bp">True</span>
                 <span class="n">Haruto_Box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">()</span>
                 <span class="n">Haruto_Box</span><span class="o">.</span><span class="n">setButton</span><span class="p">(</span><span class="n">Aoi_Box</span><span class="o">.</span><span class="n">correctColor</span><span class="p">)</span>
-                <span class="k">print</span> <span class="n">haruto</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">Haruto_Box</span><span class="o">.</span><span class="n">printMessage</span><span class="p">()</span>
+                <span class="k">print</span> <span class="n">haruto</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">Haruto_Box</span><span class="o">.</span><span class="n">printCorrectButton</span><span class="p">()</span>
+                <span class="n">Haruto_Box</span><span class="o">.</span><span class="n">openBox</span><span class="p">()</span>
+                <span class="k">print</span> <span class="n">haruto</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="n">Haruto_Box</span><span class="o">.</span><span class="n">printOpen</span><span class="p">()</span>
                 <span class="n">haruto</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="n">Haruto_Box</span><span class="p">)</span>
+                <span class="k">print</span> <span class="n">aoi</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="n">aoi</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">printButton</span><span class="p">()</span>
+                <span class="n">areTheyAlive</span><span class="p">()</span><span class="o">.</span><span class="n">printMessage</span><span class="p">(</span><span class="n">haruto</span><span class="p">,</span> <span class="n">aoi</span><span class="p">)</span>
+                <span class="n">zhoumu</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">continue</span>
             <span class="k">if</span> <span class="n">zhoumu</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
                 <span class="n">haruto</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">blue</span> <span class="o">=</span> <span class="bp">True</span>
                 <span class="n">haruto</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">red</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="k">print</span> <span class="n">haruto</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="n">haruto</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">printButton</span><span class="p">()</span>
             <span class="n">areTheyAlive</span><span class="p">()</span><span class="o">.</span><span class="n">printMessage</span><span class="p">(</span><span class="n">haruto</span><span class="p">,</span> <span class="n">aoi</span><span class="p">)</span>
-
             <span class="n">zhoumu</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
@@ -179,23 +186,30 @@
 
 
 <h1>运行结果如下：</h1>
-<div class="highlight"><pre><span class="n">In</span> <span class="n">zhoumu</span> <span class="mi">0</span><span class="p">:</span>
-<span class="n">Haruto</span> <span class="n">pressed</span> <span class="n">button</span> <span class="n">Blue</span>
-<span class="n">Aoi</span> <span class="n">pressed</span> <span class="n">the</span> <span class="n">correct</span> <span class="n">button</span> <span class="n">Red</span><span class="p">,</span> <span class="n">then</span> <span class="nb">open</span> <span class="n">the</span> <span class="n">box</span><span class="o">.</span>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>
+<span class="n">In</span> <span class="n">zhoumu</span> <span class="mi">0</span><span class="p">:</span>
+<span class="n">Haruto</span> <span class="n">pressed</span> <span class="nb">any</span> <span class="n">button</span> <span class="n">Blue</span><span class="o">.</span>
+<span class="n">Aoi</span> <span class="n">pressed</span> <span class="n">the</span> <span class="n">correct</span> <span class="n">button</span> <span class="n">Red</span><span class="o">.</span>
+<span class="n">Aoi</span> <span class="n">opened</span> <span class="n">the</span> <span class="n">box</span><span class="o">.</span>
 <span class="n">Haruto</span> <span class="ow">is</span> <span class="n">dead</span><span class="o">...</span>
 <span class="n">Aoi</span> <span class="ow">is</span> <span class="n">alive</span><span class="o">.</span>
+<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>
 <span class="n">In</span> <span class="n">zhoumu</span> <span class="mi">1</span><span class="p">:</span>
-<span class="n">Aoi</span> <span class="n">pressed</span> <span class="n">button</span> <span class="n">Red</span>
-<span class="n">Haruto</span> <span class="n">pressed</span> <span class="n">the</span> <span class="n">correct</span> <span class="n">button</span> <span class="n">Blue</span><span class="p">,</span> <span class="n">then</span> <span class="nb">open</span> <span class="n">the</span> <span class="n">box</span><span class="o">.</span>
+<span class="n">Aoi</span> <span class="n">pressed</span> <span class="nb">any</span> <span class="n">button</span> <span class="n">Red</span><span class="o">.</span>
+<span class="n">Haruto</span> <span class="n">pressed</span> <span class="n">the</span> <span class="n">correct</span> <span class="n">button</span> <span class="n">Blue</span><span class="o">.</span>
+<span class="n">Haruto</span> <span class="n">opened</span> <span class="n">the</span> <span class="n">box</span><span class="o">.</span>
+<span class="n">Aoi</span> <span class="n">pressed</span> <span class="n">both</span> <span class="n">buttons</span> <span class="n">Blue</span> <span class="ow">and</span> <span class="n">Red</span><span class="err">!</span>
 <span class="n">Haruto</span> <span class="ow">is</span> <span class="n">alive</span><span class="o">.</span>
 <span class="n">Aoi</span> <span class="ow">is</span> <span class="n">dead</span><span class="o">...</span>
+<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span>
 <span class="n">In</span> <span class="n">zhoumu</span> <span class="mi">2</span><span class="p">:</span>
-<span class="n">Both</span> <span class="n">of</span> <span class="n">Haruto</span> <span class="n">Aoi</span> <span class="n">are</span> <span class="n">alive</span><span class="o">.</span>
+<span class="n">Haruto</span> <span class="n">pressed</span> <span class="n">both</span> <span class="n">buttons</span> <span class="n">Blue</span> <span class="ow">and</span> <span class="n">Red</span><span class="err">!</span>
+<span class="n">Both</span> <span class="n">of</span> <span class="n">Haruto</span> <span class="ow">and</span> <span class="n">Aoi</span> <span class="n">are</span> <span class="n">alive</span><span class="err">!</span>
 </pre></div>
 
 
 <p>就联系一下对于实际问题的时候怎么样设计class和attributes。</p>
-<p>虽然约定梗和穿越梗快被日帝玩烂了，但是凭借极其优秀的脚本，这个仅靠像素小人完成的故事还是给了我极大的震撼。哎，哭成了。。。霓虹人民放飞起来真是阔怕。。。南瓜推荐必出精品</p>                </article>
+<p>虽然约定梗和穿越梗快被日帝玩烂了，但是凭借极其优秀的脚本，这个仅靠像素小人完成的故事还是给了我极大的震撼。哎，哭成狗了。。。霓虹人民放飞起来真是阔怕。。。南瓜推荐必出精品。</p>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
