@@ -27,6 +27,42 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/24-swap-nodes-in-pairs.html" rel="bookmark"
+                           title="Permalink to 24. Swap Nodes in Pairs">24. Swap Nodes in Pairs</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2016-12-20T12:24:00">
+                Tue 20 December 2016
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fourSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type nums: List[int]</span>
+<span class="sd">        :type target: int</span>
+<span class="sd">        :rtype: List[List[int]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">head</span> <span class="o">==</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">head</span>
+        <span class="n">dummy</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="n">dummy</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">dummy</span>
+        <span class="k">while</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next ...</span></pre></div>
+                <a class="readmore" href="/24-swap-nodes-in-pairs.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/22-generate-parentheses.html" rel="bookmark"
                            title="Permalink to 22. Generate Parentheses">22. Generate Parentheses</a></h1>
                 </header>
@@ -344,38 +380,6 @@
         <span class="k">while</span> <span class="n">s</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">s</span><span class="p">[:</span><span class="mi">2 ...</span></pre></div>
                 <a class="readmore" href="/13-roman-to-integer.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/12-integer-to-roman.html" rel="bookmark"
-                           title="Permalink to 12. Integer to Roman">12. Integer to Roman</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-12-20T12:12:00">
-                Tue 20 December 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">intToRoman</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type num: int</span>
-<span class="sd">        :rtype: str</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="p">]</span>
-        <span class="n">numerals</span> <span class="o">=</span> <span class="p">[</span> <span class="s">&quot;M&quot;</span><span class="p">,</span> <span class="s">&quot;CM&quot;</span><span class="p">,</span> <span class="s">&quot;D&quot;</span><span class="p">,</span> <span class="s">&quot;CD&quot;</span><span class="p">,</span> <span class="s">&quot;C&quot;</span><span class="p">,</span> <span class="s">&quot;XC&quot;</span><span class="p">,</span> <span class="s">&quot;L&quot;</span><span class="p">,</span> <span class="s">&quot;XL&quot;</span><span class="p">,</span> <span class="s">&quot;X&quot;</span><span class="p">,</span> <span class="s">&quot;IX&quot;</span><span class="p">,</span> <span class="s">&quot;V&quot;</span><span class="p">,</span> <span class="s">&quot;IV&quot;</span><span class="p">,</span> <span class="s">&quot;I&quot;</span> <span class="p">]</span>
-        <span class="nb">list</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)):</span>
-            <span class="k">while</span> <span class="n">num ...</span></pre></div>
-                <a class="readmore" href="/12-integer-to-roman.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

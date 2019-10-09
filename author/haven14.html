@@ -27,6 +27,45 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/38-count-and-say.html" rel="bookmark"
+                           title="Permalink to 38. Count and Say">38. Count and Say</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-01-06T11:44:00">
+                Fri 06 January 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">countAndSay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type n: int</span>
+<span class="sd">        :rtype: str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">s</span><span class="o">=</span><span class="s">&quot;1&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">s</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">generator</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">s</span>
+
+    <span class="k">def</span> <span class="nf">generator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nums</span><span class="p">):</span>
+        <span class="n">flag</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">newnums</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">flag</span><span class="p">:</span>
+                <span class="n">newnums</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">count ...</span></pre></div>
+                <a class="readmore" href="/38-count-and-say.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/36-valid-sudoku.html" rel="bookmark"
                            title="Permalink to 36. Valid Sudoku">36. Valid Sudoku</a></h1>
                 </header>
@@ -353,42 +392,6 @@
     <span class="n">answer</span><span class="o">=</span><span class="n">Solution</span><span class="p">()</span>
     <span class="k">print ...</span></pre></div>
                 <a class="readmore" href="/26-remove-duplicates-from-sorted-array.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/24-swap-nodes-in-pairs.html" rel="bookmark"
-                           title="Permalink to 24. Swap Nodes in Pairs">24. Swap Nodes in Pairs</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-12-20T12:24:00">
-                Tue 20 December 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">fourSum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type nums: List[int]</span>
-<span class="sd">        :type target: int</span>
-<span class="sd">        :rtype: List[List[int]]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">head</span> <span class="o">==</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">head</span><span class="o">.</span><span class="n">next</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">head</span>
-        <span class="n">dummy</span> <span class="o">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-        <span class="n">dummy</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="n">dummy</span>
-        <span class="k">while</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span><span class="p">:</span>
-            <span class="n">tmp</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next ...</span></pre></div>
-                <a class="readmore" href="/24-swap-nodes-in-pairs.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->

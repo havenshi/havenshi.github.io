@@ -27,6 +27,38 @@
                     <ol id="posts-list" class="hfeed" start="9">
             <li><article class="hentry">
                 <header>
+                    <h1><a href="/91-decode-ways.html" rel="bookmark"
+                           title="Permalink to 91. Decode Ways">91. Decode Ways</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-02-25T20:31:00">
+                Sat 25 February 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">numDecodings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type s: str</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;10&#39;</span><span class="p">,</span> <span class="s">&#39;11&#39;</span><span class="p">,</span> <span class="s">&#39;12&#39;</span><span class="p">,</span> <span class="s">&#39;13&#39;</span><span class="p">,</span> <span class="s">&#39;14&#39;</span><span class="p">,</span> <span class="s">&#39;15&#39;</span><span class="p">,</span> <span class="s">&#39;16&#39;</span><span class="p">,</span> <span class="s">&#39;17&#39;</span><span class="p">,</span> <span class="s">&#39;18&#39;</span><span class="p">,</span> <span class="s">&#39;19&#39;</span><span class="p">,</span> <span class="s">&#39;20&#39;</span><span class="p">,</span> <span class="s">&#39;21&#39;</span><span class="p">,</span> <span class="s">&#39;22&#39;</span><span class="p">,</span> <span class="s">&#39;23&#39;</span><span class="p">,</span> <span class="s">&#39;24&#39;</span><span class="p">,</span> <span class="s">&#39;25&#39;</span><span class="p">,</span> <span class="s">&#39;26&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="s">&quot;&quot;</span> <span class="ow">or</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;0&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+        <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1 ...</span></pre></div>
+                <a class="readmore" href="/91-decode-ways.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
                     <h1><a href="/90-subsets-ii.html" rel="bookmark"
                            title="Permalink to 90. Subsets II">90. Subsets II</a></h1>
                 </header>
@@ -365,43 +397,6 @@
             <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">board</span><span class="p">[</span><span class="n">i ...</span></pre></div>
                 <a class="readmore" href="/79-word-search.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/78-subsets.html" rel="bookmark"
-                           title="Permalink to 78. Subsets">78. Subsets</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2017-02-25T20:21:00">
-                Sat 25 February 2017
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">subsets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type nums: List[int]</span>
-<span class="sd">        :rtype: List[List[int]]</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">total</span> <span class="o">=</span> <span class="p">[[]]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="n">total</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">subsets_each</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">total</span>
-
-    <span class="k">def</span> <span class="nf">subsets_each</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arry</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arry</span><span class="p">)):</span>
-                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">arry</span><span class="p">[</span><span class="n">i ...</span></pre></div>
-                <a class="readmore" href="/78-subsets.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
