@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Welcome to Heaven's blog</title>
+        <title>Welcome to Heaven's blog - Heaven</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -25,131 +25,6 @@
 
                 <section id="content" class="body">
                     <ol id="posts-list" class="hfeed" start="9">
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/20-valid-parentheses.html" rel="bookmark"
-                           title="Permalink to 20. Valid Parentheses">20. Valid Parentheses</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-09-21T17:00:00">
-                Wed 21 September 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">isValid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type s: str</span>
-<span class="sd">        :rtype: bool</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="nb">list</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">l</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;(&quot;</span><span class="p">,</span><span class="s">&quot;[&quot;</span><span class="p">,</span><span class="s">&quot;{&quot;</span><span class="p">]</span>
-        <span class="n">n</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;)&quot;</span><span class="p">,</span><span class="s">&quot;]&quot;</span><span class="p">,</span><span class="s">&quot;}&quot;</span><span class="p">]</span>
-        <span class="n">issy</span><span class="o">=</span><span class="bp">True</span>
-
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">False</span>
-
-        <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
-        <span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="ow">and</span> <span class="n">issy</span><span class="p">:</span>
-             <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
-                <span class="nb">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-             <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
-                <span class="n">firsti</span><span class="o">=</span><span class="nb">list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">index ...</span></pre></div>
-                <a class="readmore" href="/20-valid-parentheses.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/break-continue-pass-and-the-loop-else.html" rel="bookmark"
-                           title="Permalink to break, continue, pass, and the Loop else">break, continue, pass, and the Loop else</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-09-19T12:43:00">
-                Mon 19 September 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/heaven.html">Heaven</a>
-        </address>
-<p>In <a href="/category/technology.html">Technology</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/break.html">break</a><a href="/tag/continue.html">continue</a><a href="/tag/pass.html">pass</a><a href="/tag/loop-else.html">loop else</a></p>
-</footer><!-- /.post-info -->                <h3>break</h3>
-<div class="highlight"><pre><span class="n">Jumps</span> <span class="n">out</span> <span class="n">of</span> <span class="n">the</span> <span class="n">closest</span> <span class="n">enclosing</span> <span class="n">loop</span> <span class="p">(</span><span class="n">past</span> <span class="n">the</span> <span class="n">entire</span> <span class="n">loop</span> <span class="n">statement</span><span class="p">)</span>
-</pre></div>
-
-
-<h3>continue</h3>
-<div class="highlight"><pre><span class="n">Jumps</span> <span class="n">to</span> <span class="n">the</span> <span class="n">top</span> <span class="n">of</span> <span class="n">the</span> <span class="n">closest</span> <span class="n">enclosing</span> <span class="n">loop</span> <span class="p">(</span><span class="n">to</span> <span class="n">the</span> <span class="n">loop</span><span class="err">’</span><span class="n">s</span> <span class="n">header</span> <span class="n">line</span><span class="p">)</span>
-</pre></div>
-
-
-<h3>pass</h3>
-<div class="highlight"><pre><span class="n">Does</span> <span class="n">nothing</span> <span class="n">at</span> <span class="n">all</span><span class="o">:</span> <span class="n">it</span><span class="err">’</span><span class="n">s</span> <span class="n">an</span> <span class="n">empty</span> <span class="n">statement</span> <span class="n">placeholder</span>
-</pre></div>
-
-
-<h3>Loop else block</h3>
-<div class="highlight"><pre><span class="n">Runs</span> <span class="k">if</span> <span class="n">and</span> <span class="n">only</span> <span class="k">if</span> <span class="n">the</span> <span class="n">loop ...</span></pre></div>
-                <a class="readmore" href="/break-continue-pass-and-the-loop-else.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/zheng-jiu-liao-ni-ying-wen-you-jian-de-shen-ju.html" rel="bookmark"
-                           title="Permalink to 拯救了你英文邮件的神句">拯救了你英文邮件的神句</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2016-08-22T15:27:00">
-                Mon 22 August 2016
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/heaven.html">Heaven</a>
-        </address>
-<p>In <a href="/category/english.html">English</a>. </p>
-<p>tags: <a href="/tag/english.html">english</a><a href="/tag/email.html">email</a></p>
-</footer><!-- /.post-info -->                <p>链接：<a href="http://www.zhihu.com/question/34147404/answer/111741599">http://www.zhihu.com/question/34147404/answer/111741599</a></p>
-<ul>
-<li>
-<h4>如果你给人做事：</h4>
-</li>
-<li>
-<ul>
-<li>Will do. 好的，我会去做。</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>On it now! 我现在就开始做！</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>Will send over a draft by the end of the day. 下班前会给您初稿。</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>I'm having trouble accessing XYZ's site. Might have to get back to you tomorrow. Is that okay? 我现在上不了 ...</li></ul></li></ul>
-                <a class="readmore" href="/zheng-jiu-liao-ni-ying-wen-you-jian-de-shen-ju.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
             <li><article class="hentry">
                 <header>
                     <h1><a href="/jian-pan-shang-suo-you-te-shu-fu-hao-de-ying-wen-du-fa.html" rel="bookmark"
@@ -308,8 +183,8 @@ programming language we use, we can ...</p>
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
-        <a href="/index22.html">&laquo;</a>
-    Page 23 / 23
+        <a href="/author/heaven2.html">&laquo;</a>
+    Page 3 / 3
 </p>
             </section><!-- /#content -->
         <section id="extras" class="body">

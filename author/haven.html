@@ -25,29 +25,50 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/ghc-2019-you-ji.html">GHC 2019 游记</a></h1>
+                    <h1 class="entry-title"><a href="/200-number-of-islands.html">200. Number of Islands</a></h1>
 <footer class="post-info">
-        <abbr class="published" title="2019-10-09T19:00:00">
-                Wed 09 October 2019
+        <abbr class="published" title="2017-05-17T20:01:00">
+                Wed 17 May 2017
         </abbr>
 
         <address class="vcard author">
                 By <a class="url fn" href="/author/haven.html">Haven</a>
         </address>
-<p>In <a href="/category/travel.html">Travel</a>. </p>
-<p>tags: <a href="/tag/ghc.html">ghc</a><a href="/tag/interview.html">interview</a></p>
-</footer><!-- /.post-info --><p>少爷问我这是什么东东，其实这就是个全美最大规模的针对女程序员的招聘会，今年仍然在Orlando Florida举行，时间是Oct 1 - 4。我花费了450刀注册费+300刀往返机票费，然后还是华丽的陪跑了。写个流水账记录一下吧。</p>
-<h1>招聘会</h1>
-<p>Emmmmm，还是回头发地里吧。。。</p>
-<p>DB：总的来说提前把resume放到ghc的db里面很重要，因为很多公司都在八月份陆陆续续开始发oa和电面了，然后再会约ghc的onsite。</p>
-<p>Interview booth：我这次的onsite有四个，由于之前经验基本在金融公司，所以也是金融公司居多，三个银行一个百货公司，在单独隔成小间的interview booth举行。最后拿到的公司面试体验挺好，一轮hr面一轮oa两轮tech店面一轮onsite，只是流程太长。</p>
-<p>Career fair：尬聊现场拿到两个一个银行一个大厂的下一轮或者onsite，简历其实大部分公司会用ipad登记所以不用打印太多，50份足够了。还有一个回宾馆的时候一位女士得知我在她上家公司，也热心的给我内推了。如果发现尬聊不来，别灰心收拾好心情继续尬聊其他家，就跟找对象一样有可能你不是他们的菜不是。</p>
-<p>有一些比较有趣的体验，互联网公司的展台都是花花绿绿的展示好有趣，金融公司的比较传统一些。碰到个日本阿姨就跟她愉快的飙了一会儿日语，发现我除了soga什么的竟然还记得怎么说完整的句子，真厉害呢。</p>
-<h1>游玩</h1>
-<p>跟几个群上的小伙伴去了Halloween Horror Nights，过山车太好玩了坐了两次，鬼屋的时候一个高个子漂亮小姐姐一直拉着我的手然后我们一起尖叫，老夫的少女心又被唤醒了啊不对其实还是满可怖的。晚上的票便宜，80刀。</p>
-<h1>总结</h1>
-<p>熊本熊说onsite杯具的理由千千万，我思考了一下觉得可能是我身上标签不够，什么时候有trilingual + transfer major + illustrator + twin都可以加到diversity标签里，那我就发达了XD。</p>
-<p><img alt="Game Picture" src="https://raw.githubusercontent.com/havenshi/havenshi.github.io/master/images/ghc19.jpg" /></p>                </article>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info --><div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">numIslands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type grid: List[List[str]]</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">newgrid</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">]</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">newgrid</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">ans</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">newgrid</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">newgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">newgrid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;1&#39;</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="n">newgrid</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+                    <span class="n">ans</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">ans</span>
+
+    <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">map</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nb">map</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nb">map</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="nb">map</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;0&#39;</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="nb">map</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;0&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="nb">map</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">Solution</span><span class="p">()</span><span class="o">.</span><span class="n">numIslands</span><span class="p">([</span><span class="s">&quot;11110&quot;</span><span class="p">,</span><span class="s">&quot;11010&quot;</span><span class="p">,</span><span class="s">&quot;11000&quot;</span><span class="p">,</span><span class="s">&quot;00000&quot;</span><span class="p">])</span>
+</pre></div>                </article>
             </aside><!-- /#featured -->
                 <section id="content" class="body">
                     <h1>Other articles</h1>
@@ -56,210 +77,14 @@
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/wo-zai-qi-nian-hou-deng-zhao-ni-de-he-zi-wen-ti.html" rel="bookmark"
-                           title="Permalink to 我在七年后等着你的盒子问题">我在七年后等着你的盒子问题</a></h1>
+                    <h1><a href="/199-binary-tree-right-side-view.html" rel="bookmark"
+                           title="Permalink to 199. Binary Tree Right Side View">199. Binary Tree Right Side View</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2019-07-14T00:26:00">
-                Sun 14 July 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/python.html">Python</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/game.html">game</a></p>
-</footer><!-- /.post-info -->                <p><strong>我在7年后等着你</strong>真是一款非常震撼的故事性手游，今天南瓜又和我讨论了一下最终结局里的关于盒子怎么开的问题。</p>
-<p>题目如下：</p>
-<p>春人和葵分别在不同的房间。他们每人面前有一个盒子，以及自己和对方的两套操作系统，每套操作系统上有红蓝两个按钮。</p>
-<h1>盒子操作规则：</h1>
-<h4>1. 解锁盒子：</h4>
-<ul>
-<li>红蓝两个按键，先按下的颜色为错误，后按下的颜色为正确。</li>
-</ul>
-<h4>2. 打开盒子：</h4>
-<ul>
-<li>只有解锁后才能打开盒子，打开任何一个盒子之后，便无法再进行此操作。</li>
-<li>打开盒子的人才能存活，为了简化流程，我们在这里把单个人存活条件设置为打开盒子。</li>
-<li>双活状态：要二人同时长安对方盒子的两个按钮。</li>
-</ul>
-<h1>故事中有三条时间线：</h1>
-<ul>
-<li>0周目: 春人先按了自己盒子(必然错误，假设是蓝色)，自己的盒子锁了，然后用红色按钮给葵解锁了盒子，自己狗带；葵什么都不知道，打开盒子后进入1周目。</li>
-<li>1周目: 葵穿越回来后比主角先操作，用了同样的方法帮主角解锁了盒子。并且一直按着自己盒子的两个按钮，自己狗带。春人打开盒子后进入2周目。</li>
-<li>2周目: 春人回到了葵按下她的盒子的两个按钮以及自己打开盒子之前的时间点，这时候他直接按了双活解法，两人都活下来了。</li>
-</ul>
-<h1>设置类和属性如下：</h1>
-<ul>
-<li>盒子Box 有correctColor属性，为Blue or Red两种情况 ...</li></ul>
-                <a class="readmore" href="/wo-zai-qi-nian-hou-deng-zhao-ni-de-he-zi-wen-ti.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/mo-ge-yu.html" rel="bookmark"
-                           title="Permalink to 摸个鱼">摸个鱼</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-02-28T20:00:00">
-                Thu 28 February 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/drawing.html">Drawing</a>. </p>
-
-</footer><!-- /.post-info -->                <h2>—— 那天我打开窗，召唤来了风和奇迹。</h2>
-<p>真是太喜欢这对了，哎。儿童文学太有爱了。</p>
-<p><img alt="No.6" src="https://raw.githubusercontent.com/havenshi/havenshi.github.io/master/images/No.6.jpg" /></p>
-                <a class="readmore" href="/mo-ge-yu.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/publish-avro-message-to-kafka-topic.html" rel="bookmark"
-                           title="Permalink to Publish Avro message to Kafka topic">Publish Avro message to Kafka topic</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2019-02-23T10:50:00">
-                Sat 23 February 2019
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/technology.html">Technology</a>. </p>
-<p>tags: <a href="/tag/kafka.html">Kafka</a><a href="/tag/avro.html">Avro</a><a href="/tag/spark.html">Spark</a><a href="/tag/hive.html">Hive</a></p>
-</footer><!-- /.post-info -->                <p>This article combines high level architectural design and hands-on scripting experience from Kafka POC project.</p>
-<h3>Driver</h3>
-<p>The first step is to create Driver. In the driver we use SparkConf to set parameter, then Spark cluster can allocate resources on cluster. We also need SparkContext, when the parameter is passed to ...</p>
-                <a class="readmore" href="/publish-avro-message-to-kafka-topic.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/kafka-note.html" rel="bookmark"
-                           title="Permalink to Kafka note">Kafka note</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-09-10T20:40:00">
-                Mon 10 September 2018
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/technology.html">Technology</a>. </p>
-<p>tags: <a href="/tag/kafka.html">Kafka</a><a href="/tag/zookeeper.html">Zookeeper</a></p>
-</footer><!-- /.post-info -->                <p>Changing from user to superuser: <strong>sudo su</strong></p>
-<div class="highlight"><pre><span class="nb">bin</span><span class="o">/</span><span class="n">zookeeper</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">start</span><span class="o">.</span><span class="n">sh</span> <span class="n">config</span><span class="o">/</span><span class="n">zookeeper</span><span class="o">.</span><span class="n">properties</span>
-<span class="nb">bin</span><span class="o">/</span><span class="n">kafka</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="n">start</span><span class="o">.</span><span class="n">sh</span> <span class="n">config</span><span class="o">/</span><span class="n">server</span><span class="o">.</span><span class="n">properties</span>
-</pre></div>
-
-
-<p>should be run in <strong>two terminals</strong></p>
-<p>found port 2181 used, kill the program run on port 2181</p>
-<div class="highlight"><pre><span class="n">env</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">JAVA</span>
-<span class="n">JAVA_HOME</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">jdk</span><span class="o">/</span><span class="n">jdk1</span><span class="o">.</span><span class="mf">8.0</span><span class="n">_181 ...</span></pre></div>
-                <a class="readmore" href="/kafka-note.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/personification-of-programming-languages.html" rel="bookmark"
-                           title="Permalink to Personification of Programming Languages">Personification of Programming Languages</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-07-05T13:25:00">
-                Thu 05 July 2018
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/drawing.html">Drawing</a>. </p>
-<p>tags: <a href="/tag/python.html">python</a><a href="/tag/java.html">java</a><a href="/tag/c.html">c++</a><a href="/tag/javascript.html">javascript</a><a href="/tag/scala.html">scala</a><a href="/tag/c.html">c#</a><a href="/tag/personification.html">personification</a><a href="/tag/drawing.html">drawing</a></p>
-</footer><!-- /.post-info -->                <h1>编程语言拟人图</h1>
-<p>In the past few years, I have drawn a series of the personified bank departments. I tried to draw the <strong>programming language personification</strong> these days. There are six languages ​​that I have used so far. The characteristics of those programming languages ​​are marked according to my personal understanding, and ...</p>
-                <a class="readmore" href="/personification-of-programming-languages.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/shadow-of-the-colossus-is-an-awesome-game.html" rel="bookmark"
-                           title="Permalink to Shadow of the Colossus is an awesome game!">Shadow of the Colossus is an awesome game!</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-05-31T00:00:00">
-                Thu 31 May 2018
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/drawing.html">Drawing</a>. </p>
-<p>tags: <a href="/tag/drawing.html">drawing</a><a href="/tag/game.html">game</a></p>
-</footer><!-- /.post-info -->                <h1>highly recommend you to play that game, Shadow of the Colossus.</h1>
-<ul>
-<li>I completed the mission to defeat 16 colossus. So moved at the story although the hero seldom talk. His lover woke up in the middle of the game, but then Wanda realized it was his imagination. It reminds me ...</li></ul>
-                <a class="readmore" href="/shadow-of-the-colossus-is-an-awesome-game.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/za-zhi-she-ping-dan-yu-ji.html" rel="bookmark"
-                           title="Permalink to 杂志社平淡遇记">杂志社平淡遇记</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-03-05T13:54:00">
-                Mon 05 March 2018
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/haven.html">Haven</a>
-        </address>
-<p>In <a href="/category/drawing.html">Drawing</a>. </p>
-<p>tags: <a href="/tag/blog.html">blog</a></p>
-</footer><!-- /.post-info -->                <h1>作者：Heather Shi</h1>
-<p><strong> 这篇文章是imouto写的，言辞很生动调理很清晰，贴出来赏玩lol。</strong> </p>
-<p>07年的某一天，还在菜着脸读大学的我，接到漫友杂志社发来的一封邀请短信，大意是邀请作为读者代表去北京编辑部交流什么的，不是人气作者签售，也不是幸运读者参观大楼，反正意思稀松平淡简明扼要，一定不是诈骗的那种信息陈述。当时国内的动漫文化产业环境比现在还差一些，漫友是积累了一定人气的很出色的主流杂志，每期模式是刊登3-4篇日漫漫评，推2-3部国漫连载，其它还有小说杂谈什么的。沉迷于动画茫然于未来的我，平日里来酷爱宅学校，当时突发奇想觉得应该透透气了，就顶着一棵包菜头晃过去了。嘛果然写文有一种审视自己人生轨迹的奇妙感觉呢，跟画画那种只是希望得到称赞的浮夸心境全然不同...扯远了。</p>
-<p>杂志社办公楼离学校不算近，辗转了几次交通工具还是蛮早地到了。办公区也很普通的一层楼，没有哔哩哔哩那样哥特萝莉坐前台，意外很低调的感觉呢！（都跟你说了我们是文化产业。）模模糊糊记得是有个女生出来招呼的，引到里屋小圆桌前就转身忙去了。小圆桌上面摆放了几盘没有仔细看清的糖果，太拘束了也没敢拿来吃（心塞）。反正本来就没期望什么呀！顺着往上看，看到一个中学生同样困惑但无所谓地坐在对面。坐下之后我们面面相觑，过一会儿，一个男士就出来了，坐定跟我们聊了起来。</p>
-<p>他是漫友的编辑，姓秦，后来跳到天闻角川去了。看上去很有风度，好像有点胖？说话很是斯文 ...</p>
-                <a class="readmore" href="/za-zhi-she-ping-dan-yu-ji.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/mai-huo-chai-de-xiao-nu-hai-suan-fa-ti.html" rel="bookmark"
-                           title="Permalink to 卖火柴的小女孩算法题">卖火柴的小女孩算法题</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2018-03-05T13:50:00">
-                Mon 05 March 2018
+        <abbr class="published" title="2017-05-17T20:00:00">
+                Wed 17 May 2017
         </abbr>
 
         <address class="vcard author">
@@ -267,55 +92,312 @@
         </address>
 <p>In <a href="/category/python.html">Python</a>. </p>
 <p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
-</footer><!-- /.post-info -->                <p>碰见这题的时候是一年前了。忙碌的一年下来再次回头撸一下，发现emmmm。。。竟然可以用dp做出来，有点欣慰额~~~</p>
-<div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
-<span class="kn">import</span> <span class="nn">copy</span>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Definition for a binary tree node.</span>
+<span class="c"># class TreeNode(object):</span>
+<span class="c">#     def __init__(self, x):</span>
+<span class="c">#         self.val = x</span>
+<span class="c">#         self.left = None</span>
+<span class="c">#         self.right = None</span>
 
 <span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">makesquare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">rightSideView</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type nums: List[int]</span>
-<span class="sd">        :rtype: bool</span>
+<span class="sd">        :type root: TreeNode</span>
+<span class="sd">        :rtype: List[int]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span><span class="p">:</span> <span class="k">return</span> <span class="bp">False</span>
-        <span class="n">target</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span>
-        <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="bp">True</span> <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="n">target</span> <span class="k">else</span> <span class="bp">False</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">])</span> <span class="o">==</span> <span class="bp">False</span><span class="p">:</span>  <span class="c"># 检查是否有火柴大于边长</span>
-            <span class="k">return</span> <span class="bp">False</span>
-
-        <span class="c"># 不能用dp = [0 ...</span></pre></div>
-                <a class="readmore" href="/mai-huo-chai-de-xiao-nu-hai-suan-fa-ti.html">read more</a>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">root</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">root</span><span class="p">]</span>
+        <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">queue ...</span></pre></div>
+                <a class="readmore" href="/199-binary-tree-right-side-view.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
 
             <li><article class="hentry">
                 <header>
-                    <h1><a href="/do-to-list.html" rel="bookmark"
-                           title="Permalink to Do to list">Do to list</a></h1>
+                    <h1><a href="/198-house-robber.html" rel="bookmark"
+                           title="Permalink to 198. House Robber">198. House Robber</a></h1>
                 </header>
 
                 <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2018-01-28T11:06:00">
-                Sun 28 January 2018
+        <abbr class="published" title="2017-05-17T19:59:00">
+                Wed 17 May 2017
         </abbr>
 
         <address class="vcard author">
                 By <a class="url fn" href="/author/haven.html">Haven</a>
         </address>
-<p>In <a href="/category/technology.html">Technology</a>. </p>
-<p>tags: <a href="/tag/machine-learning.html">machine learning</a><a href="/tag/java.html">java</a><a href="/tag/c.html">c++</a></p>
-</footer><!-- /.post-info -->                <p>Java</p>
-<p>machine learning</p>
-<p>hadoop</p>
-<p>C/C++</p>
-<p>algorithm(stack,queue,kmp)</p>
-                <a class="readmore" href="/do-to-list.html">read more</a>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">rob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type nums: List[int]</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c">#dp[i] = max(dp[i-1], dp[i-2] + nums[i])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="n">dp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">dp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">i ...</span></pre></div>
+                <a class="readmore" href="/198-house-robber.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/191-number-of-1-bits.html" rel="bookmark"
+                           title="Permalink to 191. Number of 1 Bits">191. Number of 1 Bits</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:58:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">hammingWeight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type n: int</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">i</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">count</span>
+</pre></div>
+                <a class="readmore" href="/191-number-of-1-bits.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/190-reverse-bits.html" rel="bookmark"
+                           title="Permalink to 190. Reverse Bits">190. Reverse Bits</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:57:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># -*- coding:utf8 -*-</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="c"># @param n, an integer</span>
+    <span class="c"># @return an integer</span>
+    <span class="k">def</span> <span class="nf">reverseBits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
+            <span class="n">new</span> <span class="o">=</span> <span class="p">(</span><span class="n">new</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">((</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="c"># n右移并%2得到二进制表达下的每位值。然后，new左移得到xxx0，&#39;|&#39; n的每位值，即xxx0可能变成xxx1。</span>
+        <span class="k">return</span> <span class="n">new</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">Solution</span><span class="p">()</span><span class="o">.</span><span class="n">reverseBits</span><span class="p">(</span><span class="mi">43261596</span><span class="p">)</span>
+</pre></div>
+                <a class="readmore" href="/190-reverse-bits.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/189-rotate-array.html" rel="bookmark"
+                           title="Permalink to 189. Rotate Array">189. Rotate Array</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:56:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type nums: List[int]</span>
+<span class="sd">        :type k: int</span>
+<span class="sd">        :rtype: void Do not return anything, modify nums in-place instead.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># san bu fanzhuan fa</span>
+        <span class="n">k</span> <span class="o">%=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">start1</span><span class="o">=</span> <span class="mi">0</span>
+        <span class="n">end1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">((</span><span class="n">end1</span><span class="o">-</span><span class="n">start1</span><span class="p">)</span><span class="o">/</span><span class="mi">2 ...</span></pre></div>
+                <a class="readmore" href="/189-rotate-array.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/187-repeated-dna-sequences.html" rel="bookmark"
+                           title="Permalink to 187. Repeated DNA Sequences">187. Repeated DNA Sequences</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:55:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">findRepeatedDnaSequences</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type s: str</span>
+<span class="sd">        :rtype: List[str]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">substr</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">10</span><span class="p">]</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">substr</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">substr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">res</span>
+<span class="k">if ...</span></pre></div>
+                <a class="readmore" href="/187-repeated-dna-sequences.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/186-reverse-words-in-a-string-ii.html" rel="bookmark"
+                           title="Permalink to 186. Reverse Words in a String II">186. Reverse Words in a String II</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:54:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># Time: O(n)</span>
+<span class="c"># Space:O(1)</span>
+<span class="c">#</span>
+<span class="c"># Given an input string, reverse the string word by word.</span>
+<span class="c"># A word is defined as a sequence of non-space characters.</span>
+<span class="c">#</span>
+<span class="c"># The input string does not contain leading or trailing spaces</span>
+<span class="c"># and the words are always separated by a single space.</span>
+<span class="c">#</span>
+<span class="c"># For example,</span>
+<span class="c"># Given s ...</span></pre></div>
+                <a class="readmore" href="/186-reverse-words-in-a-string-ii.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/179-largest-number.html" rel="bookmark"
+                           title="Permalink to 179. Largest Number">179. Largest Number</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:53:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="c"># -*- coding:utf8 -*-</span>
+<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="c"># @param {integer[]} nums</span>
+    <span class="c"># @return {string}</span>
+    <span class="k">def</span> <span class="nf">largestNumber</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+        <span class="k">while</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">help</span><span class="p">(</span><span class="n">nums</span><span class="p">))</span>
+            <span class="n">res</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">&#39;0&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s">&#39;0&#39;</span>
+        <span class="k">return</span> <span class="n">res</span>
+
+    <span class="k">def</span> <span class="nf">help</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>  <span class="c"># 如果a＋b串大于b＋a串，那么a比较大，反之b比较大。</span>
+        <span class="n">strnums</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">]</span>
+        <span class="n">index ...</span></pre></div>
+                <a class="readmore" href="/179-largest-number.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/174-dungeon-game.html" rel="bookmark"
+                           title="Permalink to 174. Dungeon Game">174. Dungeon Game</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-05-17T19:52:00">
+                Wed 17 May 2017
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="/author/haven.html">Haven</a>
+        </address>
+<p>In <a href="/category/python.html">Python</a>. </p>
+<p>tags: <a href="/tag/python.html">python</a><a href="/tag/code.html">code</a></p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">calculateMinimumHP</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dungeon</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type dungeon: List[List[int]]</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># m = len(dungeon)</span>
+        <span class="c"># n = len(dungeon[0])</span>
+        <span class="c"># dungeon[m-1][n-1] = 1 - dungeon[m-1][n-1]</span>
+        <span class="c"># for i in range(m-1, -1, -1):</span>
+        <span class="c">#     for j in range(n-1, -1, -1):</span>
+        <span class="c">#         if i == m-1 and j == n-1:</span>
+        <span class="c">#             continue</span>
+        <span class="c">#         if ...</span></pre></div>
+                <a class="readmore" href="/174-dungeon-game.html">read more</a>
                 </div><!-- /.entry-content -->
             </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 23
+    Page 1 / 21
         <a href="/author/haven2.html">&raquo;</a>
 </p>
             </section><!-- /#content -->
